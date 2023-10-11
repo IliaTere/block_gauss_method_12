@@ -50,8 +50,8 @@ void printMatrix(const std::vector<double> matrix, int n, int r) {
 }
 
 void PrintDouble(double* matrix, int n, int r) {
-	for(int i = 1; i <= std::min(n, r); i++) {
-        for(int j = 1; j <= std::min(n, r); j++) {
+	for(int i = 0; i < std::min(n, r); i++) {
+        for(int j = 0; j < std::min(n, r); j++) {
             printf("%10.3e ", matrix[i*n+j]);
         }
         std::cout << std::endl;

@@ -50,6 +50,13 @@ int main(int argc, char **argv)
             delete x;
             return -5;
         }
+        for (int i = 0; i < n; i++){
+            for (int j = 0; j<n; j++){
+                printf("%10.3e ", matr[i*n+j]);
+            }
+            std::cout << std::endl;
+        }
+        std::cout << std::endl;
         PrintDouble(matr,n,r);
         return solve(n,m,matr,x);
     }
@@ -69,9 +76,9 @@ int main(int argc, char **argv)
             delete x;
             return -7;
         }
-        for(int i = 1; i < n+1; i++) {
-            for(int j = 1; j < n+1; j++) {
-                matr[n*i + j] = formula(s,n,i,j);
+        for(int i = 0; i < n; i++) {
+            for(int j = 0; j < n; j++) {
+                matr[n*i + j] = formula(s,n,i+1,j+1);
             }
         }
         PrintDouble(matr, n, r);
