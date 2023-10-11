@@ -12,27 +12,29 @@ bool is_double(const std::string& s) {
     return (*p == 0);
 }
 
- int read_doubles_from_file(const std::string& filename, std::vector<double>& result, int n) {
+int read_ff(const std::string& filename, double* result, int n) {
     std::ifstream file(filename);
     if (!file.is_open()) {
         std::cerr << "Error opening file: " << filename << std::endl;
         return -1;
     }
     std::string line;
+    int i = 0;
     while (std::getline(file, line)) {
         std::istringstream iss(line);
         std::string token;
         while (iss >> token) {
             if (is_double(token)) {
-                result.push_back(std::stod(token));
+                result[i] = std::stod(token);
+                i++;
             } else {
                 std::cerr << "Invalid double value: " << token << std::endl;
                 return -2;
             }
         }
     }
-    if (result.size() != (size_t)n) {
-        std::cout << "Invalid lenght" << std::endl;
+    if (i != n) {
+        std::cout << "Invalid length" << std::endl;
         return -3;
     }
     return 0;
@@ -45,4 +47,14 @@ void printMatrix(const std::vector<double> matrix, int n, int r) {
         }
         std::cout << std::endl;
     }
+}
+
+void PrintDouble(double* matrix, int n, int r) {
+	for(int i = 1; i <= std::min(n, r); i++) {
+        for(int j = 1; j <= std::min(n, r); j++) {
+            printf("%10.3e ", matrix[i*n+j]);
+        }
+        std::cout << std::endl;
+    }
+	
 }
