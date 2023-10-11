@@ -40,14 +40,6 @@ int read_ff(const std::string& filename, double* result, int n) {
     return 0;
 }
 
-void printMatrix(const std::vector<double> matrix, int n, int r) {
-    for(int i = 0; i < std::min(n, r); i++) {
-        for(int j = 0; j < std::min(n, r); j++) {
-            printf("%10.3e ", matrix[i*n+j]);
-        }
-        std::cout << std::endl;
-    }
-}
 
 void PrintDouble(double* matrix, int n, int r) {
 	for(int i = 0; i < std::min(n, r); i++) {

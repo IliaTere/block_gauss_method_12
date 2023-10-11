@@ -18,7 +18,7 @@ int main(int argc, char **argv)
 {
     
     if (argc < 5 || argc > 6) {
-        std::cout << "error: To much arguments";
+        std::cout << "error: To many(few) arguments";
         return -1;
     }
     for (int i = 1; i < 5; i++) {
@@ -63,7 +63,7 @@ int main(int argc, char **argv)
     if ((strcmp(argv[4],"0") != 0)) 
     {
         if (argc > 5) {
-            std::cout << "error: To much arguments" << std::endl;
+            std::cout << "error: To many(few) arguments" << std::endl;
             delete matr;
             delete x;
             return -6;
@@ -82,6 +82,14 @@ int main(int argc, char **argv)
             }
         }
         PrintDouble(matr, n, r);
+        double* block = new double[m*m];
+        double* inverse = new double[m*m];
+        //get_block(matr, block, n, m, 1 , 0);
+        int k = findmax(matr, block, n, m, 0, 0);
+        std::cout << "--------------------------------" << " Номер строки в которой норма " << k << std::endl;
+        //PrintDouble(block, m, m);
+        delete[] block;
+        delete[] inverse;
         return solve(n,m,matr,x);
     }
     delete matr;
