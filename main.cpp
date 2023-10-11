@@ -34,41 +34,57 @@ int main(int argc, char **argv)
     int n = std::stoi(s1); // Размерность матрицы
     int m = std::stoi(s2); // Размерность блока
     int r = std::stoi(s3); // Кол-во выводимых значений в матрице
-    std::vector<double> matrix;
-    std::vector<double> x;
+	double* matr = new double(n*n);
+    double* x = new double(n*n);
     if (strcmp(argv[4],"0") == 0) {
         if (argc != 6) {
             std::cout << "error: File not found" << std::endl;
+            delete matr;
+            delete x;
             return -2;
         }
         std::string name(argv[5]);
-        int t = read_doubles_from_file(name, matrix, n*n);
+		int t = read_ff(name , matr , n*n);
         if(t != 0) {
+            delete matr;
+            delete x;
             return -5;
         }
-        printMatrix(matrix, n, r);
-        return solve(n,m,matrix,x);
+        for (int i = 0; i < n; i++){
+            for (int j = 0; j<n; j++){
+                printf("%10.3e ", matr[i*n+j]);
+            }
+            std::cout << std::endl;
+        }
+        std::cout << std::endl;
+        PrintDouble(matr,n,r);
+        return solve(n,m,matr,x);
     }
     if ((strcmp(argv[4],"0") != 0)) 
     {
         if (argc > 5) {
             std::cout << "error: To much arguments" << std::endl;
+            delete matr;
+            delete x;
             return -6;
         }
         std::string tmp(argv[4]);
         int s = stoi(tmp);
         if (s < 1 || s > 4) {
             std::cerr << "error: Pasametr s is not a valid number" << std::endl;
+            delete matr;
+            delete x;
             return -7;
         }
-        for(int i = 1; i < n+1; i++) {
-            for(int j = 1; j < n+1; j++) {
-                matrix.push_back(formula(s, n, i, j));
+        for(int i = 0; i < n; i++) {
+            for(int j = 0; j < n; j++) {
+                matr[n*i + j] = formula(s,n,i+1,j+1);
             }
         }
-        printMatrix(matrix,n,r);
-        return solve(n,m,matrix,x);
+        PrintDouble(matr, n, r);
+        return solve(n,m,matr,x);
     }
-
+    delete matr;
+    delete x;
     return 0;
 }
