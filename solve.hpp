@@ -1,7 +1,7 @@
 #include <iostream>
 #include <math.h>
 #include <float.h>
-#include "multiplication.hpp"
+#include "mult.hpp"
 #define UNUSED(x) (void)(x)
 
 void get_block (double *matr, double *block , int n, int m, int i , int j )
@@ -138,9 +138,8 @@ int findmax(double* matr, double* block, int n, int m,int l, int j) {
 }
 
 int solve(int n, int m, double* matrix, double* x) {
-    UNUSED(n);
-    UNUSED(m);
-    UNUSED(matrix);
-    UNUSED(x);
+    for (int i = 0; i < n; i++) {
+
+    }
     return 0;
 }

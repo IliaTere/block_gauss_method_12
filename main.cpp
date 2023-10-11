@@ -86,12 +86,17 @@ int main(int argc, char **argv)
         PrintDouble(matr, n, r);
         double* block = new double[m*m];
         double* inverse = new double[m*m];
-        get_block(matr, block, n, m, 1 , 0);
         int k = findmax(matr, block, n, m, 0, 0);
         std::cout << "--------------------------------" << " Номер строки в которой норма минимальная " << k << std::endl;
+        double* result = new double[m*m];
+        get_block(matr, block, n, m, 0 , 0);
         //PrintDouble(block, m, m);
+        //mult(block, block, result, m , m, 2, 2);
+        std::cout << "--------------------------------" << " Результат умножения " << std::endl;
+        //PrintDouble(result, m, m);
         delete[] block;
         delete[] inverse;
+        delete[] result;
         return solve(n,m,matr,x);
     }
     delete[] matr;
