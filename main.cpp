@@ -34,46 +34,48 @@ int main(int argc, char **argv)
     int n = std::stoi(s1); // Размерность матрицы
     int m = std::stoi(s2); // Размерность блока
     int r = std::stoi(s3); // Кол-во выводимых значений в матрице
-	double* matr = new double(n*n);
-    double* x = new double(n*n);
+	double* matr = new double[n*n];
+    double* x = new double[n*n];
     if (strcmp(argv[4],"0") == 0) {
         if (argc != 6) {
             std::cout << "error: File not found" << std::endl;
-            delete matr;
-            delete x;
+            delete[] matr;
+            delete[] x;
             return -2;
         }
         std::string name(argv[5]);
 		int t = read_ff(name , matr , n*n);
         if(t != 0) {
-            delete matr;
-            delete x;
+            delete[] matr;
+            delete[] x;
             return -5;
-        }
-        for (int i = 0; i < n; i++){
-            for (int j = 0; j<n; j++){
-                printf("%10.3e ", matr[i*n+j]);
-            }
-            std::cout << std::endl;
         }
         std::cout << std::endl;
         PrintDouble(matr,n,r);
+        double* block = new double[m*m];
+        double* inverse = new double[m*m];
+        //get_block(matr, block, n, m, 1 , 0);
+        int k = findmax(matr, block, n, m, 0, 0);
+        std::cout << "--------------------------------" << " Номер строки в которой норма минимальная " << k << std::endl;
+        //PrintDouble(block, m, m);
+        delete[] block;
+        delete[] inverse;
         return solve(n,m,matr,x);
     }
     if ((strcmp(argv[4],"0") != 0)) 
     {
         if (argc > 5) {
             std::cout << "error: To many(few) arguments" << std::endl;
-            delete matr;
-            delete x;
+            delete[] matr;
+            delete[] x;
             return -6;
         }
         std::string tmp(argv[4]);
         int s = stoi(tmp);
         if (s < 1 || s > 4) {
             std::cerr << "error: Pasametr s is not a valid number" << std::endl;
-            delete matr;
-            delete x;
+            delete[] matr;
+            delete[] x;
             return -7;
         }
         for(int i = 0; i < n; i++) {
@@ -84,15 +86,15 @@ int main(int argc, char **argv)
         PrintDouble(matr, n, r);
         double* block = new double[m*m];
         double* inverse = new double[m*m];
-        //get_block(matr, block, n, m, 1 , 0);
+        get_block(matr, block, n, m, 1 , 0);
         int k = findmax(matr, block, n, m, 0, 0);
-        std::cout << "--------------------------------" << " Номер строки в которой норма " << k << std::endl;
+        std::cout << "--------------------------------" << " Номер строки в которой норма минимальная " << k << std::endl;
         //PrintDouble(block, m, m);
         delete[] block;
         delete[] inverse;
         return solve(n,m,matr,x);
     }
-    delete matr;
-    delete x;
+    delete[] matr;
+    delete[] x;
     return 0;
 }
