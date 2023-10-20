@@ -3,6 +3,9 @@ void mult(double *a, double *b, double *c, int rowa, int cola, int rowb, int col
         printf("error: Incorrect matrix sizes!");
         return;
     }
+    for (int i = 0; i < cola*rowb; i++) {
+        c[i] = 0;
+    }
     int t, q, r;
     double s00, s01, s02, s10, s11, s12, s20, s21, s22;
     int v3 = rowa % 3;
@@ -39,9 +42,6 @@ void mult(double *a, double *b, double *c, int rowa, int cola, int rowb, int col
                 s10 += a[(r + 1) * cola + q] * b[q * colb + t];
                 s20 += a[(r + 2) * cola + q] * b[q * colb + t];
             }
-            printf("Step(%d, %d): res00 = %f\n", r, q, s00);
-            printf("Step(%d, %d): res10 = %f\n", r, q, s10);
-            printf("Step(%d, %d): res20 = %f\n", r, q, s20);
             c[r * colb + q] += s00;
             c[(r + 1) * colb + q] += s10;
             c[(r + 2) * colb + q] += s20;

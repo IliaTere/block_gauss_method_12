@@ -48,5 +48,5 @@ void PrintDouble(double* matrix, int n, int r) {
         }
         std::cout << std::endl;
     }
-	
+	printf("\n");
 }

@@ -34,6 +34,10 @@ int main(int argc, char **argv)
     int n = std::stoi(s1); // Размерность матрицы
     int m = std::stoi(s2); // Размерность блока
     int r = std::stoi(s3); // Кол-во выводимых значений в матрице
+    if ( m == 0  || m > n) {
+        printf("invalid block\n");
+        return -8;
+    }  
 	double* matr = new double[n*n];
     double* x = new double[n*n];
     if (strcmp(argv[4],"0") == 0) {
@@ -54,13 +58,16 @@ int main(int argc, char **argv)
         PrintDouble(matr,n,r);
         double* block = new double[m*m];
         double* inverse = new double[m*m];
-        //get_block(matr, block, n, m, 1 , 0);
-        int k = findmax(matr, block, n, m, 0, 0);
-        std::cout << "--------------------------------" << " Номер строки в которой норма минимальная " << k << std::endl;
-        //PrintDouble(block, m, m);
+        double* temp = new double[m*m];
+        double* temp1 = new double[m*m];
+        double* temp2 = new double[m*m];
+        int v = solve(n, m, matr, block, x, inverse, temp, temp1, temp2);
+        if(v == 0) {}
         delete[] block;
         delete[] inverse;
-        return solve(n,m,matr,x);
+        delete[] temp;
+        delete[] temp2;
+        delete[] temp1;
     }
     if ((strcmp(argv[4],"0") != 0)) 
     {
@@ -84,20 +91,20 @@ int main(int argc, char **argv)
             }
         }
         PrintDouble(matr, n, r);
+        std::cout << "--------------------------------" << std::endl;
         double* block = new double[m*m];
         double* inverse = new double[m*m];
-        int k = findmax(matr, block, n, m, 0, 0);
-        std::cout << "--------------------------------" << " Номер строки в которой норма минимальная " << k << std::endl;
-        double* result = new double[m*m];
-        get_block(matr, block, n, m, 0 , 0);
-        //PrintDouble(block, m, m);
-        //mult(block, block, result, m , m, 2, 2);
-        std::cout << "--------------------------------" << " Результат умножения " << std::endl;
-        //PrintDouble(result, m, m);
+        double* temp = new double[m*m];
+        double* temp1 = new double[m*m];
+        double* temp2 = new double[m*m];
+        int t = solve(n, m, matr, block, x, inverse, temp, temp1, temp2);
+        if(t == 0) {}
         delete[] block;
         delete[] inverse;
-        delete[] result;
-        return solve(n,m,matr,x);
+        delete[] temp;
+        delete[] temp2;
+        delete[] temp1;
+        //return 1;
     }
     delete[] matr;
     delete[] x;
