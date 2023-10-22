@@ -4,6 +4,7 @@
 #include "mult.hpp"
 //#include "reader.hpp"
 #define UNUSED(x) (void)(x)
+#define eps -DBL_MAX
 
 void get_block (double *matr, double *block , int n, int m, int i , int j )
 {  
@@ -71,10 +72,10 @@ bool inverseMatrix(double* matrix, int n, double* inverseMatrix) {
 
     // Приводим временную матрицу к треугольному виду
     for (int i = 0; i < n; i++) {
-        if (solution[i*tempSize + i] == 0.0) {
+        if ((solution[i*tempSize + i] - 0.0) < eps) {
             // Если главный элемент равен 0, меняем строки местами
             int swapRow = i + 1;
-            while (swapRow < n && solution[swapRow*tempSize + i] == 0.0) {
+            while (swapRow < n && (solution[swapRow*tempSize + i] - 0.0) < eps) {
                 swapRow++;
             }
             if (swapRow == n) {
@@ -155,9 +156,7 @@ void swap_rows(double* matr, int k, int l, int n, int m) {
 void subtraction(double* a, double* b, int m) {
     for (int i = 0; i < m*m; i++) {
         a[i] -= b[i];
-    }
-
-    
+    }    
 }
 
 int solve(int n, int m, double* matr, double* block, double* solution, double* inverse, double* tmp, double* block1, double* block2) {
@@ -170,9 +169,9 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
             }
         }
     }
-    inverseMatrix(matr, n, inverse);
-    PrintDouble(inverse, n, n);
+
     int t = -1; // ToDo: можем итерироваться до size который менятеся в зависимости от n, m
+    
     for (int i = 0; i < n/m ; i++) {
         t = findmax(matr, block, n, m, i, i);
         //std::cout << "t= "<< t  << "i= "<< i<< std::endl;
@@ -186,11 +185,6 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
         get_block(matr, block, n, m, i, i);
         
         inverseMatrix(block, m, inverse);
-        // printf("--------Обратная матрица\n");
-        // PrintDouble(block, m ,m);
-        // PrintDouble(inverse, m ,m);
-        // printf("\n");
-        // printf("Норма= %f\n", norma(inverse, m));
         
         for (int j=i; j < n/m; j++) { // Заполняем solution с i+1 эл-та
             get_block(matr, block, n, m, i, j);
