@@ -61,8 +61,8 @@ int main(int argc, char **argv)
         double* temp = new double[m*m];
         double* temp1 = new double[m*m];
         double* temp2 = new double[m*m];
-        int v = solve(n, m, matr, block, x, inverse, temp, temp1, temp2);
-        if(v == 0) {}
+        //int v = solve(n, m, matr, block, x, inverse, temp, temp1, temp2);
+        //if(v == 0) {}
         delete[] block;
         delete[] inverse;
         delete[] temp;
@@ -93,12 +93,19 @@ int main(int argc, char **argv)
         PrintDouble(matr, n, r);
         std::cout << "--------------------------------" << std::endl;
         double* block = new double[m*m];
-        double* inverse = new double[m*m];
+        double* inverse = new double[n*n];
+        int i,j;
+        for(i=0;i<n;i++)
+            for(j=0;j<n;j++)
+                inverse[i*n+j] = 0;
+        for(i=0;i<n;i++)
+            inverse[i*n+i] = 1;
         double* temp = new double[m*m];
         double* temp1 = new double[m*m];
         double* temp2 = new double[m*m];
-        int t = solve(n, m, matr, block, x, inverse, temp, temp1, temp2);
-        if(t == 0) {}
+        
+        int sd = solve(n, m, matr, block, x, inverse, temp, temp1, temp2);
+        if(sd==-1) {}
         delete[] block;
         delete[] inverse;
         delete[] temp;
