@@ -61,8 +61,8 @@ int main(int argc, char **argv)
         double* temp = new double[m*m];
         double* temp1 = new double[m*m];
         double* temp2 = new double[m*m];
-        //int v = solve(n, m, matr, block, x, inverse, temp, temp1, temp2);
-        //if(v == 0) {}
+        int v = solve(n, m, matr, block, x, inverse, temp, temp1, temp2);
+        if(v == 0) {}
         delete[] block;
         delete[] inverse;
         delete[] temp;
@@ -103,7 +103,7 @@ int main(int argc, char **argv)
         double* temp = new double[m*m];
         double* temp1 = new double[m*m];
         double* temp2 = new double[m*m];
-        
+
         int sd = solve(n, m, matr, block, x, inverse, temp, temp1, temp2);
         if(sd==-1) {}
         delete[] block;

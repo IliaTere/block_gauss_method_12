@@ -198,15 +198,16 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
 
     int t = -1; // ToDo: можем итерироваться до size который менятеся в зависимости от n, m
     
-    /*treug(matr, solution, n);
+    treug(matr, solution, n);
     diag(matr, solution, n);
     printf("Solution_______________--\n");
-    PrintDouble(solution, n, n);*/
+    PrintDouble(solution, n, n);
     for (int i = 0; i < n/m ; i++) {
         printf("##################### ШАГ  %d #####################\n", i);
         t = findmax(matr, block, n, m, i, i);
         //std::cout << "t= "<< t  << "i= "<< i<< std::endl;
         if (t == -1) {
+            throw("Exception");
             std::cout << "Необратимая матрица"  << std::endl;
         }
         if (t != i) {
