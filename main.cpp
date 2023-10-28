@@ -90,7 +90,7 @@ int main(int argc, char **argv)
                 matr[n*i + j] = formula(s,n,i+1,j+1);
             }
         }
-        PrintDouble(matr, n, r);
+        PrintDouble(matr, n, r); // Вывод матрицы
         std::cout << "--------------------------------" << std::endl;
         double* block = new double[m*m];
         double* inverse = new double[n*n];

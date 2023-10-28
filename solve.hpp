@@ -58,6 +58,12 @@ double norma(double* block, int m) {
 
     int treug(double* a,double* b,int n)
 {
+
+    for(int i=0;i<n;i++)
+            for(int j=0;j<n;j++)
+                b[i*n+j] = 0;
+        for(int i=0;i<n;i++)
+            b[i*n+i] = 1;
     double *c;
     c = new double[n];
 
@@ -73,6 +79,7 @@ double norma(double* block, int m) {
             if(a[j*n+i]>1e-18 || a[j*n+i]<-1e-18) t = 1;
         if(t==-1)
         {
+            PrintDouble(a,n,n);
             cout << "Net obratnoi" << endl;
             return -1;
         }
@@ -189,19 +196,9 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
                 solution[i*n+j] = 0;
         for(int i=0;i<n;i++)
             solution[i*n+i] = 1;
-    
-    for(int i=0;i<m;i++)
-            for(int j=0;j<m;j++)
-                inverse[i*m+j] = 0;
-        for(int i=0;i<n;i++)
-            inverse[i*m+i] = 1;
 
     int t = -1; // ToDo: можем итерироваться до size который менятеся в зависимости от n, m
     
-    treug(matr, solution, n);
-    diag(matr, solution, n);
-    printf("Solution_______________--\n");
-    PrintDouble(solution, n, n);
     for (int i = 0; i < n/m ; i++) {
         printf("##################### ШАГ  %d #####################\n", i);
         t = findmax(matr, block, n, m, i, i);
@@ -215,11 +212,9 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
         swap_rows(solution, i, t, n, m);
         }
         get_block(matr, block, n, m, i, i);
-        printf("block:\n");
-        PrintDouble(block, m, m);
+
         treug(block, inverse, m);
         diag(block,inverse,m);
-        PrintDouble(inverse, m, m);
         for (int j=i; j < n/m; j++) {
             get_block(matr, block, n, m, i, j);
             mult(inverse, block, tmp, m, m, m ,m);
@@ -229,39 +224,36 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
             put_block(solution, tmp, n,m, i, j);
         }                                       // Правильно +
         
-        /*for (int k=i+1; k < n/m - i; k++) {
-            for (int f=i+1; f < n/m - i; f++) {
+        for (int k=0; k < n/m - i; k++) {   // Првильно может начинаться с i + 1
+            for (int f=0; f < n/m - i; f++) {       // Првильно может начинаться с i + 1
                 get_block(matr,block, n, m, i+1, i); // TODO: посмотреть можно ли брать этот блок раньше
                 get_block(matr,block1, n, m, k, f);
                 get_block(matr,block2, n,m, k-1, f);
                 mult(block, block2, tmp, m , m, m, m);
-
                 subtraction(block1, tmp, m);
-                put_block(matr, block1, n, m, k, f);
-
+                put_block(matr, block1, n, m, k, f); // можно добавить проверку на ранвость нулю
                 get_block(solution,block, n, m, i+1, i+1); 
                 get_block(solution,block1, n, m, k, f);
                 get_block(solution,block2, n,m, k-1, f);
                 mult(block, block2, tmp, m , m, m, m);
                 subtraction(block1, tmp, m);
-                put_block(solution, block1, n, m, k, f);
+                put_block(solution, block1, n, m, k, f); // можно добавить проверку на ранвость нулю
             }
-        }*/
-        
+        }
     }
-    // Обратный ход 
-    /*
+    //Обратный ход
+    
         for (int i = n/m-1; i > 0; i--) {
             for (int j = i-1; j > -1; j--) {
-                get_block(matr,block,n,m,j,i);
-                get_block(solution,block1,n,m,j,i);
+                get_block(matr,block,n,m,i,i);
+                PrintDouble(block,m,m);
+                get_block(matr,block1,n,m,j,i);
                 mult(block1, block, tmp, m,m,m,m);
                 subtraction(block1, tmp, m);
-                put_block(solution, block1,n , m, j , i);
-                printf("(%d, %d)\n", i, j);
-                PrintDouble(block1, m, m);   
+                put_block(matr, block1,n , m, j , i);   
             }
-        }*/
+        }    
+    
     printf("-----------------------ОТВЕТ\n");
     PrintDouble(matr, n, n);
     PrintDouble(solution, n , n);
