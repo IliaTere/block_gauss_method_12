@@ -58,7 +58,6 @@ double norma(double* block, int m) {
 
     int treug(double* a,double* b,int n)
 {
-
     for(int i=0;i<n;i++)
             for(int j=0;j<n;j++)
                 b[i*n+j] = 0;
@@ -79,8 +78,6 @@ double norma(double* block, int m) {
             if(a[j*n+i]>1e-18 || a[j*n+i]<-1e-18) t = 1;
         if(t==-1)
         {
-            PrintDouble(a,n,n);
-            cout << "Net obratnoi" << endl;
             return -1;
         }
 
@@ -146,6 +143,25 @@ void diag(double* a,double* b,int n)
     }
 }
 
+double ravno(double x)
+{
+    if(fabs(x)<1e-7){
+        return 0.0;}
+    else {return x;}
+}
+
+void ravnoBlock(double *block, int m)
+{
+    int i,j;
+    for(i=0;i<m;i++)
+    {
+        for(j=0;j<m;j++)
+        {
+            block[j*m + i] = ravno(block[j*m + i]);
+        }
+    }
+}
+
 int findmax(double* matr, double* block, int n, int m,int l, int j) { // TODO:  подавать на вход inverse
     int k = -1;
     int t;
@@ -200,9 +216,7 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
     int t = -1; // ToDo: можем итерироваться до size который менятеся в зависимости от n, m
     
     for (int i = 0; i < n/m ; i++) {
-        printf("##################### ШАГ  %d #####################\n", i);
         t = findmax(matr, block, n, m, i, i);
-        //std::cout << "t= "<< t  << "i= "<< i<< std::endl;
         if (t == -1) {
             throw("Exception");
             std::cout << "Необратимая матрица"  << std::endl;
@@ -221,36 +235,47 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
             put_block(matr, tmp, n,m, i, j);
             get_block(solution, block, n, m, i, j);
             mult(inverse, block, tmp, m, m, m ,m);
+            //ravnoBlock(tmp, m);
             put_block(solution, tmp, n,m, i, j);
         }                                       // Правильно +
         
-        for (int k=0; k < n/m - i; k++) {   // Првильно может начинаться с i + 1
-            for (int f=0; f < n/m - i; f++) {       // Првильно может начинаться с i + 1
-                get_block(matr,block, n, m, i+1, i); // TODO: посмотреть можно ли брать этот блок раньше
-                get_block(matr,block1, n, m, k, f);
-                get_block(matr,block2, n,m, k-1, f);
-                mult(block, block2, tmp, m , m, m, m);
-                subtraction(block1, tmp, m);
-                put_block(matr, block1, n, m, k, f); // можно добавить проверку на ранвость нулю
-                get_block(solution,block, n, m, i+1, i+1); 
-                get_block(solution,block1, n, m, k, f);
-                get_block(solution,block2, n,m, k-1, f);
-                mult(block, block2, tmp, m , m, m, m);
-                subtraction(block1, tmp, m);
-                put_block(solution, block1, n, m, k, f); // можно добавить проверку на ранвость нулю
+        
+        for (int f=i+1; f < n/m; f++) {
+
+            
+            get_block(matr, block, n, m, f, i); // То на что умножаем
+
+            for(int j=i;j<n/m;j++) {
+                get_block(matr, block1, n, m, i, j); // То что умножаем
+                mult(block, block1, tmp, m , m ,m , m);
+                get_block(matr, block2, n, m, f, j); // должно быть (f j)
+                subtraction(block2, tmp, m);
+                put_block(matr, block2, n,m, f, j);
+
+                get_block(solution, block1, n, m, i, j);
+                mult(block, block1, tmp, m , m ,m , m);
+                get_block(solution, block2, n, m, f, j);
+                subtraction(block2, tmp, m);
+                put_block(solution, block2, n,m, f, j);
             }
         }
     }
     //Обратный ход
-    
         for (int i = n/m-1; i > 0; i--) {
             for (int j = i-1; j > -1; j--) {
-                get_block(matr,block,n,m,i,i);
-                PrintDouble(block,m,m);
-                get_block(matr,block1,n,m,j,i);
-                mult(block1, block, tmp, m,m,m,m);
-                subtraction(block1, tmp, m);
-                put_block(matr, block1,n , m, j , i);   
+               
+                get_block(matr,block1,n,m,j,i); //block1 - то на что умножаем строку
+                
+                for (int k = 0; k < n/m; k++) {
+                    get_block(solution ,block, n ,m , i, k);
+                    mult(block1, block, tmp, m, m, m, m);
+                    
+                    get_block(solution ,block2, n,m, i-1, k);
+                
+                    subtraction(block2, tmp, m);
+                    //ravnoBlock(block2, m);
+                    put_block(solution,block2, n,m, i-1, k);
+                }  
             }
         }    
     

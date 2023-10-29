@@ -93,19 +93,25 @@ int main(int argc, char **argv)
         PrintDouble(matr, n, r); // Вывод матрицы
         std::cout << "--------------------------------" << std::endl;
         double* block = new double[m*m];
-        double* inverse = new double[n*n];
-        int i,j;
-        for(i=0;i<n;i++)
-            for(j=0;j<n;j++)
-                inverse[i*n+j] = 0;
-        for(i=0;i<n;i++)
-            inverse[i*n+i] = 1;
+        double* inverse = new double[m*m];
+        
         double* temp = new double[m*m];
         double* temp1 = new double[m*m];
         double* temp2 = new double[m*m];
 
         int sd = solve(n, m, matr, block, x, inverse, temp, temp1, temp2);
-        if(sd==-1) {}
+        if(sd==-1) {
+
+        }
+        
+        printf("--------------------------------x from main\n");
+        // mult(save, x, temp3, n, n, n, n);
+        PrintDouble(x, n ,n );
+        // //subtraction(temp3, e, n);
+        // double norm = norma(temp3, n);
+        // printf("Norma= %10.3e ", norm);
+        
+        
         delete[] block;
         delete[] inverse;
         delete[] temp;
