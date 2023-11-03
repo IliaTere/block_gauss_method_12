@@ -250,12 +250,18 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
                 mult(block, block1, tmp, m , m ,m , m);
                 get_block(matr, block2, n, m, f, j); // должно быть (f j)
                 subtraction(block2, tmp, m);
+                //ravnoBlock(block2, m);
                 put_block(matr, block2, n,m, f, j);
 
                 get_block(solution, block1, n, m, i, j);
+
                 mult(block, block1, tmp, m , m ,m , m);
                 get_block(solution, block2, n, m, f, j);
                 subtraction(block2, tmp, m);
+
+                
+                //PrintDouble(block2, m, m);
+                //ravnoBlock(block2, m);
                 put_block(solution, block2, n,m, f, j);
             }
         }
@@ -271,9 +277,9 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
                     mult(block1, block, tmp, m, m, m, m);
                     
                     get_block(solution ,block2, n,m, i-1, k);
-                
+                    printf("--------------(%d,%d)\n", i-1, k);
                     subtraction(block2, tmp, m);
-                    //ravnoBlock(block2, m);
+                    ravnoBlock(block2, m);
                     put_block(solution,block2, n,m, i-1, k);
                 }  
             }

@@ -99,19 +99,34 @@ int main(int argc, char **argv)
         double* temp1 = new double[m*m];
         double* temp2 = new double[m*m];
 
+        double* matrtmp = new double[n*n];
+        double* temp3 = new double[n*n];
+        double* e = new double[n*n];
+        for(int i=0;i<n;i++)
+            for(int j=0;j<n;j++)
+                e[i*n+j] = 0;
+        for(int i=0;i<n;i++)
+            e[i*n+i] = 1;
+
+        for (int i = 0; i < n*n; i++)
+            matrtmp[i] = matr[i];
+
         int sd = solve(n, m, matr, block, x, inverse, temp, temp1, temp2);
         if(sd==-1) {
 
         }
         
-        printf("--------------------------------x from main\n");
-        // mult(save, x, temp3, n, n, n, n);
-        PrintDouble(x, n ,n );
-        // //subtraction(temp3, e, n);
+        printf("-------------------------------- from main\n");
+        mult(matrtmp, x, temp3, n, n, n, n);
+        subtraction(temp3, e, n);        
+        std::cout << "res= " << norma(temp3, n) << std::endl;
         // double norm = norma(temp3, n);
         // printf("Norma= %10.3e ", norm);
         
-        
+        delete[] matrtmp;
+        delete[] temp3;
+        delete[] e;
+
         delete[] block;
         delete[] inverse;
         delete[] temp;
