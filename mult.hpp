@@ -42,9 +42,9 @@ void mult(double *a, double *b, double *c, int rowa, int cola, int rowb, int col
                 s10 += a[(r + 1) * cola + q] * b[q * colb + t];
                 s20 += a[(r + 2) * cola + q] * b[q * colb + t];
             }
-            c[r * colb + q] += s00;
-            c[(r + 1) * colb + q] += s10;
-            c[(r + 2) * colb + q] += s20;
+            c[r * colb + t] += s00;
+            c[(r + 1) * colb + t] += s10;
+            c[(r + 2) * colb + t] += s20;
         }
         for(; t < colb; t+=3) {
             s00 = 0;
