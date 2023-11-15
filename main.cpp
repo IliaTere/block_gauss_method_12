@@ -62,12 +62,25 @@ int main(int argc, char **argv)
         double* temp1 = new double[m*m];
         double* temp2 = new double[m*m];
         int v = solve(n, m, matr, block, x, inverse, temp, temp1, temp2);
-        if(v == 0) {}
+        if(v == 1) {
+            printf("Алгоритм не применим\n");
+            delete[] block;
+            delete[] inverse;
+            delete[] temp;
+            delete[] temp2;
+            delete[] temp1;
+            delete[] matr;
+            delete[] x;
+            return 1;
+        }
+        delete[] matr;
+        delete[] x;
         delete[] block;
         delete[] inverse;
         delete[] temp;
         delete[] temp2;
         delete[] temp1;
+        return 0;
     }
     if ((strcmp(argv[4],"0") != 0)) 
     {
@@ -112,8 +125,8 @@ int main(int argc, char **argv)
             matrtmp[i] = matr[i];
 
         int sd = solve(n, m, matr, block, x, inverse, temp, temp1, temp2);
-        if(sd==-1) {
-
+        if(sd == 1) {
+            printf("Аварийный выход\n");
         }
         
         printf("-------------------------------- from main\n");
