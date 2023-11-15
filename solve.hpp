@@ -311,9 +311,9 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
     for (int p = 0; p < k; p++) {
         t = findmax(matr, block, n, m, p, p);
         if (t == -1) {
-            printf("Не нашлось обратнорй у findmax\n");
+            printf("Не нашлось обратной у findmax\n");
             return 1;
-        }
+        }   
         if (t != p) {
             swap_rows(matr, p, t, n, m);
             swap_rows(solution, p, t, n, m);
@@ -323,16 +323,20 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
        
         treug(block, inverse, l);
         diag(block, inverse, l);
-
+         
         for (int s = p+1; s < k; s++) {
             get_block(matr, block, n , m, p , s);
+            
             mult(inverse, block, tmp, m , m ,m ,m);
             put_block(matr, tmp, n ,m , p, s);
-
-            get_block(solution, block, n, m, p, s);
-            mult(inverse, block, tmp, m, m, m, m);
-            put_block(solution, block, n, m, p, s);
         }
+
+        for(int s = 0; s < k; s++) {
+            get_block(solution, block, n, m, p ,s);
+            mult(inverse, block, tmp, m, m, m, m);
+            put_block(solution, tmp, n ,m ,p, s);
+        }
+
         if(bl != 0)       
         {
             get_block(matr, block, n , m, p, k);
@@ -465,7 +469,6 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
             mult(block, block1, tmp, m, m, m, m); // Умножение m x l
             subtraction(block2, tmp, m);
             put_block(solution, block2, n, m, i, j);
-            //pcord(i, j);
         }
     }
     for (int i = k - 1; i >= 0; i--) {
