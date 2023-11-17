@@ -5,6 +5,8 @@
 #include "solve.hpp"
 #include "formula.hpp"
 #include <cstring>
+#include <time.h>
+
 bool isNumber(std::string& str)
     {
     std::string::iterator it = std::begin(str);
@@ -34,6 +36,8 @@ int main(int argc, char **argv)
     int n = std::stoi(s1); // Размерность матрицы
     int m = std::stoi(s2); // Размерность блока
     int r = std::stoi(s3); // Кол-во выводимых значений в матрице
+    clock_t start;
+    clock_t end;
     if ( m == 0  || m > n) {
         printf("invalid block\n");
         return -8;
@@ -103,7 +107,7 @@ int main(int argc, char **argv)
                 matr[n*i + j] = formula(s,n,i+1,j+1);
             }
         }
-        PrintDouble(matr, n, r); // Вывод матрицы
+       // PrintDouble(matr, n, r); // Вывод матрицы
         std::cout << "--------------------------------" << std::endl;
         double* block = new double[m*m];
         double* inverse = new double[m*m];
@@ -123,19 +127,21 @@ int main(int argc, char **argv)
 
         for (int i = 0; i < n*n; i++)
             matrtmp[i] = matr[i];
-
+        start = clock();
         int sd = solve(n, m, matr, block, x, inverse, temp, temp1, temp2);
+        end = clock();
+        double t1 = (double)(end - start) / (double)CLOCKS_PER_SEC;
         if(sd == 1) {
             printf("Аварийный выход\n");
         }
         
-        printf("-------------------------------- from main\n");
         mult(matrtmp, x, temp3, n, n, n, n);
         subtraction(temp3, e, n);        
-        std::cout << "res= " << norma(temp3, n) << std::endl;
-        // double norm = norma(temp3, n);
-        // printf("Norma= %10.3e ", norm);
         
+        printf(
+        "%s : Task = %d Res1 = %e Res2 = nf T1 = %.2f T2 = nf S = %d N = %d M = %d\n",
+        argv[0], 12, norma(temp3, n), t1, s, n, m);
+
         delete[] matrtmp;
         delete[] temp3;
         delete[] e;
