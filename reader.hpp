@@ -15,15 +15,12 @@ bool is_double(const std::string& s) {
 int read_ff(const std::string& filename, double* result, int n) {
     std::ifstream file(filename);
     if (!file.is_open()) {
-        std::cerr << "Error opening file: " << filename << std::endl;
+        std::cout << "Error opening file: " << filename << std::endl;
         return -1;
     }
     std::string line;
     int i = 0;
-    if (i != n) {
-        std::cout << "Invalid length" << std::endl;
-        return -3;
-    }
+    
     while (std::getline(file, line)) {
         std::istringstream iss(line);
         std::string token;
@@ -31,13 +28,20 @@ int read_ff(const std::string& filename, double* result, int n) {
             if (is_double(token)) {
                 result[i] = std::stod(token);
                 i++;
+                if (i == n+1) {
+                    std::cout << "Incorrect size" << std::endl;
+                    return -2;
+                }
             } else {
-                std::cerr << "Invalid double value: " << token << std::endl;
+                std::cout << "Invalid double value: " << token << std::endl;
                 return -2;
             }
         }
     }
-    
+    if (i != n) {
+        std::cout << "Invalid length" << std::endl;
+        return -3;
+    }
     return 0;
 }
 
