@@ -20,6 +20,10 @@ int read_ff(const std::string& filename, double* result, int n) {
     }
     std::string line;
     int i = 0;
+    if (i != n) {
+        std::cout << "Invalid length" << std::endl;
+        return -3;
+    }
     while (std::getline(file, line)) {
         std::istringstream iss(line);
         std::string token;
@@ -33,10 +37,7 @@ int read_ff(const std::string& filename, double* result, int n) {
             }
         }
     }
-    if (i != n) {
-        std::cout << "Invalid length" << std::endl;
-        return -3;
-    }
+    
     return 0;
 }
 
