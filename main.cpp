@@ -6,6 +6,7 @@
 #include "formula.hpp"
 #include <cstring>
 #include <time.h>
+#include "residual.hpp"
 
 bool isNumber(std::string& str)
     {
@@ -33,6 +34,7 @@ int main(int argc, char **argv)
     std::string s1(argv[1]);
     std::string s2(argv[2]);
     std::string s3(argv[3]);
+    int s;
     int n = std::stoi(s1); // Размерность матрицы
     int m = std::stoi(s2); // Размерность блока
     int r = std::stoi(s3); // Кол-во выводимых значений в матрице
@@ -58,33 +60,8 @@ int main(int argc, char **argv)
             delete[] x;
             return -5;
         }
-        std::cout << std::endl;
-        PrintDouble(matr,n,r);
-        double* block = new double[m*m];
-        double* inverse = new double[m*m];
-        double* temp = new double[m*m];
-        double* temp1 = new double[m*m];
-        double* temp2 = new double[m*m];
-        int v = solve(n, m, matr, block, x, inverse, temp, temp1, temp2);
-        if(v == 1) {
-            printf("Алгоритм не применим\n");
-            delete[] block;
-            delete[] inverse;
-            delete[] temp;
-            delete[] temp2;
-            delete[] temp1;
-            delete[] matr;
-            delete[] x;
-            return 1;
-        }
-        delete[] matr;
-        delete[] x;
-        delete[] block;
-        delete[] inverse;
-        delete[] temp;
-        delete[] temp2;
-        delete[] temp1;
-        return 0;
+        std::string tmp(argv[4]);
+        s = stoi(tmp);
     }
     if ((strcmp(argv[4],"0") != 0)) 
     {
@@ -95,7 +72,7 @@ int main(int argc, char **argv)
             return -6;
         }
         std::string tmp(argv[4]);
-        int s = stoi(tmp);
+        s = stoi(tmp);
         if (s < 1 || s > 4) {
             std::cerr << "error: Pasametr s is not a valid number" << std::endl;
             delete[] matr;
@@ -107,52 +84,76 @@ int main(int argc, char **argv)
                 matr[n*i + j] = formula(s,n,i+1,j+1);
             }
         }
-       // PrintDouble(matr, n, r); // Вывод матрицы
-        std::cout << "--------------------------------" << std::endl;
-        double* block = new double[m*m];
-        double* inverse = new double[m*m];
-        
-        double* temp = new double[m*m];
-        double* temp1 = new double[m*m];
-        double* temp2 = new double[m*m];
+    }
+    
+    PrintDouble(matr, n, r);
+    double* block = new double[m*m];
+    double* inverse = new double[m*m];
+    double* temp = new double[m*m];
+    double* temp1 = new double[m*m];
+    double* temp2 = new double[m*m];
 
-        double* matrtmp = new double[n*n];
-        double* temp3 = new double[n*n];
-        double* e = new double[n*n];
-        for(int i=0;i<n;i++)
+    double* matrtmp = new double[n*n];
+    double* temp3 = new double[n*n];
+    double* e = new double[n*n];
+
+    for (int i = 0; i < n*n; i++)
+            matrtmp[i] = matr[i];
+
+    start = clock();
+    int sd = solve(n, m, matr, block, x, inverse, temp, temp1, temp2);
+    end = clock();
+    double t1 = (double)(end - start) / (double)CLOCKS_PER_SEC;
+
+    for(int i=0;i<n;i++)
             for(int j=0;j<n;j++)
                 e[i*n+j] = 0;
         for(int i=0;i<n;i++)
             e[i*n+i] = 1;
 
-        for (int i = 0; i < n*n; i++)
-            matrtmp[i] = matr[i];
-        start = clock();
-        int sd = solve(n, m, matr, block, x, inverse, temp, temp1, temp2);
-        end = clock();
-        double t1 = (double)(end - start) / (double)CLOCKS_PER_SEC;
-        if(sd == 1) {
-            printf("Аварийный выход\n");
-        }
-        
-        mult(matrtmp, x, temp3, n, n, n, n);
-        subtraction(temp3, e, n);        
-        
-        printf(
-        "%s : Task = %d Res1 = %e Res2 = nf T1 = %.2f T2 = nf S = %d N = %d M = %d\n",
-        argv[0], 12, norma(temp3, n), t1, s, n, m);
-
-        delete[] matrtmp;
-        delete[] temp3;
-        delete[] e;
-
-        delete[] block;
-        delete[] inverse;
-        delete[] temp;
-        delete[] temp2;
-        delete[] temp1;
-        //return 1;
+    switch(sd)
+    {
+        case 1:
+            printf(
+                "%s : Task = %d Res1 = %e Res2 = %e T1 = %.2f T2 = %.2f S = %d N = %d M = %d\n",
+                argv[0], 12, -1., -1. ,0. , 0., s, n, m);
+                break;
+        case 2:
+            printf(
+                "%s : Task = %d Res1 = %e Res2 = %e T1 = %.2f T2 = %.2f S = %d N = %d M = %d\n",
+                argv[0], 12, -1., -1. ,0., 0. , s, n, m);
+                break;
+        case 0:
+            //блочный счет невязки
+            double res1 = 0. ;
+            double res2 = 0. ;
+            if (n <= 11000)
+            {
+                start = clock();
+                res1 = residual_matrix(matrtmp, x, matr, block, temp1, n ,m);
+                res2 = matrix_residual(matrtmp, x, matr, block, temp1, n ,m);
+                end = clock();
+                double t2 = (double)(end - start) / (double)CLOCKS_PER_SEC;
+                printf(
+                "%s : Task = %d Res1 = %e Res2 = %e T1 = %.2f T2 = %.2f S = %d N = %d M = %d\n",
+                argv[0], 12, res1, res2, t1, t2, s, n, m);
+            } else {
+                printf(
+                "%s : Task = %d Res1 = %e Res2 = %e T1 = %.2f T2 = %.2f S = %d N = %d M = %d\n",
+                argv[0], 12, 0. , 0. , t1, 0. , s, n, m);
+            }
+            break;
     }
+
+    delete[] matrtmp;
+    delete[] temp3;
+    delete[] e;
+
+    delete[] block;
+    delete[] inverse;
+    delete[] temp;
+    delete[] temp2;
+    delete[] temp1; 
     delete[] matr;
     delete[] x;
     return 0;
