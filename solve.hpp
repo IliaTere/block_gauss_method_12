@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <math.h>
 #include <float.h>
@@ -70,13 +71,11 @@ double norma(double* block, int m) {
     int i,j,k,t;
     double p;
 
-    //Проверяем на каждом шаге, что матрица сводится к треугольному виду.
-    //Иначе ранк не максимален и нет обратной матрицы.
     for(i=0;i<n;i++)
     {
         t = -1;
         for(j=i;j<n;j++)
-            if(a[j*n+i]>1e-18 || a[j*n+i]<-1e-18) t = 1;
+            if(a[j*n+i]>1e-90 || a[j*n+i]<-1e-90) t = 1;
         if(t==-1)
         {
             return -1;
@@ -85,7 +84,6 @@ double norma(double* block, int m) {
         p = a[i*n+i];
         t = i;
 
-    //Метод Гаусса с выбором главного элемента по строке
         for(j=i;j<n;j++)
         {
             if(fabs(a[j*n+i])>fabs(p))
@@ -144,84 +142,6 @@ void diag(double* a,double* b,int n)
     }
 }
 
-int inverse(double *a, double*b, int n)
-{
-    for(int i=0;i<n;i++)
-            for(int j=0;j<n;j++)
-                b[i*n+j] = 0;
-        for(int i=0;i<n;i++)
-            b[i*n+i] = 1;
-    double *c;
-    c = new double[n];
-
-    int i,j,k,t;
-    double p;
-
-    for(i=0;i<n;i++)
-    {
-        t = -1;
-        for(j=i;j<n;j++)
-            if(a[j*n+i]>1e-18 || a[j*n+i]<-1e-18) t = 1;
-        if(t==-1)
-        {
-            return -1;
-        }
-
-        p = a[i*n+i];
-        t = i;
-
-        for(j=i;j<n;j++)
-        {
-            if(fabs(a[j*n+i])>fabs(p))
-            {
-                p = a[j*n+i];
-                t = j;
-            }
-        }
-
-        for(j=0;j<n;j++) c[j] = a[t*n+j];
-        for(j=0;j<n;j++) a[t*n+j] = a[i*n+j];
-        for(j=0;j<n;j++) a[i*n+j] = c[j];
-
-        for(j=0;j<n;j++) c[j] = b[t*n+j];
-        for(j=0;j<n;j++) b[t*n+j] = b[i*n+j];
-        for(j=0;j<n;j++) b[i*n+j] = c[j];
-
-        p = a[i*n+i];
-
-        for(j=0;j<n;j++)
-        {
-            a[i*n+j] = a[i*n+j]/p;
-            b[i*n+j] = b[i*n+j]/p;
-        }
-
-        for(j=i+1;j<n;j++)
-        {
-            p = a[j*n+i];
-            for(k=0;k<n;k++)
-            {
-                a[j*n+k] = a[j*n+k] - a[i*n+k]*p;
-                b[j*n+k] = b[j*n+k] - b[i*n+k]*p;
-            }
-        }
-
-    }
-    delete[]c;
-    for(i=n-1;i>0;i--)
-    {
-        for(j=0;j<i;j++)
-        {
-            p = a[j*n+i];
-            for(k=0;k<n;k++)
-            {
-                a[j*n+k] = a[j*n+k] - a[i*n+k]*p;
-                b[j*n+k] = b[j*n+k] - b[i*n+k]*p;
-            }
-        }
-    }
-    return 1;        
-}
-
 double ravno(double x)
 {
     if(fabs(x)<1e-7){
@@ -245,7 +165,7 @@ void pcord(int i, int j)
     printf("(%d, %d)\n", i, j);
 }
 
-int findmax(double* matr, double* block, int n, int m,int l, int j) { // TODO:  подавать на вход inverse
+int findmax(double* matr, double* block, int n, int m,int l, int j) {
     int k = -1;
     int t;
     double tmp;
@@ -291,16 +211,10 @@ void subtraction(double* a, double* b, int m) {
 }
 
 int solve(int n, int m, double* matr, double* block, double* solution, double* inverse, double* tmp, double* block1, double* block2) {
-    int fsize;
     int k = n/m;
     int bl = n - (k*m);
     int l = m;
-    
-    if (bl != 0) {
-        fsize = k;
-    } else {
-        fsize = k-1;
-    }
+
     
     for(int i=0;i<n;i++)
             for(int j=0;j<n;j++)
@@ -308,7 +222,7 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
         for(int i=0;i<n;i++)
             solution[i*n+i] = 1;
 
-    int t = -1; // ToDo: можем итерироваться до size который менятеся в зависимости от n, m
+    int t = -1;
     for (int p = 0; p < k; p++) {
         t = findmax(matr, block, n, m, p, p);
         if (t == -1) {
@@ -338,17 +252,6 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
             put_block(solution, tmp, n ,m ,p, s);
         }
 
-        // if(bl != 0)       
-        // {
-        //     get_block(matr, block, n , m, p, k);
-        //     mult(inverse, block, tmp, m , m , m, m);
-        //     put_block(matr, tmp, n , m, p, k);
-
-        //     get_block(solution, block, n , m, p, k);
-        //     mult(inverse, block, tmp, m , m , m, m);
-        //     put_block(solution, tmp, n, m, p, k);
-        // }
-
         for (int i = p+1; i < k+1; i++) { // Умножение m x m
             for(int j = p+1; j < k+1; j++) {
                 get_block(matr, block, n, m, i, j);
@@ -370,77 +273,8 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
                 put_block(solution, block, n , m, i , j);
             }
         }
-        // PrintDouble(matr, n, n);
-        // PrintDouble(solution, n, n);
-        // printf("----------");
-        /*
-        if(bl != 0) {
-            for(int i = p; i < k; i++) { // Умножение m x l
-                get_block(matr, block, n, m, i, k);
-                get_block(matr, block1, n , m, i, p);
-                get_block(matr, block2, n , m, p , k);
-                mult(block1, block2, tmp, m, m, m, m);
-                subtraction(block, tmp, m);
-                printf("Хотим менять\n");
-                pcord(i , k);
-                put_block(matr, block, n , m, i , k);
-
-                get_block(solution, block, n, m, i, k);
-                get_block(solution, block2, n, m, p, k);
-                mult(block1, block2, tmp, m , m, m, m);
-                subtraction(block, tmp, m);
-                put_block(solution, block, n , m, i, k);
-            }
-        }
         
-        if(bl != 0) {
-            
-            for (int j = p; j < k; j++) { // Умножение l x m
-                
-                get_block(matr, block, n, m, k, j);
-                get_block(matr, block1, n , m, k, p);
-                get_block(matr, block2, n , m, p , j);
-
-                mult(block1, block2, tmp, m, m, m, m);
-
-                subtraction(block, tmp, m);
-                put_block(matr, block, n , m, k, j);                  
-            }
-
-            for (int j = 0; j < k; j++) {
-
-                get_block(solution, block, n, m, k, j);
-                get_block(matr, block1, n , m, k, p);
-                get_block(solution, block2, n, m, p, j);
-                mult(block1, block2, tmp, m , m, m, m);
-                subtraction(block, tmp, m);
-                put_block(solution, block, n , m, k, j); 
-
-            }
-        }
-
-        if (bl != 0) {
-            get_block(matr, block, n, m, k, k); // Умножение l x l
-            PrintDouble(block, m, m);
-            get_block(matr, block1, n , m, k, p);
-            get_block(matr, block2, n , m, p, k);
-            mult(block1, block2, tmp, m ,m, m, m);
-            subtraction(block, tmp, m);
-            put_block(matr, block, n , m, k, k);
-
-            get_block(solution, block, n, m, k, k); // Умножение l x l
-            get_block(solution, block2, n , m, p, k);
-            mult(block1, block2, tmp, m ,m, m, m);
-            subtraction(block, tmp, m);
-            put_block(solution, block, n , m, k, k);
-        }*/
-       //pcord(p, p);
     }
-
-    // printf("matr\n");
-    // PrintDouble(matr, n ,n);
-    // printf("solurion\n");
-    // PrintDouble(solution, n ,n);
 
     get_block(matr, block1, n ,m , k, k);
     
@@ -449,24 +283,21 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
             block[i*bl + j] = block1[i*m + j];
         }
     }
-    // printf("Тот самый угловой\n");
-    // PrintDouble(block, bl , bl);
+
     if (treug(block, inverse, bl) == -1) {
         printf("Метод не применим\n");
         return 1;
     } else {
         diag(block, inverse, bl);
-        // printf("Обратная к нему\n");
-        // PrintDouble(inverse, bl, bl);
+
         for (int i = 0; i < k; i++)
         {
             get_block(solution, block, n , m, k, i);
-            //PrintDouble(block, m , m);
+
             mult(inverse, block, tmp, bl, bl , bl, m); //умножение l x l
-            // PrintDouble(block, m , m);
-            // PrintDouble(inverse, bl ,bl);
+
             put_block(solution, tmp, n , m, k, i);
-            //PrintDouble(solution, n ,n);
+
         }
         get_block(solution, block1, n , m, k , k);
         for (int i =0; i < bl; i++) {
@@ -474,31 +305,24 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
                 block[i*bl + j] = block1[i*m + j];
             }
         }
-        // printf("Угловой блок\n");
-        // PrintDouble(block, m, m);
+
         mult(inverse, block, tmp, bl , bl, bl, bl); //умножение l x l
-         //Проблема вот здесь возникает когда bl == 1
+
         if (bl == 1) {
             for (int i = 0; i < bl; i++) {
                 for (int j = 0; j < bl; j++) {
                     block[i * bl + j] = tmp[i*bl + j];
                 }
             }
-        } else { // Надо убрать бесполезно !!!!
-            int offset = (m - bl)/2;
+        } else {
             for (int i = 0; i < bl; i++) {
                 for (int j = 0; j < bl; j++) {
-                    //printf("from %d to %d, ",i*bl + j, (i+offset) * m + (j+offset));
                     block[(i) * m + (j)] = tmp[i*bl + j];
                 }
             }
-            // printf("\nРезультат умножения\n");
-            // PrintDouble(tmp, bl, bl);
-            // printf("То что будем запсиывать\n");
-            // PrintDouble(block, m ,m);
+
         }
-        // printf("Результат умножения\n");
-        // PrintDouble(block, m ,m);
+
         put_block(solution, block, n , m, k , k);
     }
 
@@ -563,38 +387,5 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
             put_block(solution, block2, n, m, i, k);
         }
     }
-    
-    // printf("Начинаем от -\n");
-    // pcord(k-1, fsize-1);
-    // for (int i = k - 1; i > 0; i--)
-    // {
-    //     // int v = (i < k ? m : l); // размер блока (i, j)
-
-    //     for (int j = i - 1; j >= 0; j--)
-    //     {
-    //         // int b = (j < k ? m : l);
-    //         get_block(matr, block, n, m, j, i);
-
-    //         for (int jj = 0; jj < k; jj++)
-    //         {
-    //             // int h = (jj < k ? m : l); // размер блока (i, jj)
-
-    //             get_block(solution, block1, n, m, i, jj);
-                
-                
-
-    //             mult(block, block1, tmp, m, m, m, m);
-                
-                
-    //             get_block(solution, block1, n, m, j, jj);
-    //             subtraction(block1, tmp, m);
-    //             put_block(solution, block1, n, m, j, jj);
-    //         }
-    //     }
-    // }
-    //ravnoBlock(solution, n);
-   //printf("--------------------Answer\n");
-    // PrintDouble(matr, n,n);
-    //PrintDouble(solution, n , n);
     return 0;
 }

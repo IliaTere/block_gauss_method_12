@@ -127,6 +127,7 @@ int main(int argc, char **argv)
             //блочный счет невязки
             double res1 = 0. ;
             double res2 = 0. ;
+            PrintDouble(x, r, r);
             if (n <= 11000)
             {
                 start = clock();

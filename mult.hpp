@@ -1,3 +1,4 @@
+#include <cmath>
 void mult(double *a, double *b, double *c, int rowa, int cola, int rowb, int colb) {
     if(cola != rowb) {
         printf("error: Incorrect matrix sizes!");
@@ -5,6 +6,12 @@ void mult(double *a, double *b, double *c, int rowa, int cola, int rowb, int col
     }
     for (int i = 0; i < cola*rowb; i++) {
         c[i] = 0;
+        if (fabs(a[i]) < 1e-90) {
+            a[i] = 0.;
+        }
+        if(fabs(b[i]) < 1e-90) {
+            b[i] = 0. ;
+        }
     }
     int t, q, r;
     double s00, s01, s02, s10, s11, s12, s20, s21, s22;
