@@ -58,7 +58,7 @@ double norma(double* block, int m) {
     return norm_m;
 } 
 
-    int treug(double* a,double* b,int n)
+    int treug(double* a,double* b,int n, double norma)
 {
     for(int i=0;i<n;i++)
             for(int j=0;j<n;j++)
@@ -75,7 +75,7 @@ double norma(double* block, int m) {
     {
         t = -1;
         for(j=i;j<n;j++)
-            if(a[j*n+i]>1e-90 || a[j*n+i]<-1e-90) t = 1;
+            if(a[j*n+i]>1e-10 * norma || a[j*n+i]<-1e-10 * norma) t = 1;
         if(t==-1)
         {
             return -1;
@@ -142,21 +142,21 @@ void diag(double* a,double* b,int n)
     }
 }
 
-double ravno(double x)
+double ravno(double x, double norma)
 {
-    if(fabs(x)<1e-7){
+    if(fabs(x)<1e-7*norma){
         return 0.0;}
     else {return x;}
 }
 
-void ravnoBlock(double *block, int m)
+void ravnoBlock(double *block, int m, double norma)
 {
     int i,j;
     for(i=0;i<m;i++)
     {
         for(j=0;j<m;j++)
         {
-            block[j*m + i] = ravno(block[j*m + i]);
+            block[j*m + i] = ravno(block[j*m + i], norma);
         }
     }
 }
@@ -165,7 +165,7 @@ void pcord(int i, int j)
     printf("(%d, %d)\n", i, j);
 }
 
-int findmax(double* matr, double* block, int n, int m,int l, int j) {
+int findmax(double* matr, double* block, int n, int m,int l, int j, double norm) {
     int k = -1;
     int t;
     double tmp;
@@ -173,7 +173,7 @@ int findmax(double* matr, double* block, int n, int m,int l, int j) {
     double* inverse = new double[m * m];
     for (int i = l; i < n/m; i++) {
         get_block(matr, block, n ,m , i, j);
-        t = treug(block, inverse, m);
+        t = treug(block, inverse, m, norm);
         if (t==-1) {
             continue;
         }
@@ -210,7 +210,7 @@ void subtraction(double* a, double* b, int m) {
     }    
 }
 
-int solve(int n, int m, double* matr, double* block, double* solution, double* inverse, double* tmp, double* block1, double* block2) {
+int solve(int n, int m, double* matr, double* block, double* solution, double* inverse, double* tmp, double* block1, double* block2, double norma) {
     int k = n/m;
     int bl = n - (k*m);
     int l = m;
@@ -224,7 +224,7 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
 
     int t = -1;
     for (int p = 0; p < k; p++) {
-        t = findmax(matr, block, n, m, p, p);
+        t = findmax(matr, block, n, m, p, p, norma);
         if (t == -1) {
             printf("Не нашлось обратной у findmax\n");
             return 1;
@@ -236,19 +236,19 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
 
         get_block(matr, block, n, l, p, p);
        
-        treug(block, inverse, l);
+        treug(block, inverse, l, norma);
         diag(block, inverse, l);
 
         for (int s = p+1; s < k+1; s++) {
             get_block(matr, block, n , m, p , s);
             
-            mult(inverse, block, tmp, m , m ,m ,m);
+            mult(inverse, block, tmp, m , m ,m ,m, norma);
             put_block(matr, tmp, n ,m , p, s);
         }
 
         for(int s = 0; s < k+1; s++) {
             get_block(solution, block, n, m, p ,s);
-            mult(inverse, block, tmp, m, m, m, m);
+            mult(inverse, block, tmp, m, m, m, m, norma);
             put_block(solution, tmp, n ,m ,p, s);
         }
 
@@ -257,7 +257,7 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
                 get_block(matr, block, n, m, i, j);
                 get_block(matr, block1, n , m, i, p);
                 get_block(matr, block2, n , m, p , j);
-                mult(block1, block2, tmp, m, m, m, m);
+                mult(block1, block2, tmp, m, m, m, m, norma);
                 subtraction(block, tmp, m);
                 put_block(matr, block, n , m, i , j);
             }
@@ -268,7 +268,7 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
 
                 get_block(matr, block1, n , m, i, p);
                 get_block(solution, block2, n , m, p , j);
-                mult(block1, block2, tmp, m, m, m, m);
+                mult(block1, block2, tmp, m, m, m, m, norma);
                 subtraction(block, tmp, m);
                 put_block(solution, block, n , m, i , j);
             }
@@ -276,8 +276,8 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
         
     }
 
-    ravnoBlock(matr, n);
-    ravnoBlock(solution, n);
+    //ravnoBlock(matr, n, norma);
+    //ravnoBlock(solution, n, norma);
     get_block(matr, block1, n ,m , k, k);
     // printf("bl = %d m= %d\n", bl, m);
     // PrintDouble(block1, m, m);
@@ -303,7 +303,7 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
         }
     }
 
-    if (treug(block, inverse, bl) == -1) {
+    if (treug(block, inverse, bl, norma) == -1) {
         printf("Метод не применим\n");
         return 1;
     } else {
@@ -312,7 +312,7 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
         {
             get_block(solution, block, n , m, k, i);
 
-            mult(inverse, block, tmp, bl, bl , bl, m); //умножение l x l
+            mult(inverse, block, tmp, bl, bl , bl, m, norma); //умножение l x l
 
             put_block(solution, tmp, n , m, k, i);
 
@@ -324,7 +324,7 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
             }
         }
 
-        mult(inverse, block, tmp, bl , bl, bl, bl); //умножение l x l
+        mult(inverse, block, tmp, bl , bl, bl, bl, norma); //умножение l x l
 
         if (bl == 1) {
             for (int i = 0; i < bl; i++) {
@@ -352,7 +352,7 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
         get_block(solution, block, n , m, k-1, j);
         get_block(matr, block1, n , m, k-1, k);
         get_block(solution, block2, n, m, k, j);
-        mult(block1, block2, tmp, m, m, m, m );
+        mult(block1, block2, tmp, m, m, m, m, norma);
         subtraction(block, tmp, m);
         put_block(solution, block, n, m, k-1, j);
     }
@@ -360,12 +360,12 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
     get_block(solution, block, n, m, k-1, k);
     get_block(matr, block1, n, m, k-1, k);
     get_block(solution, block2, n , m, k, k);
-    mult(block1, block2, tmp, m , m, m, m); // Умножение m x l
+    mult(block1, block2, tmp, m , m, m, m, norma); // Умножение m x l
     subtraction(block, tmp, m);
     put_block(solution, block, n, m, k-1, k);
 
-    ravnoBlock(matr, n);
-    ravnoBlock(solution, n);
+    //ravnoBlock(matr, n, norma);
+    //ravnoBlock(solution, n, norma);
 
     for (int i = k-2 ; i >= 0; i--) {
         for(int j = 0; j < k; j++) {
@@ -375,12 +375,12 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
             for(int t = i+1; t < k; t++) {
                 get_block(matr, block, n , m, i, t);
                 get_block(solution, block1, n, m, t, j);
-                mult(block, block1, tmp, m, m, m, m);
+                mult(block, block1, tmp, m, m, m, m, norma);
                 subtraction(block2, tmp, m);
             }
             get_block(matr, block, n, m, i, k);
             get_block(solution, block1, n, m, k, j);
-            mult(block, block1, tmp, m, m, m, m); // Умножение m x l
+            mult(block, block1, tmp, m, m, m, m, norma); // Умножение m x l
             subtraction(block2, tmp, m);
             put_block(solution, block2, n, m, i, j);
         }
@@ -394,13 +394,13 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
             for(int t =i+1; t < k; t++) {
                 get_block(matr, block, n, m, i, t);
                 get_block(solution, block1, n , m, t, k);
-                mult(block, block1, tmp, m , m ,m, m);
+                mult(block, block1, tmp, m , m ,m, m, norma);
                 subtraction(block2, tmp, m);
             }
 
             get_block(matr, block, n, m, i, k);
             get_block(solution, block1, n, m, k, k);
-            mult(block, block1, tmp, m ,m ,m ,m);
+            mult(block, block1, tmp, m ,m ,m ,m,norma);
             subtraction(block2, tmp, m);
             put_block(solution, block2, n, m, i, k);
         }

@@ -101,8 +101,12 @@ int main(int argc, char **argv)
     for (int i = 0; i < n*n; i++)
             matrtmp[i] = matr[i];
 
+    double matrix_norm = norma(matr, n);
+    if (matrix_norm > 1) {
+        matrix_norm = 1/matrix_norm;
+    }
     start = clock();
-    int sd = solve(n, m, matr, block, x, inverse, temp, temp1, temp2);
+    int sd = solve(n, m, matr, block, x, inverse, temp, temp1, temp2, matrix_norm);
     end = clock();
     double t1 = (double)(end - start) / (double)CLOCKS_PER_SEC;
 
@@ -125,15 +129,14 @@ int main(int argc, char **argv)
                 argv[0], 12, -1., -1. ,0., 0. , s, n, m);
                 break;
         case 0:
-            //блочный счет невязки
             double res1 = 0. ;
             double res2 = 0. ;
             PrintDouble(x, r, r);
             if (n <= 11000)
             {
                 start = clock();
-                res1 = residual_matrix(matrtmp, x, matr, block, temp1, n ,m);
-                res2 = matrix_residual(matrtmp, x, matr, block, temp1, n ,m);
+                res1 = residual_matrix(matrtmp, x, matr, block, temp1, n ,m, matrix_norm);
+                res2 = matrix_residual(matrtmp, x, matr, block, temp1, n ,m, matrix_norm);
                 end = clock();
                 double t2 = (double)(end - start) / (double)CLOCKS_PER_SEC;
                 printf(

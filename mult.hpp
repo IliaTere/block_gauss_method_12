@@ -1,15 +1,15 @@
 #include <cmath>
-void mult(double *a, double *b, double *c, int rowa, int cola, int rowb, int colb) {
+void mult(double *a, double *b, double *c, int rowa, int cola, int rowb, int colb, double norma) {
     if(cola != rowb) {
         printf("error: Incorrect matrix sizes!");
         return;
     }
     for (int i = 0; i < cola*rowb; i++) {
         c[i] = 0;
-        if (fabs(a[i]) < 1e-90) {
+        if (fabs(a[i]) < 1e-10*norma) {
             a[i] = 0.;
         }
-        if(fabs(b[i]) < 1e-90) {
+        if(fabs(b[i]) < 1e-10*norma) {
             b[i] = 0. ;
         }
     }
