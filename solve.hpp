@@ -276,8 +276,27 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
         
     }
 
+    ravnoBlock(matr, n);
+    ravnoBlock(solution, n);
     get_block(matr, block1, n ,m , k, k);
-    
+    // printf("bl = %d m= %d\n", bl, m);
+    // PrintDouble(block1, m, m);
+    // if (bl == 0) {
+    //     int count = 0; 
+    //     for(int i = 0; i < m*m; i++) {
+            
+    //         if (fabs(block1[i]) < 1e-18) {
+    //             count++;
+    //         }
+    //         if (count == m*m) {
+    //             printf("count = %d m= %d\n", count, m*m);
+    //             printf("Нет обратного у lxl блока\n");
+    //             return 3;
+    //         }
+    //     }    
+    // }
+
+
     for (int i =0; i < bl; i++) {
         for(int j = 0; j < bl; j ++) {
             block[i*bl + j] = block1[i*m + j];
@@ -289,7 +308,6 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
         return 1;
     } else {
         diag(block, inverse, bl);
-
         for (int i = 0; i < k; i++)
         {
             get_block(solution, block, n , m, k, i);

@@ -56,6 +56,7 @@ int main(int argc, char **argv)
         std::string name(argv[5]);
 		int t = read_ff(name , matr , n*n);
         if(t != 0) {
+            
             delete[] matr;
             delete[] x;
             return -5;
