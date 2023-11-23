@@ -26,12 +26,12 @@ int read_ff(const std::string& filename, double* result, int n) {
         std::string token;
         while (iss >> token) {
             if (is_double(token)) {
+                if (i > n-1) {
+                    printf("Incorrect size\n");
+                    return -3;
+                }
                 result[i] = std::stod(token);
                 i++;
-                if (i == n+1) {
-                    std::cout << "Incorrect size" << std::endl;
-                    return -2;
-                }
             } else {
                 std::cout << "Invalid double value: " << token << std::endl;
                 return -2;
