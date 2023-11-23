@@ -58,85 +58,78 @@ double norma(double* block, int m) {
     return norm_m;
 } 
 
-    int treug(double* a,double* b,int n, double norma)
-{
-    for(int i=0;i<n;i++)
-            for(int j=0;j<n;j++)
-                b[i*n+j] = 0;
-        for(int i=0;i<n;i++)
-            b[i*n+i] = 1;
-    double *c;
+int treug(double * a, double * b, int n, double norma) {
+    int i;
+    int j;
+    int k;
+    int t;
+    double p;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            b[i * n + j] = 0;
+        }
+        for (int i = 0; i < n; i++) {
+            b[i * n + i] = 1;
+        }
+    }
+    double * c;
     c = new double[n];
 
-    int i,j,k,t;
-    double p;
-
-    for(i=0;i<n;i++)
-    {
+    for (i = 0; i < n; i++) {
         t = -1;
-        for(j=i;j<n;j++)
-            if(a[j*n+i]>1e-10 * norma || a[j*n+i]<-1e-10 * norma) t = 1;
-        if(t==-1)
-        {
+        for (j = i; j < n; j++)
+            if (a[j * n + i] > 1e-10 * norma || a[j * n + i] < -1e-10 * norma) t = 1;
+        if (t == -1) {
             return -1;
         }
 
-        p = a[i*n+i];
+        p = a[i * n + i];
         t = i;
 
-        for(j=i;j<n;j++)
-        {
-            if(fabs(a[j*n+i])>fabs(p))
-            {
-                p = a[j*n+i];
+        for (j = i; j < n; j++) {
+            if (fabs(a[j * n + i]) > fabs(p)) {
+                p = a[j * n + i];
                 t = j;
             }
         }
 
-        for(j=0;j<n;j++) c[j] = a[t*n+j];
-        for(j=0;j<n;j++) a[t*n+j] = a[i*n+j];
-        for(j=0;j<n;j++) a[i*n+j] = c[j];
+        for (j = 0; j < n; j++) c[j] = a[t * n + j];
+        for (j = 0; j < n; j++) a[t * n + j] = a[i * n + j];
+        for (j = 0; j < n; j++) a[i * n + j] = c[j];
 
-        for(j=0;j<n;j++) c[j] = b[t*n+j];
-        for(j=0;j<n;j++) b[t*n+j] = b[i*n+j];
-        for(j=0;j<n;j++) b[i*n+j] = c[j];
+        for (j = 0; j < n; j++) c[j] = b[t * n + j];
+        for (j = 0; j < n; j++) b[t * n + j] = b[i * n + j];
+        for (j = 0; j < n; j++) b[i * n + j] = c[j];
 
-        p = a[i*n+i];
+        p = a[i * n + i];
 
-        for(j=0;j<n;j++)
-        {
-            a[i*n+j] = a[i*n+j]/p;
-            b[i*n+j] = b[i*n+j]/p;
+        for (j = 0; j < n; j++) {
+            a[i * n + j] = a[i * n + j] / p;
+            b[i * n + j] = b[i * n + j] / p;
         }
 
-        for(j=i+1;j<n;j++)
-        {
-            p = a[j*n+i];
-            for(k=0;k<n;k++)
-            {
-                a[j*n+k] = a[j*n+k] - a[i*n+k]*p;
-                b[j*n+k] = b[j*n+k] - b[i*n+k]*p;
+        for (j = i + 1; j < n; j++) {
+            p = a[j * n + i];
+            for (k = 0; k < n; k++) {
+                a[j * n + k] = a[j * n + k] - a[i * n + k] * p;
+                b[j * n + k] = b[j * n + k] - b[i * n + k] * p;
             }
         }
 
     }
-    delete[]c;
+    delete[] c;
     return 1;
 }
 
-void diag(double* a,double* b,int n)
-{
-    int i,j,k;
+void diag(double * a, double * b, int n) {
+    int i, j, k;
     double p;
-    for(i=n-1;i>0;i--)
-    {
-        for(j=0;j<i;j++)
-        {
-            p = a[j*n+i];
-            for(k=0;k<n;k++)
-            {
-                a[j*n+k] = a[j*n+k] - a[i*n+k]*p;
-                b[j*n+k] = b[j*n+k] - b[i*n+k]*p;
+    for (i = n - 1; i > 0; i--) {
+        for (j = 0; j < i; j++) {
+            p = a[j * n + i];
+            for (k = 0; k < n; k++) {
+                a[j * n + k] = a[j * n + k] - a[i * n + k] * p;
+                b[j * n + k] = b[j * n + k] - b[i * n + k] * p;
             }
         }
     }
