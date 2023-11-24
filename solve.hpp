@@ -78,7 +78,10 @@ int treug(double * a, double * b, int n, double norma) {
     for (i = 0; i < n; i++) {
         t = -1;
         for (j = i; j < n; j++)
-            if (a[j * n + i] > 1e-10 * norma || a[j * n + i] < -1e-10 * norma) t = 1;
+            if (a[j * n + i] >  5e-15 * norma || a[j * n + i] < -5e-15 * norma) {
+                //printf("%e\n", a[j * n + i]);
+                t = 1;
+            }
         if (t == -1) {
             return -1;
         }

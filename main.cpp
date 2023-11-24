@@ -103,7 +103,7 @@ int main(int argc, char **argv)
 
     double matrix_norm = norma(matr, n);
     if (matrix_norm > 1) {
-        matrix_norm = 1/matrix_norm;
+        matrix_norm = 1.;
     }
     start = clock();
     int sd = solve(n, m, matr, block, x, inverse, temp, temp1, temp2, matrix_norm);

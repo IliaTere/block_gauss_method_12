@@ -7,10 +7,10 @@ void mult(double * a, double * b, double * c, int rowa, int cola, int rowb, int 
     }
     for (int i = 0; i < cola * rowb; i++) {
         c[i] = 0;
-        if (fabs(a[i]) < 1e-10 * norma) {
+        if (fabs(a[i]) < 1e-50 * norma) {
             a[i] = 0.;
         }
-        if (fabs(b[i]) < 1e-10 * norma) {
+        if (fabs(b[i]) < 1e-50 * norma) {
             b[i] = 0.;
         }
     }
