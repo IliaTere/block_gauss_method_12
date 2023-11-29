@@ -58,7 +58,7 @@ double norma(double* block, int m) {
     return norm_m;
 } 
 
-int treug(double * a, double * b, int n, double norma) {
+int treug(double * a, double * b, int n, double norma, double* c) {
     int i;
     int j;
     int k;
@@ -72,8 +72,6 @@ int treug(double * a, double * b, int n, double norma) {
             b[i * n + i] = 1;
         }
     }
-    double * c;
-    c = new double[n];
 
     for (i = 0; i < n; i++) {
         t = -1;
@@ -120,7 +118,6 @@ int treug(double * a, double * b, int n, double norma) {
         }
 
     }
-    delete[] c;
     return 1;
 }
 
@@ -161,7 +158,7 @@ void pcord(int i, int j)
     printf("(%d, %d)\n", i, j);
 }
 
-int findmax(double* matr, double* block, int n, int m,int l, int j, double norm) {
+int findmax(double* matr, double* block, int n, int m,int l, int j, double norm, double* buffer) {
     int k = -1;
     int t;
     double tmp;
@@ -169,7 +166,7 @@ int findmax(double* matr, double* block, int n, int m,int l, int j, double norm)
     double* inverse = new double[m * m];
     for (int i = l; i < n/m; i++) {
         get_block(matr, block, n ,m , i, j);
-        t = treug(block, inverse, m, norm);
+        t = treug(block, inverse, m, norm, buffer);
         if (t==-1) {
             continue;
         }
@@ -220,7 +217,7 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
 
     int t = -1;
     for (int p = 0; p < k; p++) {
-        t = findmax(matr, block, n, m, p, p, norma);
+        t = findmax(matr, block, n, m, p, p, norma, tmp);
         if (t == -1) {
             printf("Не нашлось обратной у findmax\n");
             return 1;
@@ -232,7 +229,7 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
 
         get_block(matr, block, n, l, p, p);
        
-        treug(block, inverse, l, norma);
+        treug(block, inverse, l, norma, tmp);
         diag(block, inverse, l);
 
         for (int s = p+1; s < k+1; s++) {
@@ -299,7 +296,7 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
         }
     }
 
-    if (treug(block, inverse, bl, norma) == -1) {
+    if (treug(block, inverse, bl, norma, tmp) == -1) {
         printf("Метод не применим\n");
         return 1;
     } else {
