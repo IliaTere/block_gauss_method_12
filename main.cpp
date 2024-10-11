@@ -105,6 +105,7 @@ int main(int argc, char **argv)
     if (matrix_norm > 1) {
         matrix_norm = 1.;
     }
+    initialize_matrix(x, n);
     start = clock();
     int sd = solve(n, m, matr, block, x, inverse, temp, temp1, temp2, matrix_norm);
     end = clock();

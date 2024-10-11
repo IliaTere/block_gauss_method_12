@@ -1,0 +1,2200 @@
+Running with matrix_size=10, block_size=1, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 2.157441e-14 Res2 = 9.714451e-15 T1 = 0.00 T2 = 0.00 S = 1 N = 10 M = 1
+----------------------------------------
+Running with matrix_size=11, block_size=1, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 2.138933e-14 Res2 = 1.412759e-14 T1 = 0.00 T2 = 0.00 S = 1 N = 11 M = 1
+----------------------------------------
+Running with matrix_size=12, block_size=1, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 3.825615e-14 Res2 = 1.305900e-14 T1 = 0.00 T2 = 0.00 S = 1 N = 12 M = 1
+----------------------------------------
+Running with matrix_size=13, block_size=1, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 3.709436e-14 Res2 = 1.856848e-14 T1 = 0.00 T2 = 0.00 S = 1 N = 13 M = 1
+----------------------------------------
+Running with matrix_size=14, block_size=1, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 2.210386e-14 Res2 = 2.026157e-14 T1 = 0.00 T2 = 0.00 S = 1 N = 14 M = 1
+----------------------------------------
+Running with matrix_size=15, block_size=1, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 5.895788e-14 Res2 = 2.564615e-14 T1 = 0.00 T2 = 0.00 S = 1 N = 15 M = 1
+----------------------------------------
+Running with matrix_size=16, block_size=1, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 6.194036e-14 Res2 = 1.292022e-14 T1 = 0.00 T2 = 0.00 S = 1 N = 16 M = 1
+----------------------------------------
+Running with matrix_size=17, block_size=1, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 1.171634e-13 Res2 = 3.674838e-14 T1 = 0.00 T2 = 0.00 S = 1 N = 17 M = 1
+----------------------------------------
+Running with matrix_size=18, block_size=1, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 1.170682e-13 Res2 = 3.178013e-14 T1 = 0.00 T2 = 0.00 S = 1 N = 18 M = 1
+----------------------------------------
+Running with matrix_size=19, block_size=1, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 1.119260e-13 Res2 = 4.904410e-14 T1 = 0.00 T2 = 0.00 S = 1 N = 19 M = 1
+----------------------------------------
+Running with matrix_size=20, block_size=1, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 1.171239e-13 Res2 = 5.990347e-14 T1 = 0.00 T2 = 0.00 S = 1 N = 20 M = 1
+----------------------------------------
+Running with matrix_size=10, block_size=2, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 4.060376e-14 Res2 = 2.126077e-14 T1 = 0.00 T2 = 0.00 S = 1 N = 10 M = 2
+----------------------------------------
+Running with matrix_size=11, block_size=2, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 6.017501e-14 Res2 = 2.131628e-14 T1 = 0.00 T2 = 0.00 S = 1 N = 11 M = 2
+----------------------------------------
+Running with matrix_size=12, block_size=2, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 1.646194e-13 Res2 = 8.842926e-14 T1 = 0.00 T2 = 0.00 S = 1 N = 12 M = 2
+----------------------------------------
+Running with matrix_size=13, block_size=2, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 7.820411e-14 Res2 = 4.296563e-14 T1 = 0.00 T2 = 0.00 S = 1 N = 13 M = 2
+----------------------------------------
+Running with matrix_size=14, block_size=2, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 1.149353e-13 Res2 = 6.766809e-14 T1 = 0.00 T2 = 0.00 S = 1 N = 14 M = 2
+----------------------------------------
+Running with matrix_size=15, block_size=2, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 1.170976e-13 Res2 = 6.404599e-14 T1 = 0.00 T2 = 0.00 S = 1 N = 15 M = 2
+----------------------------------------
+Running with matrix_size=16, block_size=2, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 9.396617e-14 Res2 = 6.195044e-14 T1 = 0.00 T2 = 0.00 S = 1 N = 16 M = 2
+----------------------------------------
+Running with matrix_size=17, block_size=2, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 5.949632e-14 Res2 = 1.837419e-14 T1 = 0.00 T2 = 0.00 S = 1 N = 17 M = 2
+----------------------------------------
+Running with matrix_size=18, block_size=2, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 5.208427e-13 Res2 = 1.364325e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 18 M = 2
+----------------------------------------
+Running with matrix_size=19, block_size=2, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 3.013226e-13 Res2 = 9.070522e-14 T1 = 0.00 T2 = 0.00 S = 1 N = 19 M = 2
+----------------------------------------
+Running with matrix_size=20, block_size=2, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 7.534857e-13 Res2 = 2.735590e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 20 M = 2
+----------------------------------------
+Running with matrix_size=10, block_size=3, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 9.540702e-14 Res2 = 4.984901e-14 T1 = 0.00 T2 = 0.00 S = 1 N = 10 M = 3
+----------------------------------------
+Running with matrix_size=11, block_size=3, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 1.061065e-13 Res2 = 1.185718e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 11 M = 3
+----------------------------------------
+Running with matrix_size=12, block_size=3, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 2.207861e-13 Res2 = 1.917244e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 12 M = 3
+----------------------------------------
+Running with matrix_size=13, block_size=3, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 1.898216e-13 Res2 = 6.861178e-14 T1 = 0.00 T2 = 0.00 S = 1 N = 13 M = 3
+----------------------------------------
+Running with matrix_size=14, block_size=3, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 1.159196e-13 Res2 = 9.341417e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 14 M = 3
+----------------------------------------
+Running with matrix_size=15, block_size=3, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 2.049363e-13 Res2 = 1.531331e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 15 M = 3
+----------------------------------------
+Running with matrix_size=16, block_size=3, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 1.009320e-13 Res2 = 8.990031e-14 T1 = 0.00 T2 = 0.00 S = 1 N = 16 M = 3
+----------------------------------------
+Running with matrix_size=17, block_size=3, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 4.565977e-14 Res2 = 3.033129e-14 T1 = 0.00 T2 = 0.00 S = 1 N = 17 M = 3
+----------------------------------------
+Running with matrix_size=18, block_size=3, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 1.754298e-13 Res2 = 2.727540e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 18 M = 3
+----------------------------------------
+Running with matrix_size=19, block_size=3, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 5.303580e-13 Res2 = 2.047176e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 19 M = 3
+----------------------------------------
+Running with matrix_size=20, block_size=3, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 5.822344e-13 Res2 = 8.135714e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 20 M = 3
+----------------------------------------
+Running with matrix_size=10, block_size=4, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 5.304487e-14 Res2 = 1.206178e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 10 M = 4
+----------------------------------------
+Running with matrix_size=11, block_size=4, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 1.632601e-13 Res2 = 4.110046e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 11 M = 4
+----------------------------------------
+Running with matrix_size=12, block_size=4, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 9.647221e-14 Res2 = 5.300081e-14 T1 = 0.00 T2 = 0.00 S = 1 N = 12 M = 4
+----------------------------------------
+Running with matrix_size=13, block_size=4, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 2.804756e-13 Res2 = 1.587989e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 13 M = 4
+----------------------------------------
+Running with matrix_size=14, block_size=4, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 1.256045e-13 Res2 = 1.505684e-12 T1 = 0.00 T2 = 0.00 S = 1 N = 14 M = 4
+----------------------------------------
+Running with matrix_size=15, block_size=4, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 1.799178e-13 Res2 = 3.015366e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 15 M = 4
+----------------------------------------
+Running with matrix_size=16, block_size=4, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 1.388770e-13 Res2 = 1.003407e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 16 M = 4
+----------------------------------------
+Running with matrix_size=17, block_size=4, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 3.863253e-13 Res2 = 4.288236e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 17 M = 4
+----------------------------------------
+Running with matrix_size=18, block_size=4, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 3.894675e-13 Res2 = 5.202505e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 18 M = 4
+----------------------------------------
+Running with matrix_size=19, block_size=4, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 3.569079e-13 Res2 = 4.605871e-12 T1 = 0.00 T2 = 0.00 S = 1 N = 19 M = 4
+----------------------------------------
+Running with matrix_size=20, block_size=4, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 4.382878e-13 Res2 = 4.231914e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 20 M = 4
+----------------------------------------
+Running with matrix_size=10, block_size=5, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 4.497143e-14 Res2 = 1.425249e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 10 M = 5
+----------------------------------------
+Running with matrix_size=11, block_size=5, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 1.009277e-13 Res2 = 1.239247e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 11 M = 5
+----------------------------------------
+Running with matrix_size=12, block_size=5, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 1.582268e-13 Res2 = 2.629008e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 12 M = 5
+----------------------------------------
+Running with matrix_size=13, block_size=5, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 1.523087e-13 Res2 = 4.635181e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 13 M = 5
+----------------------------------------
+Running with matrix_size=14, block_size=5, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 1.347325e-13 Res2 = 2.369827e-12 T1 = 0.00 T2 = 0.00 S = 1 N = 14 M = 5
+----------------------------------------
+Running with matrix_size=15, block_size=5, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 3.025908e-13 Res2 = 5.816862e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 15 M = 5
+----------------------------------------
+Running with matrix_size=16, block_size=5, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 2.442074e-13 Res2 = 1.969774e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 16 M = 5
+----------------------------------------
+Running with matrix_size=17, block_size=5, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 3.871414e-13 Res2 = 3.725908e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 17 M = 5
+----------------------------------------
+Running with matrix_size=18, block_size=5, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 7.143788e-13 Res2 = 1.578515e-12 T1 = 0.00 T2 = 0.00 S = 1 N = 18 M = 5
+----------------------------------------
+Running with matrix_size=19, block_size=5, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 8.426460e-13 Res2 = 6.445844e-12 T1 = 0.00 T2 = 0.00 S = 1 N = 19 M = 5
+----------------------------------------
+Running with matrix_size=20, block_size=5, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 6.095819e-13 Res2 = 4.709289e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 20 M = 5
+----------------------------------------
+Running with matrix_size=10, block_size=6, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 2.676871e-14 Res2 = 3.952394e-14 T1 = 0.00 T2 = 0.00 S = 1 N = 10 M = 6
+----------------------------------------
+Running with matrix_size=11, block_size=6, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 2.862290e-14 Res2 = 1.709743e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 11 M = 6
+----------------------------------------
+Running with matrix_size=12, block_size=6, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 8.306124e-14 Res2 = 2.609024e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 12 M = 6
+----------------------------------------
+Running with matrix_size=13, block_size=6, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 3.119615e-13 Res2 = 4.083400e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 13 M = 6
+----------------------------------------
+Running with matrix_size=14, block_size=6, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 1.317482e-13 Res2 = 2.219428e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 14 M = 6
+----------------------------------------
+Running with matrix_size=15, block_size=6, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 3.345596e-13 Res2 = 2.447820e-12 T1 = 0.00 T2 = 0.00 S = 1 N = 15 M = 6
+----------------------------------------
+Running with matrix_size=16, block_size=6, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 2.581469e-13 Res2 = 1.058376e-12 T1 = 0.00 T2 = 0.00 S = 1 N = 16 M = 6
+----------------------------------------
+Running with matrix_size=17, block_size=6, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 2.574647e-13 Res2 = 7.110978e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 17 M = 6
+----------------------------------------
+Running with matrix_size=18, block_size=6, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 7.011915e-13 Res2 = 8.043011e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 18 M = 6
+----------------------------------------
+Running with matrix_size=19, block_size=6, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 6.354183e-13 Res2 = 2.743639e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 19 M = 6
+----------------------------------------
+Running with matrix_size=20, block_size=6, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 1.464300e-12 Res2 = 5.129230e-12 T1 = 0.00 T2 = 0.00 S = 1 N = 20 M = 6
+----------------------------------------
+Running with matrix_size=10, block_size=7, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 1.619181e-14 Res2 = 5.573320e-14 T1 = 0.00 T2 = 0.00 S = 1 N = 10 M = 7
+----------------------------------------
+Running with matrix_size=11, block_size=7, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 6.583062e-14 Res2 = 1.187384e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 11 M = 7
+----------------------------------------
+Running with matrix_size=12, block_size=7, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 4.083333e-14 Res2 = 1.484368e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 12 M = 7
+----------------------------------------
+Running with matrix_size=13, block_size=7, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 7.748943e-14 Res2 = 1.921796e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 13 M = 7
+----------------------------------------
+Running with matrix_size=14, block_size=7, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 1.286977e-13 Res2 = 2.339240e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 14 M = 7
+----------------------------------------
+Running with matrix_size=15, block_size=7, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 1.291508e-13 Res2 = 2.791841e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 15 M = 7
+----------------------------------------
+Running with matrix_size=16, block_size=7, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 1.457413e-13 Res2 = 1.921796e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 16 M = 7
+----------------------------------------
+Running with matrix_size=17, block_size=7, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 4.309978e-13 Res2 = 1.880274e-12 T1 = 0.00 T2 = 0.00 S = 1 N = 17 M = 7
+----------------------------------------
+Running with matrix_size=18, block_size=7, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 7.194100e-13 Res2 = 1.485229e-12 T1 = 0.00 T2 = 0.00 S = 1 N = 18 M = 7
+----------------------------------------
+Running with matrix_size=19, block_size=7, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 1.380180e-12 Res2 = 2.712885e-11 T1 = 0.00 T2 = 0.00 S = 1 N = 19 M = 7
+----------------------------------------
+Running with matrix_size=20, block_size=7, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 1.517898e-12 Res2 = 9.440060e-12 T1 = 0.00 T2 = 0.00 S = 1 N = 20 M = 7
+----------------------------------------
+Running with matrix_size=10, block_size=8, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 1.258297e-14 Res2 = 3.796963e-14 T1 = 0.00 T2 = 0.00 S = 1 N = 10 M = 8
+----------------------------------------
+Running with matrix_size=11, block_size=8, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 7.673760e-14 Res2 = 9.925394e-14 T1 = 0.00 T2 = 0.00 S = 1 N = 11 M = 8
+----------------------------------------
+Running with matrix_size=12, block_size=8, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 6.989064e-14 Res2 = 1.926237e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 12 M = 8
+----------------------------------------
+Running with matrix_size=13, block_size=8, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 7.523191e-14 Res2 = 1.388889e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 13 M = 8
+----------------------------------------
+Running with matrix_size=14, block_size=8, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 1.767918e-13 Res2 = 3.484157e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 14 M = 8
+----------------------------------------
+Running with matrix_size=15, block_size=8, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 1.906921e-13 Res2 = 3.866907e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 15 M = 8
+----------------------------------------
+Running with matrix_size=16, block_size=8, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 1.295647e-13 Res2 = 2.195744e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 16 M = 8
+----------------------------------------
+Running with matrix_size=17, block_size=8, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 3.187186e-13 Res2 = 6.980305e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 17 M = 8
+----------------------------------------
+Running with matrix_size=18, block_size=8, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 5.775997e-13 Res2 = 1.726912e-12 T1 = 0.00 T2 = 0.00 S = 1 N = 18 M = 8
+----------------------------------------
+Running with matrix_size=19, block_size=8, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 5.377888e-13 Res2 = 2.670086e-12 T1 = 0.00 T2 = 0.00 S = 1 N = 19 M = 8
+----------------------------------------
+Running with matrix_size=20, block_size=8, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 1.022693e-12 Res2 = 1.127187e-11 T1 = 0.00 T2 = 0.00 S = 1 N = 20 M = 8
+----------------------------------------
+Running with matrix_size=10, block_size=9, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 2.183011e-14 Res2 = 8.881784e-15 T1 = 0.00 T2 = 0.00 S = 1 N = 10 M = 9
+----------------------------------------
+Running with matrix_size=11, block_size=9, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 2.485516e-14 Res2 = 3.286260e-14 T1 = 0.00 T2 = 0.00 S = 1 N = 11 M = 9
+----------------------------------------
+Running with matrix_size=12, block_size=9, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 5.497064e-14 Res2 = 9.281464e-14 T1 = 0.00 T2 = 0.00 S = 1 N = 12 M = 9
+----------------------------------------
+Running with matrix_size=13, block_size=9, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 6.563403e-14 Res2 = 7.843726e-14 T1 = 0.00 T2 = 0.00 S = 1 N = 13 M = 9
+----------------------------------------
+Running with matrix_size=14, block_size=9, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 9.275909e-14 Res2 = 2.019496e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 14 M = 9
+----------------------------------------
+Running with matrix_size=15, block_size=9, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 6.716156e-14 Res2 = 2.453870e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 15 M = 9
+----------------------------------------
+Running with matrix_size=16, block_size=9, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 9.912507e-14 Res2 = 1.730838e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 16 M = 9
+----------------------------------------
+Running with matrix_size=17, block_size=9, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 3.354108e-13 Res2 = 9.576784e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 17 M = 9
+----------------------------------------
+Running with matrix_size=18, block_size=9, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 3.773568e-13 Res2 = 4.855005e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 18 M = 9
+----------------------------------------
+Running with matrix_size=19, block_size=9, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 2.665719e-13 Res2 = 9.859941e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 19 M = 9
+----------------------------------------
+Running with matrix_size=20, block_size=9, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 7.539782e-13 Res2 = 5.029532e-12 T1 = 0.00 T2 = 0.00 S = 1 N = 20 M = 9
+----------------------------------------
+Running with matrix_size=10, block_size=10, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 0.000000e+00 Res2 = 0.000000e+00 T1 = 0.00 T2 = 0.00 S = 1 N = 10 M = 10
+----------------------------------------
+Running with matrix_size=11, block_size=10, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 2.679762e-14 Res2 = 1.754152e-14 T1 = 0.00 T2 = 0.00 S = 1 N = 11 M = 10
+----------------------------------------
+Running with matrix_size=12, block_size=10, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 2.469874e-14 Res2 = 4.951595e-14 T1 = 0.00 T2 = 0.00 S = 1 N = 12 M = 10
+----------------------------------------
+Running with matrix_size=13, block_size=10, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 6.147912e-14 Res2 = 7.815970e-14 T1 = 0.00 T2 = 0.00 S = 1 N = 13 M = 10
+----------------------------------------
+Running with matrix_size=14, block_size=10, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 6.252281e-14 Res2 = 3.126110e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 14 M = 10
+----------------------------------------
+Running with matrix_size=15, block_size=10, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 1.227556e-13 Res2 = 5.917489e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 15 M = 10
+----------------------------------------
+Running with matrix_size=16, block_size=10, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 1.514198e-13 Res2 = 5.285494e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 16 M = 10
+----------------------------------------
+Running with matrix_size=17, block_size=10, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 3.297144e-13 Res2 = 7.043255e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 17 M = 10
+----------------------------------------
+Running with matrix_size=18, block_size=10, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 1.886762e-13 Res2 = 5.239281e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 18 M = 10
+----------------------------------------
+Running with matrix_size=19, block_size=10, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 5.333255e-13 Res2 = 1.184164e-12 T1 = 0.00 T2 = 0.00 S = 1 N = 19 M = 10
+----------------------------------------
+Running with matrix_size=20, block_size=10, input_formula=1
+
+
+./a.out : Task = 12 Res1 = 3.835438e-13 Res2 = 3.936851e-13 T1 = 0.00 T2 = 0.00 S = 1 N = 20 M = 10
+----------------------------------------
+Running with matrix_size=10, block_size=1, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 0.000000e+00 Res2 = 0.000000e+00 T1 = 0.00 T2 = 0.00 S = 2 N = 10 M = 1
+----------------------------------------
+Running with matrix_size=11, block_size=1, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 7.949197e-14 Res2 = 1.421085e-14 T1 = 0.00 T2 = 0.00 S = 2 N = 11 M = 1
+----------------------------------------
+Running with matrix_size=12, block_size=1, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 6.394885e-14 Res2 = 0.000000e+00 T1 = 0.00 T2 = 0.00 S = 2 N = 12 M = 1
+----------------------------------------
+Running with matrix_size=13, block_size=1, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 1.385558e-13 Res2 = 3.552714e-15 T1 = 0.00 T2 = 0.00 S = 2 N = 13 M = 1
+----------------------------------------
+Running with matrix_size=14, block_size=1, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 2.149392e-13 Res2 = 7.105427e-15 T1 = 0.00 T2 = 0.00 S = 2 N = 14 M = 1
+----------------------------------------
+Running with matrix_size=15, block_size=1, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 0.000000e+00 Res2 = 0.000000e+00 T1 = 0.00 T2 = 0.00 S = 2 N = 15 M = 1
+----------------------------------------
+Running with matrix_size=16, block_size=1, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 0.000000e+00 Res2 = 0.000000e+00 T1 = 0.00 T2 = 0.00 S = 2 N = 16 M = 1
+----------------------------------------
+Running with matrix_size=17, block_size=1, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 1.811884e-13 Res2 = 1.776357e-15 T1 = 0.00 T2 = 0.00 S = 2 N = 17 M = 1
+----------------------------------------
+Running with matrix_size=18, block_size=1, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 3.197442e-13 Res2 = 3.552714e-15 T1 = 0.00 T2 = 0.00 S = 2 N = 18 M = 1
+----------------------------------------
+Running with matrix_size=19, block_size=1, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 3.522738e-13 Res2 = 3.197442e-14 T1 = 0.00 T2 = 0.00 S = 2 N = 19 M = 1
+----------------------------------------
+Running with matrix_size=20, block_size=1, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 4.996004e-13 Res2 = 3.907985e-14 T1 = 0.00 T2 = 0.00 S = 2 N = 20 M = 1
+----------------------------------------
+Running with matrix_size=10, block_size=2, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 3.315866e-14 Res2 = 2.309264e-14 T1 = 0.00 T2 = 0.00 S = 2 N = 10 M = 2
+----------------------------------------
+Running with matrix_size=11, block_size=2, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 6.607677e-14 Res2 = 1.809664e-14 T1 = 0.00 T2 = 0.00 S = 2 N = 11 M = 2
+----------------------------------------
+Running with matrix_size=12, block_size=2, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 3.885781e-14 Res2 = 1.754152e-14 T1 = 0.00 T2 = 0.00 S = 2 N = 12 M = 2
+----------------------------------------
+Running with matrix_size=13, block_size=2, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 2.327860e-13 Res2 = 4.159636e-14 T1 = 0.00 T2 = 0.00 S = 2 N = 13 M = 2
+----------------------------------------
+Running with matrix_size=14, block_size=2, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 5.212867e-14 Res2 = 6.261658e-14 T1 = 0.00 T2 = 0.00 S = 2 N = 14 M = 2
+----------------------------------------
+Running with matrix_size=15, block_size=2, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 4.627132e-13 Res2 = 6.150636e-14 T1 = 0.00 T2 = 0.00 S = 2 N = 15 M = 2
+----------------------------------------
+Running with matrix_size=16, block_size=2, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 1.235641e-13 Res2 = 4.218847e-14 T1 = 0.00 T2 = 0.00 S = 2 N = 16 M = 2
+----------------------------------------
+Running with matrix_size=17, block_size=2, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 5.326295e-13 Res2 = 9.237056e-14 T1 = 0.00 T2 = 0.00 S = 2 N = 17 M = 2
+----------------------------------------
+Running with matrix_size=18, block_size=2, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 1.745482e-13 Res2 = 1.181277e-13 T1 = 0.00 T2 = 0.00 S = 2 N = 18 M = 2
+----------------------------------------
+Running with matrix_size=19, block_size=2, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 9.247087e-13 Res2 = 2.042810e-13 T1 = 0.00 T2 = 0.00 S = 2 N = 19 M = 2
+----------------------------------------
+Running with matrix_size=20, block_size=2, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 4.415148e-13 Res2 = 2.327027e-13 T1 = 0.00 T2 = 0.00 S = 2 N = 20 M = 2
+----------------------------------------
+Running with matrix_size=10, block_size=3, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 2.827368e-13 Res2 = 3.108624e-13 T1 = 0.00 T2 = 0.00 S = 2 N = 10 M = 3
+----------------------------------------
+Running with matrix_size=11, block_size=3, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 2.548332e-13 Res2 = 6.714629e-13 T1 = 0.00 T2 = 0.00 S = 2 N = 11 M = 3
+----------------------------------------
+Running with matrix_size=12, block_size=3, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 1.659413e-13 Res2 = 7.638334e-14 T1 = 0.00 T2 = 0.00 S = 2 N = 12 M = 3
+----------------------------------------
+Running with matrix_size=13, block_size=3, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 8.643950e-13 Res2 = 7.496226e-13 T1 = 0.00 T2 = 0.00 S = 2 N = 13 M = 3
+----------------------------------------
+Running with matrix_size=14, block_size=3, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 1.604544e-12 Res2 = 2.211564e-12 T1 = 0.00 T2 = 0.00 S = 2 N = 14 M = 3
+----------------------------------------
+Running with matrix_size=15, block_size=3, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 6.521697e-13 Res2 = 1.527667e-13 T1 = 0.00 T2 = 0.00 S = 2 N = 15 M = 3
+----------------------------------------
+Running with matrix_size=16, block_size=3, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 1.154089e-12 Res2 = 2.753353e-13 T1 = 0.00 T2 = 0.00 S = 2 N = 16 M = 3
+----------------------------------------
+Running with matrix_size=17, block_size=3, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 1.672273e-12 Res2 = 5.009326e-13 T1 = 0.00 T2 = 0.00 S = 2 N = 17 M = 3
+----------------------------------------
+Running with matrix_size=18, block_size=3, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 9.784889e-13 Res2 = 1.899592e-13 T1 = 0.00 T2 = 0.00 S = 2 N = 18 M = 3
+----------------------------------------
+Running with matrix_size=19, block_size=3, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 3.935206e-12 Res2 = 5.222489e-13 T1 = 0.00 T2 = 0.00 S = 2 N = 19 M = 3
+----------------------------------------
+Running with matrix_size=20, block_size=3, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 3.830260e-12 Res2 = 1.925571e-12 T1 = 0.00 T2 = 0.00 S = 2 N = 20 M = 3
+----------------------------------------
+Running with matrix_size=10, block_size=4, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 0.000000e+00 Res2 = 0.000000e+00 T1 = 0.00 T2 = 0.00 S = 2 N = 10 M = 4
+----------------------------------------
+Running with matrix_size=11, block_size=4, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 0.000000e+00 Res2 = 0.000000e+00 T1 = 0.00 T2 = 0.00 S = 2 N = 11 M = 4
+----------------------------------------
+Running with matrix_size=12, block_size=4, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 0.000000e+00 Res2 = 0.000000e+00 T1 = 0.00 T2 = 0.00 S = 2 N = 12 M = 4
+----------------------------------------
+Running with matrix_size=13, block_size=4, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 1.532108e-14 Res2 = 7.105427e-15 T1 = 0.00 T2 = 0.00 S = 2 N = 13 M = 4
+----------------------------------------
+Running with matrix_size=14, block_size=4, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 1.776357e-14 Res2 = 1.243450e-14 T1 = 0.00 T2 = 0.00 S = 2 N = 14 M = 4
+----------------------------------------
+Running with matrix_size=15, block_size=4, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 4.318768e-14 Res2 = 2.597922e-14 T1 = 0.00 T2 = 0.00 S = 2 N = 15 M = 4
+----------------------------------------
+Running with matrix_size=16, block_size=4, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 6.916689e-14 Res2 = 4.263256e-14 T1 = 0.00 T2 = 0.00 S = 2 N = 16 M = 4
+----------------------------------------
+Running with matrix_size=17, block_size=4, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 1.540249e-13 Res2 = 4.973799e-14 T1 = 0.00 T2 = 0.00 S = 2 N = 17 M = 4
+----------------------------------------
+Running with matrix_size=18, block_size=4, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 1.276756e-13 Res2 = 8.437695e-14 T1 = 0.00 T2 = 0.00 S = 2 N = 18 M = 4
+----------------------------------------
+Running with matrix_size=19, block_size=4, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 1.718255e-13 Res2 = 7.993606e-14 T1 = 0.00 T2 = 0.00 S = 2 N = 19 M = 4
+----------------------------------------
+Running with matrix_size=20, block_size=4, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 2.810345e-13 Res2 = 1.347811e-13 T1 = 0.00 T2 = 0.00 S = 2 N = 20 M = 4
+----------------------------------------
+Running with matrix_size=10, block_size=5, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 3.996803e-14 Res2 = 2.486900e-14 T1 = 0.00 T2 = 0.00 S = 2 N = 10 M = 5
+----------------------------------------
+Running with matrix_size=11, block_size=5, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 1.880274e-13 Res2 = 9.805490e-13 T1 = 0.00 T2 = 0.00 S = 2 N = 11 M = 5
+----------------------------------------
+Running with matrix_size=12, block_size=5, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 2.075673e-13 Res2 = 9.166001e-13 T1 = 0.00 T2 = 0.00 S = 2 N = 12 M = 5
+----------------------------------------
+Running with matrix_size=13, block_size=5, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 3.300027e-13 Res2 = 1.063594e-12 T1 = 0.00 T2 = 0.00 S = 2 N = 13 M = 5
+----------------------------------------
+Running with matrix_size=14, block_size=5, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 3.621814e-13 Res2 = 1.257661e-12 T1 = 0.00 T2 = 0.00 S = 2 N = 14 M = 5
+----------------------------------------
+Running with matrix_size=15, block_size=5, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 2.209344e-13 Res2 = 1.291856e-13 T1 = 0.00 T2 = 0.00 S = 2 N = 15 M = 5
+----------------------------------------
+Running with matrix_size=16, block_size=5, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 5.931255e-13 Res2 = 6.608047e-13 T1 = 0.00 T2 = 0.00 S = 2 N = 16 M = 5
+----------------------------------------
+Running with matrix_size=17, block_size=5, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 5.288658e-13 Res2 = 6.448175e-13 T1 = 0.00 T2 = 0.00 S = 2 N = 17 M = 5
+----------------------------------------
+Running with matrix_size=18, block_size=5, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 6.442846e-13 Res2 = 1.310951e-12 T1 = 0.00 T2 = 0.00 S = 2 N = 18 M = 5
+----------------------------------------
+Running with matrix_size=19, block_size=5, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 6.560219e-13 Res2 = 1.399325e-12 T1 = 0.00 T2 = 0.00 S = 2 N = 19 M = 5
+----------------------------------------
+Running with matrix_size=20, block_size=5, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 5.172085e-13 Res2 = 2.735590e-13 T1 = 0.00 T2 = 0.00 S = 2 N = 20 M = 5
+----------------------------------------
+Running with matrix_size=10, block_size=6, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 2.975398e-14 Res2 = 5.417888e-14 T1 = 0.00 T2 = 0.00 S = 2 N = 10 M = 6
+----------------------------------------
+Running with matrix_size=11, block_size=6, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 7.601327e-14 Res2 = 9.814372e-14 T1 = 0.00 T2 = 0.00 S = 2 N = 11 M = 6
+----------------------------------------
+Running with matrix_size=12, block_size=6, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 8.881784e-14 Res2 = 6.039613e-14 T1 = 0.00 T2 = 0.00 S = 2 N = 12 M = 6
+----------------------------------------
+Running with matrix_size=13, block_size=6, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 4.496403e-13 Res2 = 1.378453e-12 T1 = 0.00 T2 = 0.00 S = 2 N = 13 M = 6
+----------------------------------------
+Running with matrix_size=14, block_size=6, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 7.500667e-13 Res2 = 1.659117e-12 T1 = 0.00 T2 = 0.00 S = 2 N = 14 M = 6
+----------------------------------------
+Running with matrix_size=15, block_size=6, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 6.545875e-13 Res2 = 1.882494e-12 T1 = 0.00 T2 = 0.00 S = 2 N = 15 M = 6
+----------------------------------------
+Running with matrix_size=16, block_size=6, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 7.315630e-13 Res2 = 2.440714e-12 T1 = 0.00 T2 = 0.00 S = 2 N = 16 M = 6
+----------------------------------------
+Running with matrix_size=17, block_size=6, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 8.421412e-13 Res2 = 2.769340e-12 T1 = 0.00 T2 = 0.00 S = 2 N = 17 M = 6
+----------------------------------------
+Running with matrix_size=18, block_size=6, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 6.035913e-13 Res2 = 2.433609e-13 T1 = 0.00 T2 = 0.00 S = 2 N = 18 M = 6
+----------------------------------------
+Running with matrix_size=19, block_size=6, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 1.092682e-12 Res2 = 3.055334e-13 T1 = 0.00 T2 = 0.00 S = 2 N = 19 M = 6
+----------------------------------------
+Running with matrix_size=20, block_size=6, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 9.688916e-13 Res2 = 2.959410e-12 T1 = 0.00 T2 = 0.00 S = 2 N = 20 M = 6
+----------------------------------------
+Running with matrix_size=10, block_size=7, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 2.953193e-14 Res2 = 4.263256e-14 T1 = 0.00 T2 = 0.00 S = 2 N = 10 M = 7
+----------------------------------------
+Running with matrix_size=11, block_size=7, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 4.009491e-14 Res2 = 4.907186e-14 T1 = 0.00 T2 = 0.00 S = 2 N = 11 M = 7
+----------------------------------------
+Running with matrix_size=12, block_size=7, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 6.128431e-14 Res2 = 9.059420e-14 T1 = 0.00 T2 = 0.00 S = 2 N = 12 M = 7
+----------------------------------------
+Running with matrix_size=13, block_size=7, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 6.848490e-14 Res2 = 1.421085e-13 T1 = 0.00 T2 = 0.00 S = 2 N = 13 M = 7
+----------------------------------------
+Running with matrix_size=14, block_size=7, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 1.159073e-13 Res2 = 1.127987e-13 T1 = 0.00 T2 = 0.00 S = 2 N = 14 M = 7
+----------------------------------------
+Running with matrix_size=15, block_size=7, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 8.182026e-13 Res2 = 3.991474e-12 T1 = 0.00 T2 = 0.00 S = 2 N = 15 M = 7
+----------------------------------------
+Running with matrix_size=16, block_size=7, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 9.942523e-13 Res2 = 4.437339e-12 T1 = 0.00 T2 = 0.00 S = 2 N = 16 M = 7
+----------------------------------------
+Running with matrix_size=17, block_size=7, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 1.088843e-12 Res2 = 4.861445e-12 T1 = 0.00 T2 = 0.00 S = 2 N = 17 M = 7
+----------------------------------------
+Running with matrix_size=18, block_size=7, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 1.728395e-12 Res2 = 7.492673e-12 T1 = 0.00 T2 = 0.00 S = 2 N = 18 M = 7
+----------------------------------------
+Running with matrix_size=19, block_size=7, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 1.846459e-12 Res2 = 8.981260e-12 T1 = 0.00 T2 = 0.00 S = 2 N = 19 M = 7
+----------------------------------------
+Running with matrix_size=20, block_size=7, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 2.058924e-12 Res2 = 9.912071e-12 T1 = 0.00 T2 = 0.00 S = 2 N = 20 M = 7
+----------------------------------------
+Running with matrix_size=10, block_size=8, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 0.000000e+00 Res2 = 0.000000e+00 T1 = 0.00 T2 = 0.00 S = 2 N = 10 M = 8
+----------------------------------------
+Running with matrix_size=11, block_size=8, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 0.000000e+00 Res2 = 0.000000e+00 T1 = 0.00 T2 = 0.00 S = 2 N = 11 M = 8
+----------------------------------------
+Running with matrix_size=12, block_size=8, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 0.000000e+00 Res2 = 0.000000e+00 T1 = 0.00 T2 = 0.00 S = 2 N = 12 M = 8
+----------------------------------------
+Running with matrix_size=13, block_size=8, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 0.000000e+00 Res2 = 0.000000e+00 T1 = 0.00 T2 = 0.00 S = 2 N = 13 M = 8
+----------------------------------------
+Running with matrix_size=14, block_size=8, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 3.330669e-14 Res2 = 2.842171e-14 T1 = 0.00 T2 = 0.00 S = 2 N = 14 M = 8
+----------------------------------------
+Running with matrix_size=15, block_size=8, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 1.332268e-14 Res2 = 1.870726e-14 T1 = 0.00 T2 = 0.00 S = 2 N = 15 M = 8
+----------------------------------------
+Running with matrix_size=16, block_size=8, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 0.000000e+00 Res2 = 0.000000e+00 T1 = 0.00 T2 = 0.00 S = 2 N = 16 M = 8
+----------------------------------------
+Running with matrix_size=17, block_size=8, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 0.000000e+00 Res2 = 0.000000e+00 T1 = 0.00 T2 = 0.00 S = 2 N = 17 M = 8
+----------------------------------------
+Running with matrix_size=18, block_size=8, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 0.000000e+00 Res2 = 0.000000e+00 T1 = 0.00 T2 = 0.00 S = 2 N = 18 M = 8
+----------------------------------------
+Running with matrix_size=19, block_size=8, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 0.000000e+00 Res2 = 0.000000e+00 T1 = 0.00 T2 = 0.00 S = 2 N = 19 M = 8
+----------------------------------------
+Running with matrix_size=20, block_size=8, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 0.000000e+00 Res2 = 0.000000e+00 T1 = 0.00 T2 = 0.00 S = 2 N = 20 M = 8
+----------------------------------------
+Running with matrix_size=10, block_size=9, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 3.552714e-14 Res2 = 2.664535e-14 T1 = 0.00 T2 = 0.00 S = 2 N = 10 M = 9
+----------------------------------------
+Running with matrix_size=11, block_size=9, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 6.483702e-14 Res2 = 1.545430e-13 T1 = 0.00 T2 = 0.00 S = 2 N = 11 M = 9
+----------------------------------------
+Running with matrix_size=12, block_size=9, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 7.371881e-14 Res2 = 1.545430e-13 T1 = 0.00 T2 = 0.00 S = 2 N = 12 M = 9
+----------------------------------------
+Running with matrix_size=13, block_size=9, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 7.685210e-14 Res2 = 1.563194e-13 T1 = 0.00 T2 = 0.00 S = 2 N = 13 M = 9
+----------------------------------------
+Running with matrix_size=14, block_size=9, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 1.336709e-13 Res2 = 1.563194e-13 T1 = 0.00 T2 = 0.00 S = 2 N = 14 M = 9
+----------------------------------------
+Running with matrix_size=15, block_size=9, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 1.595020e-13 Res2 = 1.989520e-13 T1 = 0.00 T2 = 0.00 S = 2 N = 15 M = 9
+----------------------------------------
+Running with matrix_size=16, block_size=9, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 1.685565e-13 Res2 = 1.841737e-13 T1 = 0.00 T2 = 0.00 S = 2 N = 16 M = 9
+----------------------------------------
+Running with matrix_size=17, block_size=9, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 2.358854e-13 Res2 = 2.078338e-13 T1 = 0.00 T2 = 0.00 S = 2 N = 17 M = 9
+----------------------------------------
+Running with matrix_size=18, block_size=9, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 2.221680e-13 Res2 = 1.776357e-13 T1 = 0.00 T2 = 0.00 S = 2 N = 18 M = 9
+----------------------------------------
+Running with matrix_size=19, block_size=9, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 6.130652e-13 Res2 = 1.616485e-12 T1 = 0.00 T2 = 0.00 S = 2 N = 19 M = 9
+----------------------------------------
+Running with matrix_size=20, block_size=9, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 9.825474e-13 Res2 = 3.964828e-12 T1 = 0.00 T2 = 0.00 S = 2 N = 20 M = 9
+----------------------------------------
+Running with matrix_size=10, block_size=10, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 0.000000e+00 Res2 = 0.000000e+00 T1 = 0.00 T2 = 0.00 S = 2 N = 10 M = 10
+----------------------------------------
+Running with matrix_size=11, block_size=10, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 5.329071e-15 Res2 = 3.730349e-14 T1 = 0.00 T2 = 0.00 S = 2 N = 11 M = 10
+----------------------------------------
+Running with matrix_size=12, block_size=10, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 1.332268e-14 Res2 = 5.506706e-14 T1 = 0.00 T2 = 0.00 S = 2 N = 12 M = 10
+----------------------------------------
+Running with matrix_size=13, block_size=10, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 1.887379e-14 Res2 = 6.394885e-14 T1 = 0.00 T2 = 0.00 S = 2 N = 13 M = 10
+----------------------------------------
+Running with matrix_size=14, block_size=10, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 6.625811e-14 Res2 = 2.060574e-13 T1 = 0.00 T2 = 0.00 S = 2 N = 14 M = 10
+----------------------------------------
+Running with matrix_size=15, block_size=10, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 8.846257e-14 Res2 = 1.865175e-13 T1 = 0.00 T2 = 0.00 S = 2 N = 15 M = 10
+----------------------------------------
+Running with matrix_size=16, block_size=10, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 9.130474e-14 Res2 = 2.344791e-13 T1 = 0.00 T2 = 0.00 S = 2 N = 16 M = 10
+----------------------------------------
+Running with matrix_size=17, block_size=10, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 1.965983e-13 Res2 = 1.865175e-13 T1 = 0.00 T2 = 0.00 S = 2 N = 17 M = 10
+----------------------------------------
+Running with matrix_size=18, block_size=10, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 1.609379e-13 Res2 = 2.380318e-13 T1 = 0.00 T2 = 0.00 S = 2 N = 18 M = 10
+----------------------------------------
+Running with matrix_size=19, block_size=10, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 2.752021e-13 Res2 = 4.485745e-13 T1 = 0.00 T2 = 0.00 S = 2 N = 19 M = 10
+----------------------------------------
+Running with matrix_size=20, block_size=10, input_formula=2
+
+
+./a.out : Task = 12 Res1 = 4.273470e-13 Res2 = 4.298784e-13 T1 = 0.00 T2 = 0.00 S = 2 N = 20 M = 10
+----------------------------------------
+Running with matrix_size=10, block_size=1, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 3.175238e-14 Res2 = 6.994405e-15 T1 = 0.00 T2 = 0.00 S = 3 N = 10 M = 1
+----------------------------------------
+Running with matrix_size=11, block_size=1, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 5.528911e-14 Res2 = 7.105427e-15 T1 = 0.00 T2 = 0.00 S = 3 N = 11 M = 1
+----------------------------------------
+Running with matrix_size=12, block_size=1, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 5.850875e-14 Res2 = 7.882583e-15 T1 = 0.00 T2 = 0.00 S = 3 N = 12 M = 1
+----------------------------------------
+Running with matrix_size=13, block_size=1, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 1.255107e-13 Res2 = 8.271162e-15 T1 = 0.00 T2 = 0.00 S = 3 N = 13 M = 1
+----------------------------------------
+Running with matrix_size=14, block_size=1, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 1.791345e-13 Res2 = 9.492407e-15 T1 = 0.00 T2 = 0.00 S = 3 N = 14 M = 1
+----------------------------------------
+Running with matrix_size=15, block_size=1, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 4.129475e-13 Res2 = 1.887379e-14 T1 = 0.00 T2 = 0.00 S = 3 N = 15 M = 1
+----------------------------------------
+Running with matrix_size=16, block_size=1, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 1.133538e-13 Res2 = 1.953993e-14 T1 = 0.00 T2 = 0.00 S = 3 N = 16 M = 1
+----------------------------------------
+Running with matrix_size=17, block_size=1, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 0.000000e+00 Res2 = 0.000000e+00 T1 = 0.00 T2 = 0.00 S = 3 N = 17 M = 1
+----------------------------------------
+Running with matrix_size=18, block_size=1, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 2.979283e-13 Res2 = 2.098322e-14 T1 = 0.00 T2 = 0.00 S = 3 N = 18 M = 1
+----------------------------------------
+Running with matrix_size=19, block_size=1, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 6.059597e-13 Res2 = 2.453593e-14 T1 = 0.00 T2 = 0.00 S = 3 N = 19 M = 1
+----------------------------------------
+Running with matrix_size=20, block_size=1, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 3.083644e-13 Res2 = 2.547962e-14 T1 = 0.00 T2 = 0.00 S = 3 N = 20 M = 1
+----------------------------------------
+Running with matrix_size=10, block_size=2, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 3.658555e-14 Res2 = 5.406786e-14 T1 = 0.00 T2 = 0.00 S = 3 N = 10 M = 2
+----------------------------------------
+Running with matrix_size=11, block_size=2, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 5.000000e-01 Res2 = 2.750000e+00 T1 = 0.00 T2 = 0.00 S = 3 N = 11 M = 2
+----------------------------------------
+Running with matrix_size=12, block_size=2, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 8.859983e-14 Res2 = 9.802260e-14 T1 = 0.00 T2 = 0.00 S = 3 N = 12 M = 2
+----------------------------------------
+Running with matrix_size=13, block_size=2, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 5.000000e-01 Res2 = 3.250000e+00 T1 = 0.00 T2 = 0.00 S = 3 N = 13 M = 2
+----------------------------------------
+Running with matrix_size=14, block_size=2, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 9.142130e-14 Res2 = 2.877698e-13 T1 = 0.00 T2 = 0.00 S = 3 N = 14 M = 2
+----------------------------------------
+Running with matrix_size=15, block_size=2, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 5.000000e-01 Res2 = 3.750000e+00 T1 = 0.00 T2 = 0.00 S = 3 N = 15 M = 2
+----------------------------------------
+Running with matrix_size=16, block_size=2, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 2.219889e-13 Res2 = 2.506514e-13 T1 = 0.00 T2 = 0.00 S = 3 N = 16 M = 2
+----------------------------------------
+Running with matrix_size=17, block_size=2, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 5.000000e-01 Res2 = 4.250000e+00 T1 = 0.00 T2 = 0.00 S = 3 N = 17 M = 2
+----------------------------------------
+Running with matrix_size=18, block_size=2, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 3.060391e-13 Res2 = 3.966827e-13 T1 = 0.00 T2 = 0.00 S = 3 N = 18 M = 2
+----------------------------------------
+Running with matrix_size=19, block_size=2, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 5.000000e-01 Res2 = 4.750000e+00 T1 = 0.00 T2 = 0.00 S = 3 N = 19 M = 2
+----------------------------------------
+Running with matrix_size=20, block_size=2, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 4.358309e-13 Res2 = 5.538903e-13 T1 = 0.00 T2 = 0.00 S = 3 N = 20 M = 2
+----------------------------------------
+Running with matrix_size=10, block_size=3, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 5.000000e-01 Res2 = 2.500000e+00 T1 = 0.00 T2 = 0.00 S = 3 N = 10 M = 3
+----------------------------------------
+Running with matrix_size=11, block_size=3, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 5.000000e-01 Res2 = 2.750000e+00 T1 = 0.00 T2 = 0.00 S = 3 N = 11 M = 3
+----------------------------------------
+Running with matrix_size=12, block_size=3, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 4.701504e-14 Res2 = 5.184742e-14 T1 = 0.00 T2 = 0.00 S = 3 N = 12 M = 3
+----------------------------------------
+Running with matrix_size=13, block_size=3, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 5.000000e-01 Res2 = 3.250000e+00 T1 = 0.00 T2 = 0.00 S = 3 N = 13 M = 3
+----------------------------------------
+Running with matrix_size=14, block_size=3, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 5.000000e-01 Res2 = 3.500000e+00 T1 = 0.00 T2 = 0.00 S = 3 N = 14 M = 3
+----------------------------------------
+Running with matrix_size=15, block_size=3, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 1.196709e-13 Res2 = 1.731948e-13 T1 = 0.00 T2 = 0.00 S = 3 N = 15 M = 3
+----------------------------------------
+Running with matrix_size=16, block_size=3, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 5.000000e-01 Res2 = 4.000000e+00 T1 = 0.00 T2 = 0.00 S = 3 N = 16 M = 3
+----------------------------------------
+Running with matrix_size=17, block_size=3, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 5.000000e-01 Res2 = 4.250000e+00 T1 = 0.00 T2 = 0.00 S = 3 N = 17 M = 3
+----------------------------------------
+Running with matrix_size=18, block_size=3, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 2.860122e-13 Res2 = 1.740830e-13 T1 = 0.00 T2 = 0.00 S = 3 N = 18 M = 3
+----------------------------------------
+Running with matrix_size=19, block_size=3, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 5.000000e-01 Res2 = 4.750000e+00 T1 = 0.00 T2 = 0.00 S = 3 N = 19 M = 3
+----------------------------------------
+Running with matrix_size=20, block_size=3, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 5.000000e-01 Res2 = 5.000000e+00 T1 = 0.00 T2 = 0.00 S = 3 N = 20 M = 3
+----------------------------------------
+Running with matrix_size=10, block_size=4, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 1.071429e+00 Res2 = 2.500000e+00 T1 = 0.00 T2 = 0.00 S = 3 N = 10 M = 4
+----------------------------------------
+Running with matrix_size=11, block_size=4, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 5.000000e-01 Res2 = 2.750000e+00 T1 = 0.00 T2 = 0.00 S = 3 N = 11 M = 4
+----------------------------------------
+Running with matrix_size=12, block_size=4, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 6.825517e-14 Res2 = 7.882583e-14 T1 = 0.00 T2 = 0.00 S = 3 N = 12 M = 4
+----------------------------------------
+Running with matrix_size=13, block_size=4, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 5.000000e-01 Res2 = 3.250000e+00 T1 = 0.00 T2 = 0.00 S = 3 N = 13 M = 4
+----------------------------------------
+Running with matrix_size=14, block_size=4, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 1.590909e+00 Res2 = 3.500000e+00 T1 = 0.00 T2 = 0.00 S = 3 N = 14 M = 4
+----------------------------------------
+Running with matrix_size=15, block_size=4, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 5.000000e-01 Res2 = 3.750000e+00 T1 = 0.00 T2 = 0.00 S = 3 N = 15 M = 4
+----------------------------------------
+Running with matrix_size=16, block_size=4, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 1.475124e-13 Res2 = 1.035468e-13 T1 = 0.00 T2 = 0.00 S = 3 N = 16 M = 4
+----------------------------------------
+Running with matrix_size=17, block_size=4, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 5.000000e-01 Res2 = 4.250000e+00 T1 = 0.00 T2 = 0.00 S = 3 N = 17 M = 4
+----------------------------------------
+Running with matrix_size=18, block_size=4, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 2.100000e+00 Res2 = 4.500000e+00 T1 = 0.00 T2 = 0.00 S = 3 N = 18 M = 4
+----------------------------------------
+Running with matrix_size=19, block_size=4, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 5.000000e-01 Res2 = 4.750000e+00 T1 = 0.00 T2 = 0.00 S = 3 N = 19 M = 4
+----------------------------------------
+Running with matrix_size=20, block_size=4, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 5.368365e-13 Res2 = 5.410117e-13 T1 = 0.00 T2 = 0.00 S = 3 N = 20 M = 4
+----------------------------------------
+Running with matrix_size=10, block_size=5, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 8.881784e-16 Res2 = 1.998401e-15 T1 = 0.00 T2 = 0.00 S = 3 N = 10 M = 5
+----------------------------------------
+Running with matrix_size=11, block_size=5, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 5.000000e-01 Res2 = 2.750000e+00 T1 = 0.00 T2 = 0.00 S = 3 N = 11 M = 5
+----------------------------------------
+Running with matrix_size=12, block_size=5, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 1.055556e+00 Res2 = 3.000000e+00 T1 = 0.00 T2 = 0.00 S = 3 N = 12 M = 5
+----------------------------------------
+Running with matrix_size=13, block_size=5, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 1.055556e+00 Res2 = 3.250000e+00 T1 = 0.00 T2 = 0.00 S = 3 N = 13 M = 5
+----------------------------------------
+Running with matrix_size=14, block_size=5, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 5.000000e-01 Res2 = 3.500000e+00 T1 = 0.00 T2 = 0.00 S = 3 N = 14 M = 5
+----------------------------------------
+Running with matrix_size=15, block_size=5, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 5.994742e-14 Res2 = 6.528111e-14 T1 = 0.00 T2 = 0.00 S = 3 N = 15 M = 5
+----------------------------------------
+Running with matrix_size=16, block_size=5, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 5.000000e-01 Res2 = 4.000000e+00 T1 = 0.00 T2 = 0.00 S = 3 N = 16 M = 5
+----------------------------------------
+Running with matrix_size=17, block_size=5, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 1.571429e+00 Res2 = 4.250000e+00 T1 = 0.00 T2 = 0.00 S = 3 N = 17 M = 5
+----------------------------------------
+Running with matrix_size=18, block_size=5, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 1.571429e+00 Res2 = 4.500000e+00 T1 = 0.00 T2 = 0.00 S = 3 N = 18 M = 5
+----------------------------------------
+Running with matrix_size=19, block_size=5, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 5.000000e-01 Res2 = 4.750000e+00 T1 = 0.00 T2 = 0.00 S = 3 N = 19 M = 5
+----------------------------------------
+Running with matrix_size=20, block_size=5, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 1.659707e-13 Res2 = 2.573497e-13 T1 = 0.00 T2 = 0.00 S = 3 N = 20 M = 5
+----------------------------------------
+Running with matrix_size=10, block_size=6, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 1.398412e-14 Res2 = 1.343370e-14 T1 = 0.00 T2 = 0.00 S = 3 N = 10 M = 6
+----------------------------------------
+Running with matrix_size=11, block_size=6, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 3.155809e-14 Res2 = 3.347322e-14 T1 = 0.00 T2 = 0.00 S = 3 N = 11 M = 6
+----------------------------------------
+Running with matrix_size=12, block_size=6, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 4.778753e-14 Res2 = 2.176037e-14 T1 = 0.00 T2 = 0.00 S = 3 N = 12 M = 6
+----------------------------------------
+Running with matrix_size=13, block_size=6, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 5.000000e-01 Res2 = 3.250000e+00 T1 = 0.00 T2 = 0.00 S = 3 N = 13 M = 6
+----------------------------------------
+Running with matrix_size=14, block_size=6, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 1.045455e+00 Res2 = 3.500000e+00 T1 = 0.00 T2 = 0.00 S = 3 N = 14 M = 6
+----------------------------------------
+Running with matrix_size=15, block_size=6, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 1.045455e+00 Res2 = 3.750000e+00 T1 = 0.00 T2 = 0.00 S = 3 N = 15 M = 6
+----------------------------------------
+Running with matrix_size=16, block_size=6, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 1.045455e+00 Res2 = 4.000000e+00 T1 = 0.00 T2 = 0.00 S = 3 N = 16 M = 6
+----------------------------------------
+Running with matrix_size=17, block_size=6, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 5.000000e-01 Res2 = 4.250000e+00 T1 = 0.00 T2 = 0.00 S = 3 N = 17 M = 6
+----------------------------------------
+Running with matrix_size=18, block_size=6, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 2.996886e-13 Res2 = 3.492762e-13 T1 = 0.00 T2 = 0.00 S = 3 N = 18 M = 6
+----------------------------------------
+Running with matrix_size=19, block_size=6, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 5.000000e-01 Res2 = 4.750000e+00 T1 = 0.00 T2 = 0.00 S = 3 N = 19 M = 6
+----------------------------------------
+Running with matrix_size=20, block_size=6, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 1.558824e+00 Res2 = 5.000000e+00 T1 = 0.00 T2 = 0.00 S = 3 N = 20 M = 6
+----------------------------------------
+Running with matrix_size=10, block_size=7, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 1.310063e-14 Res2 = 1.354472e-14 T1 = 0.00 T2 = 0.00 S = 3 N = 10 M = 7
+----------------------------------------
+Running with matrix_size=11, block_size=7, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 1.236048e-14 Res2 = 1.909584e-14 T1 = 0.00 T2 = 0.00 S = 3 N = 11 M = 7
+----------------------------------------
+Running with matrix_size=12, block_size=7, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 4.166280e-14 Res2 = 4.030110e-14 T1 = 0.00 T2 = 0.00 S = 3 N = 12 M = 7
+----------------------------------------
+Running with matrix_size=13, block_size=7, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 4.612745e-14 Res2 = 2.364775e-14 T1 = 0.00 T2 = 0.00 S = 3 N = 13 M = 7
+----------------------------------------
+Running with matrix_size=14, block_size=7, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 8.700128e-14 Res2 = 4.707346e-14 T1 = 0.00 T2 = 0.00 S = 3 N = 14 M = 7
+----------------------------------------
+Running with matrix_size=15, block_size=7, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 5.000000e-01 Res2 = 3.750000e+00 T1 = 0.00 T2 = 0.00 S = 3 N = 15 M = 7
+----------------------------------------
+Running with matrix_size=16, block_size=7, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 1.038462e+00 Res2 = 4.000000e+00 T1 = 0.00 T2 = 0.00 S = 3 N = 16 M = 7
+----------------------------------------
+Running with matrix_size=17, block_size=7, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 1.038462e+00 Res2 = 4.250000e+00 T1 = 0.00 T2 = 0.00 S = 3 N = 17 M = 7
+----------------------------------------
+Running with matrix_size=18, block_size=7, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 1.038462e+00 Res2 = 4.500000e+00 T1 = 0.00 T2 = 0.00 S = 3 N = 18 M = 7
+----------------------------------------
+Running with matrix_size=19, block_size=7, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 1.038462e+00 Res2 = 4.750000e+00 T1 = 0.00 T2 = 0.00 S = 3 N = 19 M = 7
+----------------------------------------
+Running with matrix_size=20, block_size=7, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 5.000000e-01 Res2 = 5.000000e+00 T1 = 0.00 T2 = 0.00 S = 3 N = 20 M = 7
+----------------------------------------
+Running with matrix_size=10, block_size=8, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 1.698641e-14 Res2 = 1.604272e-14 T1 = 0.00 T2 = 0.00 S = 3 N = 10 M = 8
+----------------------------------------
+Running with matrix_size=11, block_size=8, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 2.672049e-14 Res2 = 3.819167e-14 T1 = 0.00 T2 = 0.00 S = 3 N = 11 M = 8
+----------------------------------------
+Running with matrix_size=12, block_size=8, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 4.473432e-14 Res2 = 4.019007e-14 T1 = 0.00 T2 = 0.00 S = 3 N = 12 M = 8
+----------------------------------------
+Running with matrix_size=13, block_size=8, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 6.136113e-14 Res2 = 4.229950e-14 T1 = 0.00 T2 = 0.00 S = 3 N = 13 M = 8
+----------------------------------------
+Running with matrix_size=14, block_size=8, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 4.189864e-14 Res2 = 4.891325e-14 T1 = 0.00 T2 = 0.00 S = 3 N = 14 M = 8
+----------------------------------------
+Running with matrix_size=15, block_size=8, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 7.202374e-14 Res2 = 6.846805e-14 T1 = 0.00 T2 = 0.00 S = 3 N = 15 M = 8
+----------------------------------------
+Running with matrix_size=16, block_size=8, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 1.758829e-13 Res2 = 5.673240e-14 T1 = 0.00 T2 = 0.00 S = 3 N = 16 M = 8
+----------------------------------------
+Running with matrix_size=17, block_size=8, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 5.000000e-01 Res2 = 4.250000e+00 T1 = 0.00 T2 = 0.00 S = 3 N = 17 M = 8
+----------------------------------------
+Running with matrix_size=18, block_size=8, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 1.033333e+00 Res2 = 4.500000e+00 T1 = 0.00 T2 = 0.00 S = 3 N = 18 M = 8
+----------------------------------------
+Running with matrix_size=19, block_size=8, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 1.033333e+00 Res2 = 4.750000e+00 T1 = 0.00 T2 = 0.00 S = 3 N = 19 M = 8
+----------------------------------------
+Running with matrix_size=20, block_size=8, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 1.033333e+00 Res2 = 5.000000e+00 T1 = 0.00 T2 = 0.00 S = 3 N = 20 M = 8
+----------------------------------------
+Running with matrix_size=10, block_size=9, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 4.440892e-16 Res2 = 9.992007e-16 T1 = 0.00 T2 = 0.00 S = 3 N = 10 M = 9
+----------------------------------------
+Running with matrix_size=11, block_size=9, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 1.804112e-16 Res2 = 5.967449e-16 T1 = 0.00 T2 = 0.00 S = 3 N = 11 M = 9
+----------------------------------------
+Running with matrix_size=12, block_size=9, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 1.054712e-15 Res2 = 2.109424e-15 T1 = 0.00 T2 = 0.00 S = 3 N = 12 M = 9
+----------------------------------------
+Running with matrix_size=13, block_size=9, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 9.436896e-16 Res2 = 1.776357e-15 T1 = 0.00 T2 = 0.00 S = 3 N = 13 M = 9
+----------------------------------------
+Running with matrix_size=14, block_size=9, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 1.443290e-15 Res2 = 2.997602e-15 T1 = 0.00 T2 = 0.00 S = 3 N = 14 M = 9
+----------------------------------------
+Running with matrix_size=15, block_size=9, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 3.602674e-14 Res2 = 1.226796e-14 T1 = 0.00 T2 = 0.00 S = 3 N = 15 M = 9
+----------------------------------------
+Running with matrix_size=16, block_size=9, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 1.677825e-14 Res2 = 1.847134e-14 T1 = 0.00 T2 = 0.00 S = 3 N = 16 M = 9
+----------------------------------------
+Running with matrix_size=17, block_size=9, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 0.000000e+00 Res2 = 0.000000e+00 T1 = 0.00 T2 = 0.00 S = 3 N = 17 M = 9
+----------------------------------------
+Running with matrix_size=18, block_size=9, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 8.459899e-14 Res2 = 3.511080e-15 T1 = 0.00 T2 = 0.00 S = 3 N = 18 M = 9
+----------------------------------------
+Running with matrix_size=19, block_size=9, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 5.000000e-01 Res2 = 4.750000e+00 T1 = 0.00 T2 = 0.00 S = 3 N = 19 M = 9
+----------------------------------------
+Running with matrix_size=20, block_size=9, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 1.029412e+00 Res2 = 5.000000e+00 T1 = 0.00 T2 = 0.00 S = 3 N = 20 M = 9
+----------------------------------------
+Running with matrix_size=10, block_size=10, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 0.000000e+00 Res2 = 0.000000e+00 T1 = 0.00 T2 = 0.00 S = 3 N = 10 M = 10
+----------------------------------------
+Running with matrix_size=11, block_size=10, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 6.966649e-14 Res2 = 4.229950e-14 T1 = 0.00 T2 = 0.00 S = 3 N = 11 M = 10
+----------------------------------------
+Running with matrix_size=12, block_size=10, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 7.199796e-14 Res2 = 3.930190e-14 T1 = 0.00 T2 = 0.00 S = 3 N = 12 M = 10
+----------------------------------------
+Running with matrix_size=13, block_size=10, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 7.277512e-14 Res2 = 4.357625e-14 T1 = 0.00 T2 = 0.00 S = 3 N = 13 M = 10
+----------------------------------------
+Running with matrix_size=14, block_size=10, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 8.958883e-14 Res2 = 4.296563e-14 T1 = 0.00 T2 = 0.00 S = 3 N = 14 M = 10
+----------------------------------------
+Running with matrix_size=15, block_size=10, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 8.513560e-14 Res2 = 4.685141e-14 T1 = 0.00 T2 = 0.00 S = 3 N = 15 M = 10
+----------------------------------------
+Running with matrix_size=16, block_size=10, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 9.872504e-14 Res2 = 7.349676e-14 T1 = 0.00 T2 = 0.00 S = 3 N = 16 M = 10
+----------------------------------------
+Running with matrix_size=17, block_size=10, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 1.088227e-13 Res2 = 8.226136e-14 T1 = 0.00 T2 = 0.00 S = 3 N = 17 M = 10
+----------------------------------------
+Running with matrix_size=18, block_size=10, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 1.605295e-13 Res2 = 7.238654e-14 T1 = 0.00 T2 = 0.00 S = 3 N = 18 M = 10
+----------------------------------------
+Running with matrix_size=19, block_size=10, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 2.876878e-13 Res2 = 2.720725e-13 T1 = 0.00 T2 = 0.00 S = 3 N = 19 M = 10
+----------------------------------------
+Running with matrix_size=20, block_size=10, input_formula=3
+
+
+./a.out : Task = 12 Res1 = 4.077222e-13 Res2 = 7.827072e-14 T1 = 0.00 T2 = 0.00 S = 3 N = 20 M = 10
+----------------------------------------
+Running with matrix_size=10, block_size=1, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 3.890414e-03 Res2 = 3.471375e-04 T1 = 0.00 T2 = 0.00 S = 4 N = 10 M = 1
+----------------------------------------
+Running with matrix_size=11, block_size=1, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 2.609462e-01 Res2 = 1.080322e-02 T1 = 0.00 T2 = 0.00 S = 4 N = 11 M = 1
+----------------------------------------
+Running with matrix_size=12, block_size=1, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 1.059620e+01 Res2 = 3.369141e-01 T1 = 0.00 T2 = 0.00 S = 4 N = 12 M = 1
+----------------------------------------
+Running with matrix_size=13, block_size=1, input_formula=4
+
+Не нашлось обратной у findmax
+./a.out : Task = 12 Res1 = -1.000000e+00 Res2 = -1.000000e+00 T1 = 0.00 T2 = 0.00 S = 4 N = 13 M = 1
+----------------------------------------
+Running with matrix_size=14, block_size=1, input_formula=4
+
+Не нашлось обратной у findmax
+./a.out : Task = 12 Res1 = -1.000000e+00 Res2 = -1.000000e+00 T1 = 0.00 T2 = 0.00 S = 4 N = 14 M = 1
+----------------------------------------
+Running with matrix_size=15, block_size=1, input_formula=4
+
+Не нашлось обратной у findmax
+./a.out : Task = 12 Res1 = -1.000000e+00 Res2 = -1.000000e+00 T1 = 0.00 T2 = 0.00 S = 4 N = 15 M = 1
+----------------------------------------
+Running with matrix_size=16, block_size=1, input_formula=4
+
+Не нашлось обратной у findmax
+./a.out : Task = 12 Res1 = -1.000000e+00 Res2 = -1.000000e+00 T1 = 0.00 T2 = 0.00 S = 4 N = 16 M = 1
+----------------------------------------
+Running with matrix_size=17, block_size=1, input_formula=4
+
+Не нашлось обратной у findmax
+./a.out : Task = 12 Res1 = -1.000000e+00 Res2 = -1.000000e+00 T1 = 0.00 T2 = 0.00 S = 4 N = 17 M = 1
+----------------------------------------
+Running with matrix_size=18, block_size=1, input_formula=4
+
+Не нашлось обратной у findmax
+./a.out : Task = 12 Res1 = -1.000000e+00 Res2 = -1.000000e+00 T1 = 0.00 T2 = 0.00 S = 4 N = 18 M = 1
+----------------------------------------
+Running with matrix_size=19, block_size=1, input_formula=4
+
+Не нашлось обратной у findmax
+./a.out : Task = 12 Res1 = -1.000000e+00 Res2 = -1.000000e+00 T1 = 0.00 T2 = 0.00 S = 4 N = 19 M = 1
+----------------------------------------
+Running with matrix_size=20, block_size=1, input_formula=4
+
+Не нашлось обратной у findmax
+./a.out : Task = 12 Res1 = -1.000000e+00 Res2 = -1.000000e+00 T1 = 0.00 T2 = 0.00 S = 4 N = 20 M = 1
+----------------------------------------
+Running with matrix_size=10, block_size=2, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 6.184009e-02 Res2 = 6.866455e-04 T1 = 0.00 T2 = 0.00 S = 4 N = 10 M = 2
+----------------------------------------
+Running with matrix_size=11, block_size=2, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 7.110887e+13 Res2 = 8.882308e+08 T1 = 0.00 T2 = 0.00 S = 4 N = 11 M = 2
+----------------------------------------
+Running with matrix_size=12, block_size=2, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 3.635213e+01 Res2 = 8.496094e-01 T1 = 0.00 T2 = 0.00 S = 4 N = 12 M = 2
+----------------------------------------
+Running with matrix_size=13, block_size=2, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 7.022910e+16 Res2 = 2.266603e+10 T1 = 0.00 T2 = 0.00 S = 4 N = 13 M = 2
+----------------------------------------
+Running with matrix_size=14, block_size=2, input_formula=4
+
+Не нашлось обратной у findmax
+./a.out : Task = 12 Res1 = -1.000000e+00 Res2 = -1.000000e+00 T1 = 0.00 T2 = 0.00 S = 4 N = 14 M = 2
+----------------------------------------
+Running with matrix_size=15, block_size=2, input_formula=4
+
+Не нашлось обратной у findmax
+./a.out : Task = 12 Res1 = -1.000000e+00 Res2 = -1.000000e+00 T1 = 0.00 T2 = 0.00 S = 4 N = 15 M = 2
+----------------------------------------
+Running with matrix_size=16, block_size=2, input_formula=4
+
+Не нашлось обратной у findmax
+./a.out : Task = 12 Res1 = -1.000000e+00 Res2 = -1.000000e+00 T1 = 0.00 T2 = 0.00 S = 4 N = 16 M = 2
+----------------------------------------
+Running with matrix_size=17, block_size=2, input_formula=4
+
+Не нашлось обратной у findmax
+./a.out : Task = 12 Res1 = -1.000000e+00 Res2 = -1.000000e+00 T1 = 0.00 T2 = 0.00 S = 4 N = 17 M = 2
+----------------------------------------
+Running with matrix_size=18, block_size=2, input_formula=4
+
+Не нашлось обратной у findmax
+./a.out : Task = 12 Res1 = -1.000000e+00 Res2 = -1.000000e+00 T1 = 0.00 T2 = 0.00 S = 4 N = 18 M = 2
+----------------------------------------
+Running with matrix_size=19, block_size=2, input_formula=4
+
+Не нашлось обратной у findmax
+./a.out : Task = 12 Res1 = -1.000000e+00 Res2 = -1.000000e+00 T1 = 0.00 T2 = 0.00 S = 4 N = 19 M = 2
+----------------------------------------
+Running with matrix_size=20, block_size=2, input_formula=4
+
+Не нашлось обратной у findmax
+./a.out : Task = 12 Res1 = -1.000000e+00 Res2 = -1.000000e+00 T1 = 0.00 T2 = 0.00 S = 4 N = 20 M = 2
+----------------------------------------
+Running with matrix_size=10, block_size=3, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 4.550299e+11 Res2 = 2.791871e+09 T1 = 0.00 T2 = 0.00 S = 4 N = 10 M = 3
+----------------------------------------
+Running with matrix_size=11, block_size=3, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 2.607269e+13 Res2 = 1.040564e+11 T1 = 0.00 T2 = 0.00 S = 4 N = 11 M = 3
+----------------------------------------
+Running with matrix_size=12, block_size=3, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 1.564511e+05 Res2 = 1.179688e+01 T1 = 0.00 T2 = 0.00 S = 4 N = 12 M = 3
+----------------------------------------
+Running with matrix_size=13, block_size=3, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 1.728892e+14 Res2 = 1.772016e+11 T1 = 0.00 T2 = 0.00 S = 4 N = 13 M = 3
+----------------------------------------
+Running with matrix_size=14, block_size=3, input_formula=4
+
+Метод не применим
+./a.out : Task = 12 Res1 = -1.000000e+00 Res2 = -1.000000e+00 T1 = 0.00 T2 = 0.00 S = 4 N = 14 M = 3
+----------------------------------------
+Running with matrix_size=15, block_size=3, input_formula=4
+
+Не нашлось обратной у findmax
+./a.out : Task = 12 Res1 = -1.000000e+00 Res2 = -1.000000e+00 T1 = 0.00 T2 = 0.00 S = 4 N = 15 M = 3
+----------------------------------------
+Running with matrix_size=16, block_size=3, input_formula=4
+
+Не нашлось обратной у findmax
+./a.out : Task = 12 Res1 = -1.000000e+00 Res2 = -1.000000e+00 T1 = 0.00 T2 = 0.00 S = 4 N = 16 M = 3
+----------------------------------------
+Running with matrix_size=17, block_size=3, input_formula=4
+
+Не нашлось обратной у findmax
+./a.out : Task = 12 Res1 = -1.000000e+00 Res2 = -1.000000e+00 T1 = 0.00 T2 = 0.00 S = 4 N = 17 M = 3
+----------------------------------------
+Running with matrix_size=18, block_size=3, input_formula=4
+
+Не нашлось обратной у findmax
+./a.out : Task = 12 Res1 = -1.000000e+00 Res2 = -1.000000e+00 T1 = 0.00 T2 = 0.00 S = 4 N = 18 M = 3
+----------------------------------------
+Running with matrix_size=19, block_size=3, input_formula=4
+
+Не нашлось обратной у findmax
+./a.out : Task = 12 Res1 = -1.000000e+00 Res2 = -1.000000e+00 T1 = 0.00 T2 = 0.00 S = 4 N = 19 M = 3
+----------------------------------------
+Running with matrix_size=20, block_size=3, input_formula=4
+
+Не нашлось обратной у findmax
+./a.out : Task = 12 Res1 = -1.000000e+00 Res2 = -1.000000e+00 T1 = 0.00 T2 = 0.00 S = 4 N = 20 M = 3
+----------------------------------------
+Running with matrix_size=10, block_size=4, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 1.097710e+11 Res2 = 8.700245e+10 T1 = 0.00 T2 = 0.00 S = 4 N = 10 M = 4
+----------------------------------------
+Running with matrix_size=11, block_size=4, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 2.953547e+11 Res2 = 2.930596e+11 T1 = 0.00 T2 = 0.00 S = 4 N = 11 M = 4
+----------------------------------------
+Running with matrix_size=12, block_size=4, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 1.917693e+04 Res2 = 6.360916e+00 T1 = 0.00 T2 = 0.00 S = 4 N = 12 M = 4
+----------------------------------------
+Running with matrix_size=13, block_size=4, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 1.290484e+13 Res2 = 7.127342e+11 T1 = 0.00 T2 = 0.00 S = 4 N = 13 M = 4
+----------------------------------------
+Running with matrix_size=14, block_size=4, input_formula=4
+
+Метод не применим
+./a.out : Task = 12 Res1 = -1.000000e+00 Res2 = -1.000000e+00 T1 = 0.00 T2 = 0.00 S = 4 N = 14 M = 4
+----------------------------------------
+Running with matrix_size=15, block_size=4, input_formula=4
+
+Метод не применим
+./a.out : Task = 12 Res1 = -1.000000e+00 Res2 = -1.000000e+00 T1 = 0.00 T2 = 0.00 S = 4 N = 15 M = 4
+----------------------------------------
+Running with matrix_size=16, block_size=4, input_formula=4
+
+Не нашлось обратной у findmax
+./a.out : Task = 12 Res1 = -1.000000e+00 Res2 = -1.000000e+00 T1 = 0.00 T2 = 0.00 S = 4 N = 16 M = 4
+----------------------------------------
+Running with matrix_size=17, block_size=4, input_formula=4
+
+Не нашлось обратной у findmax
+./a.out : Task = 12 Res1 = -1.000000e+00 Res2 = -1.000000e+00 T1 = 0.00 T2 = 0.00 S = 4 N = 17 M = 4
+----------------------------------------
+Running with matrix_size=18, block_size=4, input_formula=4
+
+Не нашлось обратной у findmax
+./a.out : Task = 12 Res1 = -1.000000e+00 Res2 = -1.000000e+00 T1 = 0.00 T2 = 0.00 S = 4 N = 18 M = 4
+----------------------------------------
+Running with matrix_size=19, block_size=4, input_formula=4
+
+Не нашлось обратной у findmax
+./a.out : Task = 12 Res1 = -1.000000e+00 Res2 = -1.000000e+00 T1 = 0.00 T2 = 0.00 S = 4 N = 19 M = 4
+----------------------------------------
+Running with matrix_size=20, block_size=4, input_formula=4
+
+Не нашлось обратной у findmax
+./a.out : Task = 12 Res1 = -1.000000e+00 Res2 = -1.000000e+00 T1 = 0.00 T2 = 0.00 S = 4 N = 20 M = 4
+----------------------------------------
+Running with matrix_size=10, block_size=5, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 2.700856e+00 Res2 = 3.179092e+00 T1 = 0.00 T2 = 0.00 S = 4 N = 10 M = 5
+----------------------------------------
+Running with matrix_size=11, block_size=5, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 7.149376e+11 Res2 = 1.858915e+11 T1 = 0.00 T2 = 0.00 S = 4 N = 11 M = 5
+----------------------------------------
+Running with matrix_size=12, block_size=5, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 8.975159e+11 Res2 = 1.377809e+11 T1 = 0.00 T2 = 0.00 S = 4 N = 12 M = 5
+----------------------------------------
+Running with matrix_size=13, block_size=5, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 2.031163e+12 Res2 = 1.799526e+11 T1 = 0.00 T2 = 0.00 S = 4 N = 13 M = 5
+----------------------------------------
+Running with matrix_size=14, block_size=5, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 1.884363e+14 Res2 = 1.077701e+13 T1 = 0.00 T2 = 0.00 S = 4 N = 14 M = 5
+----------------------------------------
+Running with matrix_size=15, block_size=5, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 3.043439e+06 Res2 = 2.666923e+02 T1 = 0.00 T2 = 0.00 S = 4 N = 15 M = 5
+----------------------------------------
+Running with matrix_size=16, block_size=5, input_formula=4
+
+Метод не применим
+./a.out : Task = 12 Res1 = -1.000000e+00 Res2 = -1.000000e+00 T1 = 0.00 T2 = 0.00 S = 4 N = 16 M = 5
+----------------------------------------
+Running with matrix_size=17, block_size=5, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 1.601662e+14 Res2 = 3.082490e+13 T1 = 0.00 T2 = 0.00 S = 4 N = 17 M = 5
+----------------------------------------
+Running with matrix_size=18, block_size=5, input_formula=4
+
+Метод не применим
+./a.out : Task = 12 Res1 = -1.000000e+00 Res2 = -1.000000e+00 T1 = 0.00 T2 = 0.00 S = 4 N = 18 M = 5
+----------------------------------------
+Running with matrix_size=19, block_size=5, input_formula=4
+
+Метод не применим
+./a.out : Task = 12 Res1 = -1.000000e+00 Res2 = -1.000000e+00 T1 = 0.00 T2 = 0.00 S = 4 N = 19 M = 5
+----------------------------------------
+Running with matrix_size=20, block_size=5, input_formula=4
+
+Не нашлось обратной у findmax
+./a.out : Task = 12 Res1 = -1.000000e+00 Res2 = -1.000000e+00 T1 = 0.00 T2 = 0.00 S = 4 N = 20 M = 5
+----------------------------------------
+Running with matrix_size=10, block_size=6, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 2.594166e+11 Res2 = 1.194669e+06 T1 = 0.00 T2 = 0.00 S = 4 N = 10 M = 6
+----------------------------------------
+Running with matrix_size=11, block_size=6, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 3.276997e+11 Res2 = 3.744407e+06 T1 = 0.00 T2 = 0.00 S = 4 N = 11 M = 6
+----------------------------------------
+Running with matrix_size=12, block_size=6, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 7.908292e+01 Res2 = 4.879891e+02 T1 = 0.00 T2 = 0.00 S = 4 N = 12 M = 6
+----------------------------------------
+Running with matrix_size=13, block_size=6, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 2.950986e+11 Res2 = 2.661940e+12 T1 = 0.00 T2 = 0.00 S = 4 N = 13 M = 6
+----------------------------------------
+Running with matrix_size=14, block_size=6, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 1.889858e+11 Res2 = 4.096181e+12 T1 = 0.00 T2 = 0.00 S = 4 N = 14 M = 6
+----------------------------------------
+Running with matrix_size=15, block_size=6, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 2.909176e+12 Res2 = 1.224305e+14 T1 = 0.00 T2 = 0.00 S = 4 N = 15 M = 6
+----------------------------------------
+Running with matrix_size=16, block_size=6, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 6.774934e+15 Res2 = 3.625338e+13 T1 = 0.00 T2 = 0.00 S = 4 N = 16 M = 6
+----------------------------------------
+Running with matrix_size=17, block_size=6, input_formula=4
+
+Метод не применим
+./a.out : Task = 12 Res1 = -1.000000e+00 Res2 = -1.000000e+00 T1 = 0.00 T2 = 0.00 S = 4 N = 17 M = 6
+----------------------------------------
+Running with matrix_size=18, block_size=6, input_formula=4
+
+Не нашлось обратной у findmax
+./a.out : Task = 12 Res1 = -1.000000e+00 Res2 = -1.000000e+00 T1 = 0.00 T2 = 0.00 S = 4 N = 18 M = 6
+----------------------------------------
+Running with matrix_size=19, block_size=6, input_formula=4
+
+Не нашлось обратной у findmax
+./a.out : Task = 12 Res1 = -1.000000e+00 Res2 = -1.000000e+00 T1 = 0.00 T2 = 0.00 S = 4 N = 19 M = 6
+----------------------------------------
+Running with matrix_size=20, block_size=6, input_formula=4
+
+Не нашлось обратной у findmax
+./a.out : Task = 12 Res1 = -1.000000e+00 Res2 = -1.000000e+00 T1 = 0.00 T2 = 0.00 S = 4 N = 20 M = 6
+----------------------------------------
+Running with matrix_size=10, block_size=7, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 1.191553e+02 Res2 = 7.280366e+01 T1 = 0.00 T2 = 0.00 S = 4 N = 10 M = 7
+----------------------------------------
+Running with matrix_size=11, block_size=7, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 3.014555e+12 Res2 = 1.048751e+06 T1 = 0.00 T2 = 0.00 S = 4 N = 11 M = 7
+----------------------------------------
+Running with matrix_size=12, block_size=7, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 7.576325e+11 Res2 = 1.415761e+05 T1 = 0.00 T2 = 0.00 S = 4 N = 12 M = 7
+----------------------------------------
+Running with matrix_size=13, block_size=7, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 1.830298e+13 Res2 = 2.839807e+07 T1 = 0.00 T2 = 0.00 S = 4 N = 13 M = 7
+----------------------------------------
+Running with matrix_size=14, block_size=7, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 7.164333e+05 Res2 = 1.453466e+05 T1 = 0.00 T2 = 0.00 S = 4 N = 14 M = 7
+----------------------------------------
+Running with matrix_size=15, block_size=7, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 1.941919e+11 Res2 = 1.189287e+12 T1 = 0.00 T2 = 0.00 S = 4 N = 15 M = 7
+----------------------------------------
+Running with matrix_size=16, block_size=7, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 1.979197e+12 Res2 = 9.742416e+12 T1 = 0.00 T2 = 0.00 S = 4 N = 16 M = 7
+----------------------------------------
+Running with matrix_size=17, block_size=7, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 4.894482e+11 Res2 = 2.202808e+13 T1 = 0.00 T2 = 0.00 S = 4 N = 17 M = 7
+----------------------------------------
+Running with matrix_size=18, block_size=7, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 2.732121e+14 Res2 = 1.628658e+14 T1 = 0.00 T2 = 0.00 S = 4 N = 18 M = 7
+----------------------------------------
+Running with matrix_size=19, block_size=7, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 1.468536e+16 Res2 = 1.408881e+15 T1 = 0.00 T2 = 0.00 S = 4 N = 19 M = 7
+----------------------------------------
+Running with matrix_size=20, block_size=7, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 2.378946e+15 Res2 = 1.635113e+15 T1 = 0.00 T2 = 0.00 S = 4 N = 20 M = 7
+----------------------------------------
+Running with matrix_size=10, block_size=8, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 3.294691e+01 Res2 = 8.003201e+01 T1 = 0.00 T2 = 0.00 S = 4 N = 10 M = 8
+----------------------------------------
+Running with matrix_size=11, block_size=8, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 7.099701e+03 Res2 = 5.191074e+03 T1 = 0.00 T2 = 0.00 S = 4 N = 11 M = 8
+----------------------------------------
+Running with matrix_size=12, block_size=8, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 1.467661e+12 Res2 = 5.226270e+03 T1 = 0.00 T2 = 0.00 S = 4 N = 12 M = 8
+----------------------------------------
+Running with matrix_size=13, block_size=8, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 1.976765e+14 Res2 = 1.101536e+06 T1 = 0.00 T2 = 0.00 S = 4 N = 13 M = 8
+----------------------------------------
+Running with matrix_size=14, block_size=8, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 7.266093e+13 Res2 = 8.570731e+05 T1 = 0.00 T2 = 0.00 S = 4 N = 14 M = 8
+----------------------------------------
+Running with matrix_size=15, block_size=8, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 4.129790e+14 Res2 = 6.438959e+06 T1 = 0.00 T2 = 0.00 S = 4 N = 15 M = 8
+----------------------------------------
+Running with matrix_size=16, block_size=8, input_formula=4
+
+Не нашлось обратной у findmax
+./a.out : Task = 12 Res1 = -1.000000e+00 Res2 = -1.000000e+00 T1 = 0.00 T2 = 0.00 S = 4 N = 16 M = 8
+----------------------------------------
+Running with matrix_size=17, block_size=8, input_formula=4
+
+Не нашлось обратной у findmax
+./a.out : Task = 12 Res1 = -1.000000e+00 Res2 = -1.000000e+00 T1 = 0.00 T2 = 0.00 S = 4 N = 17 M = 8
+----------------------------------------
+Running with matrix_size=18, block_size=8, input_formula=4
+
+Не нашлось обратной у findmax
+./a.out : Task = 12 Res1 = -1.000000e+00 Res2 = -1.000000e+00 T1 = 0.00 T2 = 0.00 S = 4 N = 18 M = 8
+----------------------------------------
+Running with matrix_size=19, block_size=8, input_formula=4
+
+Не нашлось обратной у findmax
+./a.out : Task = 12 Res1 = -1.000000e+00 Res2 = -1.000000e+00 T1 = 0.00 T2 = 0.00 S = 4 N = 19 M = 8
+----------------------------------------
+Running with matrix_size=20, block_size=8, input_formula=4
+
+Не нашлось обратной у findmax
+./a.out : Task = 12 Res1 = -1.000000e+00 Res2 = -1.000000e+00 T1 = 0.00 T2 = 0.00 S = 4 N = 20 M = 8
+----------------------------------------
+Running with matrix_size=10, block_size=9, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 2.264477e+02 Res2 = 1.854350e+02 T1 = 0.00 T2 = 0.00 S = 4 N = 10 M = 9
+----------------------------------------
+Running with matrix_size=11, block_size=9, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 2.629483e+04 Res2 = 2.761175e+03 T1 = 0.00 T2 = 0.00 S = 4 N = 11 M = 9
+----------------------------------------
+Running with matrix_size=12, block_size=9, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 2.269699e+04 Res2 = 3.896596e+03 T1 = 0.00 T2 = 0.00 S = 4 N = 12 M = 9
+----------------------------------------
+Running with matrix_size=13, block_size=9, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 4.081849e+13 Res2 = 4.416042e+04 T1 = 0.00 T2 = 0.00 S = 4 N = 13 M = 9
+----------------------------------------
+Running with matrix_size=14, block_size=9, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 1.403094e+14 Res2 = 8.582025e+05 T1 = 0.00 T2 = 0.00 S = 4 N = 14 M = 9
+----------------------------------------
+Running with matrix_size=15, block_size=9, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 5.123292e+13 Res2 = 6.298684e+05 T1 = 0.00 T2 = 0.00 S = 4 N = 15 M = 9
+----------------------------------------
+Running with matrix_size=16, block_size=9, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 1.478197e+15 Res2 = 3.397369e+06 T1 = 0.00 T2 = 0.00 S = 4 N = 16 M = 9
+----------------------------------------
+Running with matrix_size=17, block_size=9, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 5.255779e+14 Res2 = 6.515183e+06 T1 = 0.00 T2 = 0.00 S = 4 N = 17 M = 9
+----------------------------------------
+Running with matrix_size=18, block_size=9, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 1.842492e+09 Res2 = 5.873755e+06 T1 = 0.00 T2 = 0.00 S = 4 N = 18 M = 9
+----------------------------------------
+Running with matrix_size=19, block_size=9, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 7.808188e+12 Res2 = 8.106960e+12 T1 = 0.00 T2 = 0.00 S = 4 N = 19 M = 9
+----------------------------------------
+Running with matrix_size=20, block_size=9, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 1.598092e+14 Res2 = 8.860730e+13 T1 = 0.00 T2 = 0.00 S = 4 N = 20 M = 9
+----------------------------------------
+Running with matrix_size=10, block_size=10, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 0.000000e+00 Res2 = 0.000000e+00 T1 = 0.00 T2 = 0.00 S = 4 N = 10 M = 10
+----------------------------------------
+Running with matrix_size=11, block_size=10, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 7.266494e+01 Res2 = 2.353760e+02 T1 = 0.00 T2 = 0.00 S = 4 N = 11 M = 10
+----------------------------------------
+Running with matrix_size=12, block_size=10, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 2.323333e+04 Res2 = 1.343815e+04 T1 = 0.00 T2 = 0.00 S = 4 N = 12 M = 10
+----------------------------------------
+Running with matrix_size=13, block_size=10, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 2.705626e+06 Res2 = 6.355176e+05 T1 = 0.00 T2 = 0.00 S = 4 N = 13 M = 10
+----------------------------------------
+Running with matrix_size=14, block_size=10, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 1.408230e+13 Res2 = 2.208754e+06 T1 = 0.00 T2 = 0.00 S = 4 N = 14 M = 10
+----------------------------------------
+Running with matrix_size=15, block_size=10, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 1.084826e+14 Res2 = 4.169526e+07 T1 = 0.00 T2 = 0.00 S = 4 N = 15 M = 10
+----------------------------------------
+Running with matrix_size=16, block_size=10, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 2.418912e+13 Res2 = 3.185831e+07 T1 = 0.00 T2 = 0.00 S = 4 N = 16 M = 10
+----------------------------------------
+Running with matrix_size=17, block_size=10, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 1.464933e+14 Res2 = 2.472536e+08 T1 = 0.00 T2 = 0.00 S = 4 N = 17 M = 10
+----------------------------------------
+Running with matrix_size=18, block_size=10, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 1.205683e+15 Res2 = 5.612190e+08 T1 = 0.00 T2 = 0.00 S = 4 N = 18 M = 10
+----------------------------------------
+Running with matrix_size=19, block_size=10, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 3.732859e+15 Res2 = 5.455818e+07 T1 = 0.00 T2 = 0.00 S = 4 N = 19 M = 10
+----------------------------------------
+Running with matrix_size=20, block_size=10, input_formula=4
+
+
+./a.out : Task = 12 Res1 = 9.884283e+09 Res2 = 5.007142e+07 T1 = 0.00 T2 = 0.00 S = 4 N = 20 M = 10
+----------------------------------------
