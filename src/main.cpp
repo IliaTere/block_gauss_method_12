@@ -1,12 +1,12 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-#include "reader.hpp"
-#include "solve.hpp"
-#include "formula.hpp"
+#include "../include/reader.hpp"
+#include "../include/solve.hpp"
+#include "../include/formula.hpp"
 #include <cstring>
 #include <time.h>
-#include "residual.hpp"
+#include "../include/residual.hpp"
 
 bool isNumber(std::string& str)
     {
