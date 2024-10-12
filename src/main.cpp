@@ -107,15 +107,13 @@ int main(int argc, char **argv)
     }
     initialize_matrix(x, n);
     start = clock();
+    printf("\n-------------------\n");
     int sd = solve(n, m, matr, block, x, inverse, temp, temp1, temp2, matrix_norm);
     end = clock();
+    printf("\n-------------------\n");
     double t1 = (double)(end - start) / (double)CLOCKS_PER_SEC;
 
-    for(int i=0;i<n;i++)
-            for(int j=0;j<n;j++)
-                e[i*n+j] = 0;
-        for(int i=0;i<n;i++)
-            e[i*n+i] = 1;
+    initialize_matrix(e, n);
 
     switch(sd)
     {

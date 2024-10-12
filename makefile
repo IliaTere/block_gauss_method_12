@@ -1,6 +1,7 @@
 # Переменные
 CC = g++
 CFLAGS = -O3 -fstack-protector-all -g -W -Wall -Wextra -Wunused -Wcast-align -Werror -pedantic -pedantic-errors -Wfloat-equal -Wpointer-arith -Wformat-security -Wmissing-format-attribute -Wformat=2 -Wwrite-strings -Wcast-align -Wno-long-long -Woverloaded-virtual -Wnon-virtual-dtor -Wcast-qual -Wno-property-attribute-mismatch
+CFLAGS_NO_UNUSED = -O3 -fstack-protector-all -g -W -Wall -Wextra -Wcast-align -pedantic -pedantic-errors -Wfloat-equal -Wpointer-arith -Wformat-security -Wmissing-format-attribute -Wformat=2 -Wwrite-strings -Wcast-align -Wno-long-long -Woverloaded-virtual -Wnon-virtual-dtor -Wcast-qual -Wno-property-attribute-mismatch
 
 # Исходные файлы
 SRCS = src/main.cpp
@@ -30,3 +31,8 @@ rebuild: clean all
 # Правило для запуска программы
 run: $(TARGET)
 	./$(TARGET)
+
+# Правило для компиляции без флагов -Wunused
+no_unused:
+	$(CC) $(CFLAGS_NO_UNUSED) -c src/main.cpp -o src/main.o
+	$(CC) $(CFLAGS_NO_UNUSED) -o $(TARGET) src/main.o

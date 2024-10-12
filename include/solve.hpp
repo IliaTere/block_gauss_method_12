@@ -10,7 +10,25 @@
 #define eps -DBL_MAX
 
 using namespace std;
-
+/**
+ * @brief Извлекает блок из матрицы.
+ * 
+ * Эта функция извлекает блок размером `m x m` из матрицы `matr` размером `n x n`,
+ * начиная с позиции `(i, j)`. Результат сохраняется в массиве `block`.
+ * 
+ * @param matr Указатель на матрицу, из которой извлекается блок.
+ * @param block Указатель на массив, в который будет сохранен блок.
+ * @param n Размер матрицы `matr` (n x n).
+ * @param m Размер блока (m x m).
+ * @param i Индекс строки начала блока в матрице `matr`.
+ * @param j Индекс столбца начала блока в матрице `matr`.
+ * 
+ * @note Если `m` равно 0, то размер блока устанавливается в 1.
+ * @warning Функция предполагает, что матрица `matr` и массив `block` имеют достаточный размер.
+ * 
+ * @author Ваше Имя
+ * @date 2023-10-05
+ */
 void get_block (double *matr, double *block , int n, int m, int i , int j )
 {  
     for (int i=0; i < m*m; i++) 
@@ -212,158 +230,48 @@ void initialize_matrix(double* solution, int n) {
 }
 
 int solve(int n, int m, double* matr, double* block, double* solution, double* inverse, double* tmp, double* block1, double* block2, double norma) {
-    int k = n / m;
-    int bl = n - (k * m);
-    int l = m;
-    int t = -1;
-    for (int p = 0; p < k; p++) {
-        t = findmax(matr, block, n, m, p, p, norma, tmp);
-        if (t == -1) {
-            printf("Не нашлось обратной у findmax\n");
-            return 1;
+    int i, j;
+    int k = n/m;
+    int l = n%m;
+    int bl = (l==0?k:k+1);
+    // printf("k: %d\nl: %d\nbl: %d\n ", k, l,bl); // h
+    for (int p=0; p<bl; p++) {
+        if (p != k) {
+            int t = findmax(matr, block, n, m, p, p, norma, tmp);
+            if (t == -1) {
+                printf("Не нашлось обратной у findmax\n");
+                return 1;
+            }
+            if (t != p) {
+                swap_rows(matr, p, t, n, m);
+                swap_rows(solution, p, t, n, m);
+            }
+            get_block(matr, block, n, m, p, p);
+            treug(block, inverse, m, norma, tmp);
+            diag(block, inverse, m);// В inverse обратная на которую надо домножить строку
+        } else {
+            PrintDouble(matr, n, n);
+            pcord(p, p);
+            get_block(matr, block, n, m, p, p);
+            PrintDouble(block, l, l);
+            treug(block, inverse, l, norma, tmp);
+            diag(block, inverse, l);
         }
-        if (t != p) {
-            swap_rows(matr, p, t, n, m);
-            swap_rows(solution, p, t, n, m);
-        }
-
-        get_block(matr, block, n, l, p, p);
-
-        treug(block, inverse, l, norma, tmp);
-        diag(block, inverse, l);
-
-        for (int s = p + 1; s < k + 1; s++) {
+        for (int s = p + 1; s < bl; s++) {
             get_block(matr, block, n, m, p, s);
-
-            mult(inverse, block, tmp, m, m, m, m, norma);
+            int rowb = (p != k ? m : l);
+            int colb = (s != k ? m : l);
+            mult(inverse, block, tmp, m, m, rowb, colb, norma);
+            PrintDouble(inverse, m, m);
+            PrintDouble(block, m, m);
             put_block(matr, tmp, n, m, p, s);
         }
-
-        for (int s = 0; s < k + 1; s++) {
+        for (int s = 0; s < bl; s++) {
             get_block(solution, block, n, m, p, s);
-            mult(inverse, block, tmp, m, m, m, m, norma);
+            int rowb = (p != k ? m : l);
+            int colb = (s != k ? m : l);
+            mult(inverse, block, tmp,m, m, rowb, colb, norma);
             put_block(solution, tmp, n, m, p, s);
-        }
-
-        for (int i = p + 1; i < k + 1; i++) { // Умножение m x m
-            for (int j = p + 1; j < k + 1; j++) {
-                get_block(matr, block, n, m, i, j);
-                get_block(matr, block1, n, m, i, p);
-                get_block(matr, block2, n, m, p, j);
-                mult(block1, block2, tmp, m, m, m, m, norma);
-                subtraction(block, tmp, m);
-                put_block(matr, block, n, m, i, j);
-            }
-        }
-        for (int i = p + 1; i < k + 1; i++) { // Умножение m x m
-            for (int j = 0; j < k + 1; j++) {
-                get_block(solution, block, n, m, i, j);
-
-                get_block(matr, block1, n, m, i, p);
-                get_block(solution, block2, n, m, p, j);
-                mult(block1, block2, tmp, m, m, m, m, norma);
-                subtraction(block, tmp, m);
-                put_block(solution, block, n, m, i, j);
-            }
-        }
-    }
-
-    get_block(matr, block1, n, m, k, k);
-
-    for (int i = 0; i < bl; i++) {
-        for (int j = 0; j < bl; j++) {
-            block[i * bl + j] = block1[i * m + j];
-        }
-    }
-
-    if (treug(block, inverse, bl, norma, tmp) == -1) {
-        printf("Метод не применим\n");
-        return 1;
-    } else {
-        diag(block, inverse, bl);
-        for (int i = 0; i < k; i++) {
-            get_block(solution, block, n, m, k, i);
-
-            mult(inverse, block, tmp, bl, bl, bl, m, norma); // умножение l x l
-
-            put_block(solution, tmp, n, m, k, i);
-        }
-        get_block(solution, block1, n, m, k, k);
-        for (int i = 0; i < bl; i++) {
-            for (int j = 0; j < bl; j++) {
-                block[i * bl + j] = block1[i * m + j];
-            }
-        }
-
-        mult(inverse, block, tmp, bl, bl, bl, bl, norma); // умножение l x l
-
-        if (bl == 1) {
-            for (int i = 0; i < bl; i++) {
-                for (int j = 0; j < bl; j++) {
-                    block[i * bl + j] = tmp[i * bl + j];
-                }
-            }
-        } else {
-            for (int i = 0; i < bl; i++) {
-                for (int j = 0; j < bl; j++) {
-                    block[(i)*m + (j)] = tmp[i * bl + j];
-                }
-            }
-        }
-
-        put_block(solution, block, n, m, k, k);
-    }
-
-    for (int j = 0; j < k; j++) {
-        get_block(solution, block, n, m, k - 1, j);
-        get_block(matr, block1, n, m, k - 1, k);
-        get_block(solution, block2, n, m, k, j);
-        mult(block1, block2, tmp, m, m, m, m, norma);
-        subtraction(block, tmp, m);
-        put_block(solution, block, n, m, k - 1, j);
-    }
-
-    get_block(solution, block, n, m, k - 1, k);
-    get_block(matr, block1, n, m, k - 1, k);
-    get_block(solution, block2, n, m, k, k);
-    mult(block1, block2, tmp, m, m, m, m, norma); // Умножение m x l
-    subtraction(block, tmp, m);
-    put_block(solution, block, n, m, k - 1, k);
-
-    for (int i = k - 2; i >= 0; i--) {
-        for (int j = 0; j < k; j++) {
-            get_block(solution, block2, n, m, i, j);
-
-            for (int t = i + 1; t < k; t++) {
-                get_block(matr, block, n, m, i, t);
-                get_block(solution, block1, n, m, t, j);
-                mult(block, block1, tmp, m, m, m, m, norma);
-                subtraction(block2, tmp, m);
-            }
-            get_block(matr, block, n, m, i, k);
-            get_block(solution, block1, n, m, k, j);
-            mult(block, block1, tmp, m, m, m, m, norma); // Умножение m x l
-            subtraction(block2, tmp, m);
-            put_block(solution, block2, n, m, i, j);
-        }
-    }
-
-    if (bl != 0) {
-        for (int i = k - 2; i > 0; i--) {
-            get_block(solution, block2, n, m, i, k);
-
-            for (int t = i + 1; t < k; t++) {
-                get_block(matr, block, n, m, i, t);
-                get_block(solution, block1, n, m, t, k);
-                mult(block, block1, tmp, m, m, m, m, norma);
-                subtraction(block2, tmp, m);
-            }
-
-            get_block(matr, block, n, m, i, k);
-            get_block(solution, block1, n, m, k, k);
-            mult(block, block1, tmp, m, m, m, m, norma);
-            subtraction(block2, tmp, m);
-            put_block(solution, block2, n, m, i, k);
         }
     }
     return 0;

@@ -69,26 +69,6 @@ bool test_mult(int n, int m) {
             C_custom2(i, j) = c2[i * n + j];
         }
     }
-
-    // Выводим первые 5 элементов каждого решения
-    // std::cout << "First 5 elements of Eigen result:" << std::endl;
-    // for (int i = 0; i < 5; ++i) {
-    //     std::cout << C_eigen(i, 0) << " ";
-    // }
-    // std::cout << std::endl;
-
-    // std::cout << "First 5 elements of Custom result:" << std::endl;
-    // for (int i = 0; i < 5; ++i) {
-    //     std::cout << C_custom(i, 0) << " ";
-    // }
-    // std::cout << std::endl;
-
-    // std::cout << "First 5 elements of Custom2 result:" << std::endl;
-    // for (int i = 0; i < 5; ++i) {
-    //     std::cout << C_custom2(i, 0) << " ";
-    // }
-    // std::cout << std::endl;
-
     // Сравниваем результаты
     bool success = true;
     for (int i = 0; i < n; ++i) {
