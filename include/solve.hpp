@@ -216,10 +216,12 @@ void swap_rows(double* matr, int k, int l, int n, int m) {
     delete[] tmp;
 }
 
-void subtraction(double* a, double* b, int m) {
-    for (int i = 0; i < m*m; i++) {
-        a[i] -= b[i];
-    }    
+void subtraction(double* a, double* b, int row, int col) {
+    for (int i=0; i < row; i++) {
+        for (int j=0; j < col; j++) {
+            a[i * col + j] -= b[i * col + j];
+        }
+    }  
 }
 void initialize_matrix(double* solution, int n) {
     std::memset(solution, 0, n * n * sizeof(double));
@@ -236,7 +238,8 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
     int bl = (l==0?k:k+1);
     // printf("k: %d\nl: %d\nbl: %d\n ", k, l,bl); // h
     for (int p=0; p<bl; p++) {
-        if (p != k) {
+        if (p != k) 
+        {
             int t = findmax(matr, block, n, m, p, p, norma, tmp);
             if (t == -1) {
                 printf("Не нашлось обратной у findmax\n");
@@ -249,30 +252,53 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
             get_block(matr, block, n, m, p, p);
             treug(block, inverse, m, norma, tmp);
             diag(block, inverse, m);// В inverse обратная на которую надо домножить строку
-        } else {
-            PrintDouble(matr, n, n);
-            pcord(p, p);
+        
+            for (int s = p + 1; s < bl; s++) 
+            {
+                get_block(matr, block, n, m, p, s);
+                int rowb = (p != k ? m : l);
+                int colb = (s != k ? m : l);
+                mult(inverse, block, tmp, m, m, rowb, colb, norma);
+                put_block(matr, tmp, n, m, p, s);
+                for (int ss=p+1; ss<bl; ss++) 
+                {
+                    get_block(matr, block, n , m, ss, s);
+                    subtraction(block, tmp, ss!=k?m:l, s!=k?m:l);
+                    put_block(matr, block, n ,m , ss, s);
+                }
+            }
+            for (int s = 0; s < bl; s++) 
+            {
+                get_block(solution, block, n, m, p, s);
+                int rowb = (p != k ? m : l);
+                int colb = (s != k ? m : l);
+                mult(inverse, block, tmp,m, m, rowb, colb, norma);
+                put_block(solution, tmp, n, m, p, s);
+                for(int ss=p+1; ss<bl; ss++) 
+                {
+                    get_block(solution, block, n , m, ss, s);
+                    subtraction(block, tmp, ss!=k?m:l, s!=k?m:l);
+                    put_block(solution, block, n ,m , ss, s);
+                }
+            }
+        } else 
+        {
+            PrintDouble(solution, n , n );
             get_block(matr, block, n, m, p, p);
-            PrintDouble(block, l, l);
-            treug(block, inverse, l, norma, tmp);
-            diag(block, inverse, l);
-        }
-        for (int s = p + 1; s < bl; s++) {
-            get_block(matr, block, n, m, p, s);
-            int rowb = (p != k ? m : l);
-            int colb = (s != k ? m : l);
-            mult(inverse, block, tmp, m, m, rowb, colb, norma);
-            PrintDouble(inverse, m, m);
-            PrintDouble(block, m, m);
-            put_block(matr, tmp, n, m, p, s);
-        }
-        for (int s = 0; s < bl; s++) {
-            get_block(solution, block, n, m, p, s);
-            int rowb = (p != k ? m : l);
-            int colb = (s != k ? m : l);
-            mult(inverse, block, tmp,m, m, rowb, colb, norma);
-            put_block(solution, tmp, n, m, p, s);
+            treug(block, inverse, m, norma, tmp); // Размер взятого блока
+            diag(block, inverse, m);
+            put_block(matr, inverse, n, m, p, p);
+            for (i = 0; i < bl; i++)
+            {
+                get_block(solution, block, n, m, p, i);
+                mult(inverse, block, tmp, l, l,p!=k?m:l, i!=k?m:l, norma);
+                PrintDouble(tmp, m, m);
+                put_block(solution, tmp, n ,m, p, i);
+            }
+            continue;
         }
     }
+    // Обратный ход
+    
     return 0;
 }
