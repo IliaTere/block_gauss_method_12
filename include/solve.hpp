@@ -231,8 +231,20 @@ void initialize_matrix(double* solution, int n) {
     }
 }
 
+void copyMatrix(double* in, double* out, int current_size, int req_size) {
+    for (int i = 0; i < current_size*current_size; i++)
+    {
+        out[i] = 0;
+    }
+    for (int i = 0; i < req_size; ++i) {
+        for (int j = 0; j < req_size; ++j) {
+            out[i * req_size + j] = in[i * current_size + j];
+        }
+    }
+}
+
 int solve(int n, int m, double* matr, double* block, double* solution, double* inverse, double* tmp, double* block1, double* block2, double norma) {
-    int i, j;
+    int s, ss, i;
     int k = n/m;
     int l = n%m;
     int bl = (l==0?k:k+1);
@@ -253,52 +265,82 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
             treug(block, inverse, m, norma, tmp);
             diag(block, inverse, m);// В inverse обратная на которую надо домножить строку
         
-            for (int s = p + 1; s < bl; s++) 
+            for (s = 0; s < bl; s++) 
             {
                 get_block(matr, block, n, m, p, s);
                 int rowb = (p != k ? m : l);
                 int colb = (s != k ? m : l);
                 mult(inverse, block, tmp, m, m, rowb, colb, norma);
                 put_block(matr, tmp, n, m, p, s);
-                for (int ss=p+1; ss<bl; ss++) 
+            }
+            for (s = p+1; s < bl; s++)
+            {
+                get_block(matr, block, n , m, s, p);
+                for (ss=p; ss<bl; ss++) // Тут с p+1
                 {
-                    get_block(matr, block, n , m, ss, s);
-                    subtraction(block, tmp, ss!=k?m:l, s!=k?m:l);
-                    put_block(matr, block, n ,m , ss, s);
+                    get_block(matr, block1, n , m, p, ss);
+                    mult(block1, block, tmp, s!=k?m:l, ss!=k?m:l, m, m, norma);
+                    get_block(matr, block1, n ,m, s, ss);
+                    subtraction(block1, tmp, s!=k?m:l, ss!=k?m:l);
+                    put_block(matr, block1, n, m, s, ss);
                 }
             }
-            for (int s = 0; s < bl; s++) 
+            for (s = 0; s < bl; s++) 
             {
                 get_block(solution, block, n, m, p, s);
                 int rowb = (p != k ? m : l);
                 int colb = (s != k ? m : l);
                 mult(inverse, block, tmp,m, m, rowb, colb, norma);
                 put_block(solution, tmp, n, m, p, s);
-                for(int ss=p+1; ss<bl; ss++) 
+            }
+            for (s = p+1; s < bl; s++)
+            {
+                get_block(matr, block, n , m, s, p);
+                for (ss=p; ss<bl; ss++) // Тут с p+1
                 {
-                    get_block(solution, block, n , m, ss, s);
-                    subtraction(block, tmp, ss!=k?m:l, s!=k?m:l);
-                    put_block(solution, block, n ,m , ss, s);
+                    get_block(solution, block1, n , m, p, ss);
+                    mult(block1, block, tmp, s!=k?m:l, ss!=k?m:l, m, m, norma);
+                    get_block(solution, block1, n ,m, s, ss);
+                    subtraction(block1, tmp, s!=k?m:l, ss!=k?m:l);
+                    put_block(solution, block1, n, m, s, ss);
+                    
                 }
             }
         } else 
         {
-            PrintDouble(solution, n , n );
+            
             get_block(matr, block, n, m, p, p);
-            treug(block, inverse, m, norma, tmp); // Размер взятого блока
-            diag(block, inverse, m);
-            put_block(matr, inverse, n, m, p, p);
-            for (i = 0; i < bl; i++)
+            printf("\n");
+            PrintDouble(matr, n,n);
+            PrintDouble(block, m ,m);
+            copyMatrix(block, block1, m , l);
+           
+            s = treug(block1, inverse, l, norma, tmp);
+            if (s == -1)
             {
-                get_block(solution, block, n, m, p, i);
-                mult(inverse, block, tmp, l, l,p!=k?m:l, i!=k?m:l, norma);
-                PrintDouble(tmp, m, m);
-                put_block(solution, tmp, n ,m, p, i);
+                printf("Метод не применим\n");
+                return 1;
             }
+            diag(block1, inverse, l); // Обратная inverse
+
+            get_block(matr, block, n, m, p, p);
+            copyMatrix(block, block1, m , l);
+            mult(block1, inverse, tmp, l , l, l,l, norma);
+            copyMatrix(tmp, block, l , m);
+            PrintDouble(block, m, m);
+            put_block(matr, block, n, m, p, p);
+            PrintDouble(matr, n, n);
+            // for (i = 0; i < bl; i++)
+            // {
+            //     get_block(solution, block, n, m, p, i);
+            //     mult(inverse, block, tmp, l, l,p!=k?m:l, i!=k?m:l, norma);
+            //     put_block(solution, tmp, n ,m, p, i);
+            // }
             continue;
         }
     }
     // Обратный ход
-    
+    PrintDouble(matr, n,n);
+    printf("\n");
     return 0;
 }

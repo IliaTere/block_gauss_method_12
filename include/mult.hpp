@@ -2,7 +2,7 @@
 
 void mult(double * a, double * b, double * c, int rowa, int cola, int rowb, int colb, double norma) {
     if (cola != rowb) {
-        printf("error: Incorrect matrix sizes!");
+        printf("error: Incorrect matrix sizes! (%d, %d) x (%d, %d)\n", rowa, cola, rowb, colb);
         return;
     }
     for (int i = 0; i < cola * rowb; i++) {
