@@ -267,10 +267,14 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
         
             for (s = 0; s < bl; s++) 
             {
+                // PrintDouble(matr, n,n);
                 get_block(matr, block, n, m, p, s);
                 int rowb = (p != k ? m : l);
                 int colb = (s != k ? m : l);
-                mult(inverse, block, tmp, m, m, rowb, colb, norma);
+                // PrintDouble(inverse, m, m);
+                // PrintDouble(block, m, m);
+                mult(inverse, block, tmp, m, m, m, m, norma);
+                // PrintDouble(tmp, m ,m);
                 put_block(matr, tmp, n, m, p, s);
             }
             for (s = p+1; s < bl; s++)
@@ -279,7 +283,7 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
                 for (ss=p; ss<bl; ss++) // Тут с p+1
                 {
                     get_block(matr, block1, n , m, p, ss);
-                    mult(block1, block, tmp, s!=k?m:l, ss!=k?m:l, m, m, norma);
+                    mult(block1, block, tmp, m, m, m, m, norma);
                     get_block(matr, block1, n ,m, s, ss);
                     subtraction(block1, tmp, s!=k?m:l, ss!=k?m:l);
                     put_block(matr, block1, n, m, s, ss);
@@ -290,7 +294,7 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
                 get_block(solution, block, n, m, p, s);
                 int rowb = (p != k ? m : l);
                 int colb = (s != k ? m : l);
-                mult(inverse, block, tmp,m, m, rowb, colb, norma);
+                mult(inverse, block, tmp,m, m, m, m, norma);
                 put_block(solution, tmp, n, m, p, s);
             }
             for (s = p+1; s < bl; s++)
@@ -299,7 +303,7 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
                 for (ss=p; ss<bl; ss++) // Тут с p+1
                 {
                     get_block(solution, block1, n , m, p, ss);
-                    mult(block1, block, tmp, s!=k?m:l, ss!=k?m:l, m, m, norma);
+                    mult(block1, block, tmp, m, m, m, m, norma);
                     get_block(solution, block1, n ,m, s, ss);
                     subtraction(block1, tmp, s!=k?m:l, ss!=k?m:l);
                     put_block(solution, block1, n, m, s, ss);
@@ -310,9 +314,9 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
         {
             
             get_block(matr, block, n, m, p, p);
-            printf("\n");
-            PrintDouble(matr, n,n);
-            PrintDouble(block, m ,m);
+            // printf("\n");
+            // PrintDouble(matr, n,n);
+            // PrintDouble(block, m ,m);
             copyMatrix(block, block1, m , l);
            
             s = treug(block1, inverse, l, norma, tmp);
@@ -327,9 +331,9 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
             copyMatrix(block, block1, m , l);
             mult(block1, inverse, tmp, l , l, l,l, norma);
             copyMatrix(tmp, block, l , m);
-            PrintDouble(block, m, m);
+            // PrintDouble(block, m, m);
             put_block(matr, block, n, m, p, p);
-            PrintDouble(matr, n, n);
+            // PrintDouble(matr, n, n);
             // for (i = 0; i < bl; i++)
             // {
             //     get_block(solution, block, n, m, p, i);
