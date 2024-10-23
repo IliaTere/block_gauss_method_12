@@ -244,7 +244,7 @@ void copyMatrix(double* in, double* out, int current_size, int req_size) {
 }
 
 int solve(int n, int m, double* matr, double* block, double* solution, double* inverse, double* tmp, double* block1, double* block2, double norma) {
-    int s, ss, i;
+    int s, ss, i, j;
     int k = n/m;
     int l = n%m;
     int bl = (l==0?k:k+1);
@@ -292,8 +292,6 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
             for (s = 0; s < bl; s++) 
             {
                 get_block(solution, block, n, m, p, s);
-                int rowb = (p != k ? m : l);
-                int colb = (s != k ? m : l);
                 mult(inverse, block, tmp,m, m, m, m, norma);
                 put_block(solution, tmp, n, m, p, s);
             }
@@ -331,20 +329,46 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
             copyMatrix(block, block1, m , l);
             mult(block1, inverse, tmp, l , l, l,l, norma);
             copyMatrix(tmp, block, l , m);
-            // PrintDouble(block, m, m);
             put_block(matr, block, n, m, p, p);
-            // PrintDouble(matr, n, n);
-            // for (i = 0; i < bl; i++)
-            // {
-            //     get_block(solution, block, n, m, p, i);
-            //     mult(inverse, block, tmp, l, l,p!=k?m:l, i!=k?m:l, norma);
-            //     put_block(solution, tmp, n ,m, p, i);
-            // }
+            for(i=0; i < bl; i++) 
+            {
+                get_block(solution, block1, n, m, p, i);
+                mult(block1, block, tmp, m, m, m, m, norma);
+                put_block(solution, tmp, n, m, p, i);
+            }
             continue;
         }
     }
-    // Обратный ход
-    PrintDouble(matr, n,n);
-    printf("\n");
+    
+    for( i = bl-1; i>=0; i-- )
+    {
+        for (j = i - 1; j >= 0; j--)
+        {
+            get_block(matr, inverse, n, m, j, i);
+            printf("matr\n");
+            PrintDouble(matr, n, n);
+            for(ss=0; ss<bl; ss++)
+            { 
+                printf("Solution\n");
+                PrintDouble(solution, n, n);
+                get_block(solution, block1, n,m, i, ss);
+                printf("Matr(%d, %d)", j, i);
+                PrintDouble(inverse, m, m);
+                printf("x\n");
+                printf("Solution(%d, %d)", i, ss);
+                PrintDouble(block1, m, m);
+                printf("| | \n");
+                mult(inverse, block1, tmp, m ,m,m,m,norma);
+                PrintDouble(tmp, m, m);
+                get_block(solution, block1, n, m, j, ss);
+                PrintDouble(block1, m, m);
+                printf("|\n");
+                PrintDouble(tmp, m, m);
+                subtraction(block1, tmp, m, m);
+                put_block(solution, block1, n ,m ,j , ss);
+            }
+        }
+    }
+    // printf("\n");
     return 0;
 }
