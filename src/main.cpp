@@ -93,7 +93,7 @@ int main(int argc, char **argv)
     double* temp = new double[m*m];
     double* temp1 = new double[m*m];
     double* temp2 = new double[m*m];
-
+    int* block_index = new int[m];
     double* matrtmp = new double[n*n];
     double* temp3 = new double[n*n];
     double* e = new double[n*n];
@@ -108,7 +108,7 @@ int main(int argc, char **argv)
     initialize_matrix(x, n);
     start = clock();
     printf("\n-------------------\n");
-    int sd = solve(n, m, matr, block, x, inverse, temp, temp1, temp2, matrix_norm);
+    int sd = solve(n, m, matr, block, x, inverse, temp, temp1, temp2, matrix_norm, block_index);
     end = clock();
     printf("\n-------------------\n");
     double t1 = (double)(end - start) / (double)CLOCKS_PER_SEC;
@@ -148,7 +148,7 @@ int main(int argc, char **argv)
             }
             break;
     }
-
+    delete[] block_index;
     delete[] matrtmp;
     delete[] temp3;
     delete[] e;
