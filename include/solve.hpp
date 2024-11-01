@@ -397,17 +397,16 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
             }
         }
     }
-    PrintDouble(matr, n, n);
-    PrintDouble(solution, n, n);
+    // PrintDouble(matr, n, n);
+    // PrintDouble(solution, n, n);
     if (l!=0)
     {
         get_block(matr, block, n ,m, k, k);
-        copyMatrix(block, block1, m , l);
-        if (gauss_classic_row(block1, inverse, block_index, l, matrix_norm, m) == -2)
+        if (gauss_classic_row(block, inverse, block_index, l, matrix_norm, m) == -2)
         {
             return -1;
         }
-        setZeroBlock(matr, block, k, k, n, m);
+        setZeroBlock(matr, block1, k, k, n, m);
         for (j = 0; j <= k; j++) {
             get_block(solution, block, n, m, k, j);
             // PrintDouble(block, m, m);
@@ -417,8 +416,8 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
             put_block(solution, tmp, n ,m, k, j);
         }
     }
-    // PrintDouble(matr, n, n);
-    // PrintDouble(solution, n, n);
+    PrintDouble(matr, n, n);
+    PrintDouble(solution, n, n);
     // for( i = bl-1; i>=0; i-- )
     // {
     //     for (j = i - 1; j >= 0; j--)
