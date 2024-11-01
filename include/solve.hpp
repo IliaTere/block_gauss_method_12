@@ -348,6 +348,12 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
 
             put_block(matr, tmp, n, m, p, s);
         }
+        for (s = 0; s < bl; s++) 
+        {
+            get_block(solution, block, n, m, p, s);
+            mult(inverse, block, tmp, m, m, m, m);
+            put_block(solution, tmp, n, m, p, s);
+        }
         // PrintDouble(matr, n , n);
         for (s = p+1; s < bl; s++)
         {
@@ -380,16 +386,6 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
                 
                 put_block(matr, block1, n, m, s, ss);
             }
-        }
-        for (s = 0; s < bl; s++) 
-        {
-            get_block(solution, block, n, m, p, s);
-            mult(inverse, block, tmp, m, m, m, m);
-            put_block(solution, tmp, n, m, p, s);
-        }
-        for (s = p+1; s < bl; s++)
-        {
-            get_block(matr, block, n , m, s, p);
             for (ss=0; ss<bl; ss++) // Тут с p+1
             {
                 get_block(solution, block1, n , m, p, ss);
