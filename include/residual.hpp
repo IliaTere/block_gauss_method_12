@@ -34,7 +34,7 @@ double norma_block (double* matr, double* block, double* block1, int n, int m)
 }
 
 double residual_matrix(double* matr, double* solution, double* tmp, double* block, double* block1, int n, int m, double norma) {
-    mult(solution, matr, tmp, n, n, n, n, norma);
+    mult(solution, matr, tmp, n, n, n, n);
     for (int i =0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             tmp[i*n+j] -= (i == j ? 1 : 0);
@@ -43,7 +43,7 @@ double residual_matrix(double* matr, double* solution, double* tmp, double* bloc
     return norma_block(tmp, block, block1, n ,m);
 }
 double matrix_residual(double* matr, double* solution, double* tmp, double* block, double* block1, int n, int m, double norma) {
-    mult(matr, solution, tmp, n, n, n, n, norma);
+    mult(matr, solution, tmp, n, n, n, n);
     for (int i =0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             tmp[i*n+j] -= (i == j ? 1 : 0);

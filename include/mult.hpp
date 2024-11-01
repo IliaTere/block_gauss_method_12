@@ -1,3 +1,103 @@
+#define EPS 1e-16
+#define CANNOT_SOLVE -1
+#define IRREVERSIBLE -2
+#define SUCCESS 0
+
+int gauss_classic_row(double *matrix, double *inverse_matrix, int *index, int n, double matrix_norm, int row_ind)
+{
+	int max_index = 0;
+	double tmp_ = 0, max = 0;
+	int index_0 = 0;
+	int index_1 = 0;
+	int swap = 0;
+
+	for (int i = 0; i < n; i++) // Присоединенная матрица
+	{
+		index_0 = i * row_ind;
+		for (int j = 0; j < n; j++)
+			i == j ? inverse_matrix[index_0 + j] = 1. : inverse_matrix[index_0 + j] = 0.;
+	}
+
+	for (int i = 0; i < n; i++)
+		index[i] = i;
+
+	for (int i = 0; i < n; i++) // Прямой ход метода Гаусса
+	{
+		index_0 = i * row_ind;
+		max = fabs(matrix[index_0 + i]); // нахождение главного элемента
+		max_index = i;
+
+		for (int j = i + 1; j < n; j++)
+			if (max < fabs(matrix[index_0 + j]))
+			{
+				max = fabs(matrix[index_0 + j]);
+				max_index = j;
+			}
+
+		swap = index[i];
+		index[i] = index[max_index];
+		index[max_index] = swap;
+
+		for (int j = 0; j < n; j++) // переставляем столбцы местами
+		{
+			index_1 = j * row_ind;
+			tmp_ = matrix[index_1 + i];
+			matrix[index_1 + i] = matrix[index_1 + max_index];
+			matrix[index_1 + max_index] = tmp_;
+		}
+
+		if (fabs(matrix[index_0 + i]) < matrix_norm * EPS) // если элемент нулевой, метод неприменим
+		{
+			return IRREVERSIBLE;
+		}
+
+		// tmp_ = matrix[index_0 + i];
+		tmp_ = 1 / matrix[index_0 + i];
+		matrix[index_0 + i] = 1.0;
+		for (int j = i + 1; j < n; j++) // умножаем i строку на обратный элемент
+			matrix[index_0 + j] *= tmp_;
+
+		for (int j = 0; j < n; j++) // присоединенная матрица. умножаем i строку на обратный элемент
+			inverse_matrix[index_0 + j] *= tmp_;
+
+		for (int j = i + 1; j < n; j++)
+		{
+			tmp_ = matrix[j * row_ind + i];
+			for (int k = i; k < n; k++) // вычитание строки
+				matrix[j * row_ind + k] -= matrix[index_0 + k] * tmp_;
+			for (int k = 0; k < n; k++)
+				inverse_matrix[j * row_ind + k] -= inverse_matrix[index_0 + k] * tmp_; // присоединенная матрица. вычитание строки умноженной на число
+		}
+	}
+
+	for (int i = 0; i < n; i++) // Обратный ход
+		for (int j = n - 1; j >= 0; j--)
+		{
+			index_0 = j * row_ind;
+			tmp_ = inverse_matrix[index_0 + i];
+			for (int k = j + 1; k < n; k++)
+				tmp_ -= matrix[index_0 + k] * inverse_matrix[k * row_ind + i];
+			inverse_matrix[index_0 + i] = tmp_;
+		}
+
+	for (int i = 0; i < n; i++)
+	{
+		index_0 = i * row_ind;
+		index_1 = index[i] * row_ind;
+		for (int j = 0; j < n; j++)
+			matrix[index_1 + j] = inverse_matrix[index_0 + j];
+	}
+
+	for (int i = 0; i < n; i++)
+	{
+		index_0 = i * row_ind;
+		for (int j = 0; j < n; j++)
+			inverse_matrix[index_0 + j] = matrix[index_0 + j];
+	}
+
+	return SUCCESS;
+}
+
 void mult(double *a, double *b, double *res, int m1, int m2, int m3, int m)
 {
 	// a m1 x m2
