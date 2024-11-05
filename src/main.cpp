@@ -102,9 +102,6 @@ int main(int argc, char **argv)
             matrtmp[i] = matr[i];
 
     double matrix_norm = norma(matr, n);
-    if (matrix_norm > 1) {
-        matrix_norm = 1.;
-    }
     initialize_matrix(x, n);
     start = clock();
     printf("\n-------------------\n");
@@ -117,7 +114,7 @@ int main(int argc, char **argv)
 
     switch(sd)
     {
-        case 1:
+        case -1:
             printf(
                 "%s : Task = %d Res1 = %e Res2 = %e T1 = %.2f T2 = %.2f S = %d N = %d M = %d\n",
                 argv[0], 12, -1., -1. ,0. , 0., s, n, m);

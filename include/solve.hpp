@@ -10,73 +10,51 @@
 #define eps -DBL_MAX
 
 using namespace std;
-/**
- * @brief Извлекает блок из матрицы.
- * 
- * Эта функция извлекает блок размером `m x m` из матрицы `matr` размером `n x n`,
- * начиная с позиции `(i, j)`. Результат сохраняется в массиве `block`.
- * 
- * @param matr Указатель на матрицу, из которой извлекается блок.
- * @param block Указатель на массив, в который будет сохранен блок.
- * @param n Размер матрицы `matr` (n x n).
- * @param m Размер блока (m x m).
- * @param i Индекс строки начала блока в матрице `matr`.
- * @param j Индекс столбца начала блока в матрице `matr`.
- * 
- * @note Если `m` равно 0, то размер блока устанавливается в 1.
- * @warning Функция предполагает, что матрица `matr` и массив `block` имеют достаточный размер.
- * 
- * @author Ваше Имя
- * @date 2023-10-05
- */
-void get_block (double *matr, double *block , int n, int m, int i , int j )
-{  
-    for (int i=0; i < m*m; i++) 
-        block[i] = 0;
-    int ii=0,jj=0;
-    if(m == 0 ) {m = 1;}
-    int k = n / m;
-    int l = n - k * m;
-    int v = (j < k ? m : l), h = (i < k ? m : l);
-    double *ma_bl = matr + i * n * m+ j * m;
-    for (ii = 0; ii < h; ii++)
-    {
-        for (jj = 0; jj < v; jj++)
-        {
-            block[ii *m+jj]=ma_bl[ii *n+jj];
-        }   
-    }
-}
-void put_block (double *matr, double *block , int n, int m, int i , int j )
+void get_block(double *matrix, double *block, int n, int m,int i_block, int j_block)
 {
-int ii=0,jj=0;
-int k = n / m;
-int l = n - k * m;
-int v = (j < k ? m : l), h = (i < k ? m : l);
-double *ma_bl = matr + i * n * m+ j * m;
-for (ii = 0; ii < h; ii++)
-{
-    for (jj = 0; jj < v; jj++)
-    {
-        ma_bl[ii *n+jj]=block[ii *m+jj];
-    }   
+	int k = n / m;
+	int l = n % m;
+	int h = (i_block < k ? m : l);
+	int v = (j_block < k ? m : l);
+	int tmp;
+	for (int i = 0; i < m; i++)
+	{
+		tmp = i * m;
+		for (int j = 0; j < m; j++)
+			if (i < h && j < v)
+				block[tmp + j] = matrix[n * (i_block * m + i) + j_block * m + j];
+			else
+				block[tmp + j] = 0;
+	}
 }
+void put_block(double *matrix, double *block, int n, int m, int i_block, int j_block)
+{
+	int k = n / m;
+	int l = n % m;
+	int h = (i_block < k ? m : l);
+	int v = (j_block < k ? m : l);
+	int tmp;
+	for (int i = 0; i < h; i++)
+	{
+		tmp = i * m;
+		for (int j = 0; j < v; j++)
+			matrix[n * (i_block * m + i) + j_block * m + j] = block[tmp + j];
+	}
 }
 
-double norma(double* block, int m) {
-    int i,j;
-    double norm_m=0, temp;
-    for(i=0;i<m;i++)  
-    {
-        temp=0;
-        for(j=0;j<m;j++)
-            temp+= fabs(block[j*m + i]);
-        if(temp>norm_m)
-            norm_m=temp;
-    }
-    return norm_m;
-} 
-
+double norma(double *matrix, int n)
+{
+	double norm = 0, tmp_sum = 0;
+	for (int i = 0; i < n; i++)
+	{
+		tmp_sum = 0;
+		for (int j = 0; j < n; j++)
+			tmp_sum += fabs(matrix[j * n + i]);
+		if (tmp_sum > norm)
+			norm = tmp_sum;
+	}
+	return norm;
+}
 int treug(double * a, double * b, int n, double norma, double* c) {
     int i;
     int j;
@@ -287,6 +265,7 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
     int k = n/m;
     int l = n%m;
     int bl = (l==0?k:k+1);
+    int index_0 = 0, index_1 = 0;
     double buffer_norma, min_norma = 0;
     int min_index = 0;
 
@@ -311,21 +290,10 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
             printf("Метод не применим\n");
             return -1;
         }
-
-        for (s = 0; s < bl; s++) // Переставляем блоки
-		{
-			get_block(matr, block, n, m, p, s);
-			get_block(matr, inverse, n, m, min_index, s);
-			put_block(matr, block, n, m, min_index, s);
-			put_block(matr, inverse, n, m, p, s);
-		}
-
-        for(s=0; s < m; s++)
-        {
-            buff = block_index[min_index * m + s];
-            block_index[min_index*m + s] = block_index[p*m + s];
-            block_index[p*m + s] = buff;
-
+        if (min_index != p) {
+            swap_rows(matr, min_index, p, n, m);
+            swap_rows(solution, min_index, p, n, m);
+            // printf("После перестановки\n");
         }
 
         get_block(matr, block, n, m, p, p);
@@ -399,11 +367,14 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
     }
     // PrintDouble(matr, n, n);
     // PrintDouble(solution, n, n);
+    // printf("До if ###################\n");
     if (l!=0)
     {
         get_block(matr, block, n ,m, k, k);
+        // PrintDouble(block, m, m);
         if (gauss_classic_row(block, inverse, block_index, l, matrix_norm, m) == -2)
         {
+            printf("Вот по этосму\n");
             return -1;
         }
         setZeroBlock(matr, block1, k, k, n, m);
@@ -416,37 +387,35 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
             put_block(solution, tmp, n ,m, k, j);
         }
     }
-    PrintDouble(matr, n, n);
-    PrintDouble(solution, n, n);
-    // for( i = bl-1; i>=0; i-- )
-    // {
-    //     for (j = i - 1; j >= 0; j--)
-    //     {
-    //         get_block(matr, inverse, n, m, j, i);
-    //         // printf("matr\n");
-    //         // PrintDouble(matr, n, n);
-    //         for(ss=0; ss<bl; ss++)
-    //         { 
-    //             // printf("Solution\n");
-    //             // PrintDouble(solution, n, n);
-    //             get_block(solution, block1, n,m, i, ss);
-    //             // printf("Matr(%d, %d)", j, i);
-    //             // PrintDouble(inverse, m, m);
-    //             // printf("x\n");
-    //             // printf("Solution(%d, %d)", i, ss);
-    //             // PrintDouble(block1, m, m);
-    //             // printf("| | \n");
-    //             mult(block1, inverse, tmp, m ,m,m,m);
-    //             // PrintDouble(tmp, m, m);
-    //             get_block(solution, block1, n, m, j, ss);
-    //             // PrintDouble(block1, m, m);
-    //             // printf("|\n");
-    //             // PrintDouble(tmp, m, m);
-    //             subtraction(block1, tmp, j, ss, k, m, l);
-    //             put_block(solution, block1, n ,m ,j , ss);
-    //         }
-    //     }
-    // }
+    // printf("После if ###################\n");
+    // PrintDouble(matr, n, n);
+    // PrintDouble(solution, n, n);
+    for (i = n - 1; i >= 0; i--)
+		for (k = i - 1; k >= 0; k--)
+		{
+			index_0 = k * n;
+			index_1 = i * n;
+			for (j = 0; j < n; j++)
+			{
+				solution[index_0 + j] -= solution[index_1 + j] * matr[index_0 + i];
+			}
+			matr[index_0 + i] = 0;
+		}
+
+	// for (int i = 0; i < n; i++)
+	// {
+	// 	index_0 = index_block[i] * n;
+	// 	index_1 = i * n;
+	// 	for (int j = 0; j < n; j++)
+	// 		matr[index_0 + j] = solution[index_1 + j];
+	// }
+
+	// for (int i = 0; i < n; i++)
+	// {
+	// 	index_0 = i * n;
+	// 	for (int j = 0; j < n; j++)
+	// 		solution[index_0 + j] = matr[index_0 + j];
+	// }
     printf("\n");
     return 0;
 }
