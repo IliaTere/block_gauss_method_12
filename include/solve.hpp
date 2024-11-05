@@ -4,28 +4,23 @@
 #include <float.h>
 #include "mult.hpp"
 #include <iomanip>
+#include <algorithm>
+#include <immintrin.h>
 #include <cstring>
-//#include "reader.hpp"
 #define UNUSED(x) (void)(x)
-#define eps -DBL_MAX
 
 using namespace std;
-void get_block(double *matrix, double *block, int n, int m,int i_block, int j_block)
+void get_block(double *matrix, double *block, int n, int m, int i_block, int j_block)
 {
-	int k = n / m;
-	int l = n % m;
-	int h = (i_block < k ? m : l);
-	int v = (j_block < k ? m : l);
-	int tmp;
-	for (int i = 0; i < m; i++)
-	{
-		tmp = i * m;
-		for (int j = 0; j < m; j++)
-			if (i < h && j < v)
-				block[tmp + j] = matrix[n * (i_block * m + i) + j_block * m + j];
-			else
-				block[tmp + j] = 0;
-	}
+    int k = n / m;
+    int l = n % m;
+    int h = (i_block < k ? m : l);
+    int v = (j_block < k ? m : l);
+    
+    std::fill_n(block, m * m, 0.0);
+    for (int i = 0; i < h; ++i) {
+        std::copy_n(&matrix[n * (i_block * m + i) + j_block * m], v, &block[i * m]);
+    }
 }
 void put_block(double *matrix, double *block, int n, int m, int i_block, int j_block)
 {
@@ -44,13 +39,14 @@ void put_block(double *matrix, double *block, int n, int m, int i_block, int j_b
 
 double norma(double *matrix, int n)
 {
-	double norm = 0, tmp_sum = 0;
+	double norm = 0;
+    double tmp_sum = 0;
 	for (int i = 0; i < n; i++)
 	{
 		tmp_sum = 0;
 		for (int j = 0; j < n; j++)
-			tmp_sum += fabs(matrix[j * n + i]);
-		if (tmp_sum > norm)
+			tmp_sum = tmp_sum + fabs(matrix[j * n + i]);
+		if (tmp_sum - norm > 0)
 			norm = tmp_sum;
 	}
 	return norm;
@@ -132,7 +128,7 @@ void diag(double * a, double * b, int n) {
     }
 }
 
-bool inverse_matrix(double*a, double* b, int n, double norma, double* c)
+bool solution(double*a, double* b, int n, double norma, double* c)
 {
     int t = treug(a, b, n, norma, c);
     if (t == -1) {
@@ -191,17 +187,15 @@ int findmax(double* matr, double* block, int n, int m,int l, int j, double norm,
 
 
 void swap_rows(double* matr, int k, int l, int n, int m) {
-    double* tmp = new double[m*n];
-    for (int i = 0; i < m*n; i++) {
-        tmp[i] = matr[k*m * n + i];
+    int start_k = k * m * n;
+    int start_l = l * m * n;
+
+    // Обмен блочными строками
+    for (int i = 0; i < m; ++i) {
+        for (int j = 0; j < n; ++j) {
+            std::swap(matr[start_k + i * n + j], matr[start_l + i * n + j]);
+        }
     }
-    for (int i = 0; i < m*n; i++) {
-        matr[m*k * n + i] = matr[m*l * n + i];
-    }
-    for (int i = 0; i < m*n; i++) {
-        matr[m*l * n + i] = tmp[i];
-    }
-    delete[] tmp;
 }
 
 void subtraction(double *a, double *b, int i_block, int j_block, int k, int m, int l)
@@ -237,31 +231,27 @@ void copyMatrix(double* in, double* out, int current_size, int req_size) {
 }
 void setZeroBlock(double *matrix, double *block, int i_block, int j_block, int n, int m)
 {
-    // Инициализация блока
     for (int row = 0; row < m; row++)
     {
         for (int col = 0; col < m; col++)
         {
-            // Проверка, является ли элемент диагональным
             if (row == col && i_block == j_block)
             {
-                block[row * m + col] = 1.0; // Установка диагонального элемента в 1
+                block[row * m + col] = 1.0;
             }
             else
             {
-                block[row * m + col] = 0.0; // Установка недиагонального элемента в 0
+                block[row * m + col] = 0.0;
             }
         }
     }
 
-    // Установка блока в матрицу
     put_block(matrix, block, n, m, i_block, j_block);
 }
 
 
-int solve(int n, int m, double* matr, double* block, double* solution, double* inverse, double* tmp, double* block1, double* block2, double matrix_norm, int *block_index) {
+int solve(int n, int m, double* matr, double* block, double* solution, double* inverse, double* tmp, double* block1, /*double* block2,*/ double matrix_norm, int *block_index) {
     int s, ss, i, j;
-    int buff = 0;
     int k = n/m;
     int l = n%m;
     int bl = (l==0?k:k+1);
@@ -299,8 +289,6 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
         get_block(matr, block, n, m, p, p);
         // PrintDouble(block, m , m);
         gauss_classic_row(block, inverse, block_index, m, matrix_norm, m);
-        // printf("Обратная\n");
-        // PrintDouble(inverse, m, m);
         get_block(matr, block, n, m, p, p);
         setZeroBlock(matr, block, p, p, n , m);
         for (s = p+1; s < bl; s++) 
@@ -387,35 +375,35 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
             put_block(solution, tmp, n ,m, k, j);
         }
     }
-    // printf("После if ###################\n");
+
     // PrintDouble(matr, n, n);
     // PrintDouble(solution, n, n);
-    for (i = n - 1; i >= 0; i--)
-		for (k = i - 1; k >= 0; k--)
-		{
-			index_0 = k * n;
-			index_1 = i * n;
-			for (j = 0; j < n; j++)
-			{
-				solution[index_0 + j] -= solution[index_1 + j] * matr[index_0 + i];
-			}
-			matr[index_0 + i] = 0;
-		}
-
-	// for (int i = 0; i < n; i++)
-	// {
-	// 	index_0 = index_block[i] * n;
-	// 	index_1 = i * n;
-	// 	for (int j = 0; j < n; j++)
-	// 		matr[index_0 + j] = solution[index_1 + j];
-	// }
-
-	// for (int i = 0; i < n; i++)
-	// {
-	// 	index_0 = i * n;
-	// 	for (int j = 0; j < n; j++)
-	// 		solution[index_0 + j] = matr[index_0 + j];
-	// }
+    // for (i = n - 1; i >= 0; i--)
+	// 	for (k = i - 1; k >= 0; k--)
+	// 	{
+	// 		index_0 = k * n;
+	// 		index_1 = i * n;
+	// 		for (j = 0; j < n; j++)
+	// 		{
+	// 			solution[index_0 + j] -= solution[index_1 + j] * matr[index_0 + i];
+	// 		}
+	// 		matr[index_0 + i] = 0;
+	// 	}
+    for (int i = bl - 1; i > 0; i--)
+    {
+        for (int j = i - 1; j >= 0; j--)
+        {
+            get_block(matr, inverse, n, m, j, i);
+            for (int jj = 0; jj < bl; jj++)
+            {
+                get_block(solution, block1, n, m, i, jj);
+                mult(inverse, block1, block, m, m, m, m);
+                get_block(solution, block1, n, m, j, jj);
+                subtraction(block1, block, j, jj, k, m, l);
+                put_block(solution, block1, n, m, j, jj);
+            }
+        }
+    }
     printf("\n");
     return 0;
 }

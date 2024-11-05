@@ -1,113 +1,117 @@
 #define EPS 1e-16
-#define CANNOT_SOLVE -1
-#define IRREVERSIBLE -2
-#define SUCCESS 0
 
 int gauss_classic_row(double *matrix, double *inverse_matrix, int *index, int n, double matrix_norm, int row_ind)
 {
-	int max_index = 0;
-	double tmp_ = 0, max = 0;
-	int index_0 = 0;
-	int index_1 = 0;
-	int swap = 0;
+    int max_col_index = 0;
+    double temp = 0, max_abs_value = 0;
+    int row_offset = 0;
+    int col_offset = 0;
+    int temp_index = 0;
 
-	for (int i = 0; i < n; i++) // Присоединенная матрица
-	{
-		index_0 = i * row_ind;
-		for (int j = 0; j < n; j++)
-			i == j ? inverse_matrix[index_0 + j] = 1. : inverse_matrix[index_0 + j] = 0.;
-	}
+    // Инициализация обратной матрицы
+    for (int row = 0; row < n; row++)
+    {
+        row_offset = row * row_ind;
+        for (int col = 0; col < n; col++)
+            inverse_matrix[row_offset + col] = (row == col) ? 1.0 : 0.0;
+    }
 
-	for (int i = 0; i < n; i++)
-		index[i] = i;
+    // Инициализация индексов
+    for (int i = 0; i < n; i++)
+        index[i] = i;
 
-	for (int i = 0; i < n; i++) // Прямой ход метода Гаусса
-	{
-		index_0 = i * row_ind;
-		max = fabs(matrix[index_0 + i]); // нахождение главного элемента
-		max_index = i;
+    // Прямой ход
+    for (int row = 0; row < n; row++)
+    {
+        row_offset = row * row_ind;
+        max_abs_value = fabs(matrix[row_offset + row]);
+        max_col_index = row;
+	
+        // Поиск максимального элемента в столбце
+        for (int col = row + 1; col < n; col++)
+            if (max_abs_value < fabs(matrix[row_offset + col]))
+            {
+                max_abs_value = fabs(matrix[row_offset + col]);
+                max_col_index = col;
+            }
 
-		for (int j = i + 1; j < n; j++)
-			if (max < fabs(matrix[index_0 + j]))
-			{
-				max = fabs(matrix[index_0 + j]);
-				max_index = j;
-			}
+        // Перестановка индексов
+        temp_index = index[row];
+        index[row] = index[max_col_index];
+        index[max_col_index] = temp_index;
 
-		swap = index[i];
-		index[i] = index[max_index];
-		index[max_index] = swap;
+        // Перестановка строк в матрице
+        for (int col = 0; col < n; col++)
+        {
+            col_offset = col * row_ind;
+            temp = matrix[col_offset + row];
+            matrix[col_offset + row] = matrix[col_offset + max_col_index];
+            matrix[col_offset + max_col_index] = temp;
+        }
 
-		for (int j = 0; j < n; j++) // переставляем столбцы местами
-		{
-			index_1 = j * row_ind;
-			tmp_ = matrix[index_1 + i];
-			matrix[index_1 + i] = matrix[index_1 + max_index];
-			matrix[index_1 + max_index] = tmp_;
-		}
+        // Проверка на обратимость
+        if (fabs(matrix[row_offset + row]) < matrix_norm * EPS)
+        {
+            return -2;
+        }
 
-		if (fabs(matrix[index_0 + i]) < matrix_norm * EPS) // если элемент нулевой, метод неприменим
-		{
-			return IRREVERSIBLE;
-		}
+        // Нормализация строки
+        temp = 1 / matrix[row_offset + row];
+        matrix[row_offset + row] = 1.0;
+        for (int col = row + 1; col < n; col++)
+            matrix[row_offset + col] *= temp;
 
-		// tmp_ = matrix[index_0 + i];
-		tmp_ = 1 / matrix[index_0 + i];
-		matrix[index_0 + i] = 1.0;
-		for (int j = i + 1; j < n; j++) // умножаем i строку на обратный элемент
-			matrix[index_0 + j] *= tmp_;
+        for (int col = 0; col < n; col++)
+            inverse_matrix[row_offset + col] *= temp;
 
-		for (int j = 0; j < n; j++) // присоединенная матрица. умножаем i строку на обратный элемент
-			inverse_matrix[index_0 + j] *= tmp_;
+        // Вычитание строки
+        for (int next_row = row + 1; next_row < n; next_row++)
+        {
+            temp = matrix[next_row * row_ind + row];
+            for (int col = row; col < n; col++) // Вычитание строки
+                matrix[next_row * row_ind + col] -= matrix[row_offset + col] * temp;
+            for (int col = 0; col < n; col++)
+                inverse_matrix[next_row * row_ind + col] -= inverse_matrix[row_offset + col] * temp;
+        }
+    }
 
-		for (int j = i + 1; j < n; j++)
-		{
-			tmp_ = matrix[j * row_ind + i];
-			for (int k = i; k < n; k++) // вычитание строки
-				matrix[j * row_ind + k] -= matrix[index_0 + k] * tmp_;
-			for (int k = 0; k < n; k++)
-				inverse_matrix[j * row_ind + k] -= inverse_matrix[index_0 + k] * tmp_; // присоединенная матрица. вычитание строки умноженной на число
-		}
-	}
+    // Обратный ход
+    for (int row = 0; row < n; row++) // Обратный ход
+        for (int col = n - 1; col >= 0; col--)
+        {
+            row_offset = col * row_ind;
+            temp = inverse_matrix[row_offset + row];
+            for (int next_col = col + 1; next_col < n; next_col++)
+                temp -= matrix[row_offset + next_col] * inverse_matrix[next_col * row_ind + row];
+            inverse_matrix[row_offset + row] = temp;
+        }
 
-	for (int i = 0; i < n; i++) // Обратный ход
-		for (int j = n - 1; j >= 0; j--)
-		{
-			index_0 = j * row_ind;
-			tmp_ = inverse_matrix[index_0 + i];
-			for (int k = j + 1; k < n; k++)
-				tmp_ -= matrix[index_0 + k] * inverse_matrix[k * row_ind + i];
-			inverse_matrix[index_0 + i] = tmp_;
-		}
+    for (int row = 0; row < n; row++)
+    {
+        row_offset = row * row_ind;
+        col_offset = index[row] * row_ind;
+        for (int col = 0; col < n; col++)
+            matrix[col_offset + col] = inverse_matrix[row_offset + col];
+    }
 
-	for (int i = 0; i < n; i++)
-	{
-		index_0 = i * row_ind;
-		index_1 = index[i] * row_ind;
-		for (int j = 0; j < n; j++)
-			matrix[index_1 + j] = inverse_matrix[index_0 + j];
-	}
+    for (int row = 0; row < n; row++)
+    {
+        row_offset = row * row_ind;
+        for (int col = 0; col < n; col++)
+            inverse_matrix[row_offset + col] = matrix[row_offset + col];
+    }
 
-	for (int i = 0; i < n; i++)
-	{
-		index_0 = i * row_ind;
-		for (int j = 0; j < n; j++)
-			inverse_matrix[index_0 + j] = matrix[index_0 + j];
-	}
-
-	return SUCCESS;
+    return 0;
 }
-
 void mult(double *a, double *b, double *res, int m1, int m2, int m3, int m)
 {
-	// a m1 x m2
-	// b m2 x m3
 	int t = 0, q = 0, r = 0;
 	int v = m1, h = m3, ah = m2;
 	int v3 = v % 3, h3 = h % 3;
 	double s00 = 0, s01 = 0, s02 = 0;
 	double s10 = 0, s11 = 0, s12 = 0;
 	double s20 = 0, s21 = 0, s22 = 0;
+
 
 	for (r = 0; r < v; r++)
 		for (t = 0; t < h; t++)
