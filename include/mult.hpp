@@ -1,34 +1,35 @@
 #define EPS 1e-16
 
-int gauss_classic_row(double *matrix, double *inverse_matrix, int *index, int n, double matrix_norm, int row_ind)
+int inverse_matrix(double *matrix, double *inverse_matrix, int *index, int n, double matrix_norm, int row_ind)
 {
     int max_col_index = 0;
     double temp = 0, max_abs_value = 0;
     int row_offset = 0;
     int col_offset = 0;
     int temp_index = 0;
-
-    // Инициализация обратной матрицы
-    for (int row = 0; row < n; row++)
+    int i, row, col, next_row = 0;
+    for (row = 0; row < n; row++)
     {
         row_offset = row * row_ind;
-        for (int col = 0; col < n; col++)
-            inverse_matrix[row_offset + col] = (row == col) ? 1.0 : 0.0;
+        for (col = 0; col < n; col++)
+            if(row==col)
+                inverse_matrix[row_offset + col] = 1.0;
+            else
+                inverse_matrix[row_offset + col] = 0.0;
     }
 
-    // Инициализация индексов
-    for (int i = 0; i < n; i++)
+    for (i = 0; i < n; i++)
         index[i] = i;
 
     // Прямой ход
-    for (int row = 0; row < n; row++)
+    for (row = 0; row < n; row++)
     {
         row_offset = row * row_ind;
         max_abs_value = fabs(matrix[row_offset + row]);
         max_col_index = row;
 	
         // Поиск максимального элемента в столбце
-        for (int col = row + 1; col < n; col++)
+        for (col = row + 1; col < n; col++)
             if (max_abs_value < fabs(matrix[row_offset + col]))
             {
                 max_abs_value = fabs(matrix[row_offset + col]);
@@ -41,7 +42,7 @@ int gauss_classic_row(double *matrix, double *inverse_matrix, int *index, int n,
         index[max_col_index] = temp_index;
 
         // Перестановка строк в матрице
-        for (int col = 0; col < n; col++)
+        for (col = 0; col < n; col++)
         {
             col_offset = col * row_ind;
             temp = matrix[col_offset + row];
@@ -52,26 +53,26 @@ int gauss_classic_row(double *matrix, double *inverse_matrix, int *index, int n,
         // Проверка на обратимость
         if (fabs(matrix[row_offset + row]) < matrix_norm * EPS)
         {
-            return -2;
+            return -1;
         }
 
         // Нормализация строки
         temp = 1 / matrix[row_offset + row];
         matrix[row_offset + row] = 1.0;
-        for (int col = row + 1; col < n; col++)
-            matrix[row_offset + col] *= temp;
+        for (col = row + 1; col < n; col++)
+            matrix[row_offset + col] = matrix[row_offset + col] * temp;
 
-        for (int col = 0; col < n; col++)
-            inverse_matrix[row_offset + col] *= temp;
+        for (col = 0; col < n; col++)
+            inverse_matrix[row_offset + col] = inverse_matrix[row_offset + col] * temp;
 
         // Вычитание строки
-        for (int next_row = row + 1; next_row < n; next_row++)
+        for (next_row = row + 1; next_row < n; next_row++)
         {
             temp = matrix[next_row * row_ind + row];
-            for (int col = row; col < n; col++) // Вычитание строки
-                matrix[next_row * row_ind + col] -= matrix[row_offset + col] * temp;
-            for (int col = 0; col < n; col++)
-                inverse_matrix[next_row * row_ind + col] -= inverse_matrix[row_offset + col] * temp;
+            for (col = row; col < n; col++) // Вычитание строки
+                matrix[next_row * row_ind + col] = matrix[next_row * row_ind + col] - matrix[row_offset + col] * temp;
+            for (col = 0; col < n; col++)
+                inverse_matrix[next_row * row_ind + col] = inverse_matrix[next_row * row_ind + col] - inverse_matrix[row_offset + col] * temp;
         }
     }
 

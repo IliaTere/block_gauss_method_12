@@ -92,7 +92,6 @@ int main(int argc, char **argv)
     double* inverse = new double[m*m];
     double* temp = new double[m*m];
     double* temp1 = new double[m*m];
-    double* temp2 = new double[m*m];
     int* block_index = new int[m];
     double* matrtmp = new double[n*n];
     double* temp3 = new double[n*n];
@@ -105,7 +104,7 @@ int main(int argc, char **argv)
     initialize_matrix(x, n);
     start = clock();
     printf("\n-------------------\n");
-    int sd = solve(n, m, matr, block, x, inverse, temp, temp1, /*temp2,*/ matrix_norm, block_index);
+    int sd = solve(n, m, matr, block, x, inverse, temp, temp1, matrix_norm, block_index);
     end = clock();
     printf("\n-------------------\n");
     double t1 = (double)(end - start) / (double)CLOCKS_PER_SEC;
@@ -131,8 +130,8 @@ int main(int argc, char **argv)
             if (n <= 11000)
             {
                 start = clock();
-                res1 = residual_matrix(matrtmp, x, matr, block, temp1, n ,m/*, matrix_norm*/);
-                res2 = matrix_residual(matrtmp, x, matr, block, temp1, n ,m/*, matrix_norm*/);
+                res1 = residual_matrix(matrtmp, x, matr, block, temp1, n ,m);
+                res2 = matrix_residual(matrtmp, x, matr, block, temp1, n ,m);
                 end = clock();
                 double t2 = (double)(end - start) / (double)CLOCKS_PER_SEC;
                 printf(
@@ -153,7 +152,6 @@ int main(int argc, char **argv)
     delete[] block;
     delete[] inverse;
     delete[] temp;
-    delete[] temp2;
     delete[] temp1; 
     delete[] matr;
     delete[] x;

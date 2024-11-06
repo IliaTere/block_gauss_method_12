@@ -51,92 +51,6 @@ double norma(double *matrix, int n)
 	}
 	return norm;
 }
-int treug(double * a, double * b, int n, double norma, double* c) {
-    int i;
-    int j;
-    int k;
-    int t;
-    double p;
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            b[i * n + j] = 0;
-        }
-        for (int i = 0; i < n; i++) {
-            b[i * n + i] = 1;
-        }
-    }
-
-    for (i = 0; i < n; i++) {
-        t = -1;
-        for (j = i; j < n; j++)
-            if (a[j * n + i] >  5e-15 * norma || a[j * n + i] < -5e-15 * norma) {
-                //printf("%e\n", a[j * n + i]);
-                t = 1;
-            }
-        if (t == -1) {
-            return -1;
-        }
-
-        p = a[i * n + i];
-        t = i;
-
-        for (j = i; j < n; j++) {
-            if (fabs(a[j * n + i]) > fabs(p)) {
-                p = a[j * n + i];
-                t = j;
-            }
-        }
-
-        for (j = 0; j < n; j++) c[j] = a[t * n + j];
-        for (j = 0; j < n; j++) a[t * n + j] = a[i * n + j];
-        for (j = 0; j < n; j++) a[i * n + j] = c[j];
-
-        for (j = 0; j < n; j++) c[j] = b[t * n + j];
-        for (j = 0; j < n; j++) b[t * n + j] = b[i * n + j];
-        for (j = 0; j < n; j++) b[i * n + j] = c[j];
-
-        p = a[i * n + i];
-
-        for (j = 0; j < n; j++) {
-            a[i * n + j] = a[i * n + j] / p;
-            b[i * n + j] = b[i * n + j] / p;
-        }
-
-        for (j = i + 1; j < n; j++) {
-            p = a[j * n + i];
-            for (k = 0; k < n; k++) {
-                a[j * n + k] = a[j * n + k] - a[i * n + k] * p;
-                b[j * n + k] = b[j * n + k] - b[i * n + k] * p;
-            }
-        }
-
-    }
-    return 1;
-}
-
-void diag(double * a, double * b, int n) {
-    int i, j, k;
-    double p;
-    for (i = n - 1; i > 0; i--) {
-        for (j = 0; j < i; j++) {
-            p = a[j * n + i];
-            for (k = 0; k < n; k++) {
-                a[j * n + k] = a[j * n + k] - a[i * n + k] * p;
-                b[j * n + k] = b[j * n + k] - b[i * n + k] * p;
-            }
-        }
-    }
-}
-
-bool solution(double*a, double* b, int n, double norma, double* c)
-{
-    int t = treug(a, b, n, norma, c);
-    if (t == -1) {
-        return false;
-    }
-    diag(a, b, n);
-    return true;
-}
 
 double ravno(double x, double norma)
 {
@@ -160,31 +74,6 @@ void pcord(int i, int j)
 {
     printf("(%d, %d)\n", i, j);
 }
-
-int findmax(double* matr, double* block, int n, int m,int l, int j, double norm, double* buffer) {
-    int k = -1;
-    int t;
-    double tmp;
-    double max_n = DBL_MAX;
-    double* inverse = new double[m * m];
-    for (int i = l; i < n/m; i++) {
-        get_block(matr, block, n ,m , i, j);
-        t = treug(block, inverse, m, norm, buffer);
-        if (t==-1) {
-            continue;
-        }
-        diag(block,inverse,m);
-        tmp = norma(inverse, m);
-        if (tmp < max_n) {
-            max_n = tmp;
-            k = i;
-        }
-        
-    }
-    delete [] inverse;
-    return k;
-}
-
 
 void swap_rows(double* matr, int k, int l, int n, int m) {
     int start_k = k * m * n;
@@ -255,7 +144,6 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
     int k = n/m;
     int l = n%m;
     int bl = (l==0?k:k+1);
-    int index_0 = 0, index_1 = 0;
     double buffer_norma, min_norma = 0;
     int min_index = 0;
 
@@ -266,7 +154,7 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
         {
             buffer_norma = 0;
             get_block(matr, block, n, m, j, p);
-            if (gauss_classic_row(block, inverse, block_index, m, matrix_norm, m) != -2)
+            if (inverse_matrix(block, inverse, block_index, m, matrix_norm, m) != -1)
             {
                 buffer_norma = norma(inverse, m);
                 if (min_norma > buffer_norma || min_index == -1)
@@ -288,7 +176,7 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
 
         get_block(matr, block, n, m, p, p);
         // PrintDouble(block, m , m);
-        gauss_classic_row(block, inverse, block_index, m, matrix_norm, m);
+        inverse_matrix(block, inverse, block_index, m, matrix_norm, m);
         get_block(matr, block, n, m, p, p);
         setZeroBlock(matr, block, p, p, n , m);
         for (s = p+1; s < bl; s++) 
@@ -360,9 +248,8 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
     {
         get_block(matr, block, n ,m, k, k);
         // PrintDouble(block, m, m);
-        if (gauss_classic_row(block, inverse, block_index, l, matrix_norm, m) == -2)
+        if (inverse_matrix(block, inverse, block_index, l, matrix_norm, m) == -1)
         {
-            printf("Вот по этосму\n");
             return -1;
         }
         setZeroBlock(matr, block1, k, k, n, m);
@@ -375,35 +262,20 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
             put_block(solution, tmp, n ,m, k, j);
         }
     }
-
-    // PrintDouble(matr, n, n);
-    // PrintDouble(solution, n, n);
-    // for (i = n - 1; i >= 0; i--)
-	// 	for (k = i - 1; k >= 0; k--)
-	// 	{
-	// 		index_0 = k * n;
-	// 		index_1 = i * n;
-	// 		for (j = 0; j < n; j++)
-	// 		{
-	// 			solution[index_0 + j] -= solution[index_1 + j] * matr[index_0 + i];
-	// 		}
-	// 		matr[index_0 + i] = 0;
-	// 	}
-    for (int i = bl - 1; i > 0; i--)
+    for ( i = bl - 1; i > 0; i--)
     {
-        for (int j = i - 1; j >= 0; j--)
+        for ( j = i - 1; j >= 0; j--)
         {
             get_block(matr, inverse, n, m, j, i);
-            for (int jj = 0; jj < bl; jj++)
+            for ( ss = 0; ss < bl; ss++)
             {
-                get_block(solution, block1, n, m, i, jj);
+                get_block(solution, block1, n, m, i, ss);
                 mult(inverse, block1, block, m, m, m, m);
-                get_block(solution, block1, n, m, j, jj);
-                subtraction(block1, block, j, jj, k, m, l);
-                put_block(solution, block1, n, m, j, jj);
+                get_block(solution, block1, n, m, j, ss);
+                subtraction(block1, block, j, ss, k, m, l);
+                put_block(solution, block1, n, m, j, ss);
             }
         }
     }
-    printf("\n");
     return 0;
 }

@@ -8,7 +8,7 @@ SRCS = src/main.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 # Имя исполняемого файла
-TARGET = my_program
+TARGET = a.out
 
 # Правило по умолчанию
 all: $(TARGET)
