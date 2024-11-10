@@ -1,12 +1,12 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-#include "../include/reader.hpp"
-#include "../include/solve.hpp"
-#include "../include/formula.hpp"
+#include "reader.hpp"
+#include "solve.hpp"
+#include "formula.hpp"
 #include <cstring>
 #include <time.h>
-#include "../include/residual.hpp"
+#include "residual.hpp"
 
 bool isNumber(std::string& str)
     {
@@ -43,7 +43,7 @@ int main(int argc, char **argv)
     if ( m == 0  || m > n) {
         printf("invalid block\n");
         return -8;
-    }  
+    }
 	double* matr = new double[n*n];
     double* x = new double[n*n];
     if (strcmp(argv[4],"0") == 0) {
@@ -126,7 +126,7 @@ int main(int argc, char **argv)
         case 0:
             double res1 = 0. ;
             double res2 = 0. ;
-            PrintDouble(x, r, r);
+            PrintDouble(x, n, r);
             if (n <= 11000)
             {
                 start = clock();

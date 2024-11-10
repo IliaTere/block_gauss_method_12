@@ -21,7 +21,7 @@ double norma_block (double* matr, double* block, double* block1, int n, int m)
 
     for (int i =0; i < fsize; i++) {
         get_block(matr, block, n , m, 0 , i);
-        for (int j = 1; j < fsize; j++) {
+        for (int j = 0; j < fsize; j++) {
             get_block(matr, block1, n ,m, j, i);
             add(block, block1, m , m);
             double tmp = norma(block, m);
