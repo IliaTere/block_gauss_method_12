@@ -13,7 +13,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Set up CMake
+    - name: make
       uses: lukka/run-cmake@v3
 
     - name: Build
