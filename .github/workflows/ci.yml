@@ -1,23 +1,22 @@
-name: CI
+name: Build and Test
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+on: [push, pull_request]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-    - name: make
-      uses: lukka/run-cmake@v3
+    - name: Install dependencies (if needed)
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y build-essential
 
-    - name: Build
-      run: cmake --build build
+    - name: Build with make
+      run: make
 
-    - name: Test
-      run: ctest --output-on-failure
+    - name: Run tests (if you have a test target in your Makefile)
+      run: make test
