@@ -43,7 +43,7 @@ int main(int argc, char **argv)
     if ( m == 0  || m > n) {
         printf("invalid block\n");
         return -8;
-    }  
+    }
 	double* matr = new double[n*n];
     double* x = new double[n*n];
     if (strcmp(argv[4],"0") == 0) {
@@ -92,8 +92,7 @@ int main(int argc, char **argv)
     double* inverse = new double[m*m];
     double* temp = new double[m*m];
     double* temp1 = new double[m*m];
-    double* temp2 = new double[m*m];
-
+    int* block_index = new int[m];
     double* matrtmp = new double[n*n];
     double* temp3 = new double[n*n];
     double* e = new double[n*n];
@@ -102,23 +101,19 @@ int main(int argc, char **argv)
             matrtmp[i] = matr[i];
 
     double matrix_norm = norma(matr, n);
-    if (matrix_norm > 1) {
-        matrix_norm = 1.;
-    }
+    initialize_matrix(x, n);
     start = clock();
-    int sd = solve(n, m, matr, block, x, inverse, temp, temp1, temp2, matrix_norm);
+    printf("\n-------------------\n");
+    int sd = solve(n, m, matr, block, x, inverse, temp, temp1, matrix_norm, block_index);
     end = clock();
+    printf("\n-------------------\n");
     double t1 = (double)(end - start) / (double)CLOCKS_PER_SEC;
 
-    for(int i=0;i<n;i++)
-            for(int j=0;j<n;j++)
-                e[i*n+j] = 0;
-        for(int i=0;i<n;i++)
-            e[i*n+i] = 1;
+    initialize_matrix(e, n);
 
     switch(sd)
     {
-        case 1:
+        case -1:
             printf(
                 "%s : Task = %d Res1 = %e Res2 = %e T1 = %.2f T2 = %.2f S = %d N = %d M = %d\n",
                 argv[0], 12, -1., -1. ,0. , 0., s, n, m);
@@ -131,12 +126,12 @@ int main(int argc, char **argv)
         case 0:
             double res1 = 0. ;
             double res2 = 0. ;
-            PrintDouble(x, r, r);
+            PrintDouble(x, n, r);
             if (n <= 11000)
             {
                 start = clock();
-                res1 = residual_matrix(matrtmp, x, matr, block, temp1, n ,m, matrix_norm);
-                res2 = matrix_residual(matrtmp, x, matr, block, temp1, n ,m, matrix_norm);
+                res1 = residual_matrix(matrtmp, x, matr, block, temp1, n ,m);
+                res2 = matrix_residual(matrtmp, x, matr, block, temp1, n ,m);
                 end = clock();
                 double t2 = (double)(end - start) / (double)CLOCKS_PER_SEC;
                 printf(
@@ -149,7 +144,7 @@ int main(int argc, char **argv)
             }
             break;
     }
-
+    delete[] block_index;
     delete[] matrtmp;
     delete[] temp3;
     delete[] e;
@@ -157,7 +152,6 @@ int main(int argc, char **argv)
     delete[] block;
     delete[] inverse;
     delete[] temp;
-    delete[] temp2;
     delete[] temp1; 
     delete[] matr;
     delete[] x;
