@@ -36,3 +36,7 @@ run: $(TARGET)
 no_unused:
 	$(CC) $(CFLAGS_NO_UNUSED) -c src/main.cpp -o src/main.o
 	$(CC) $(CFLAGS_NO_UNUSED) -o $(TARGET) src/main.o
+# Правило для запуска тестов
+test: $(TARGET)
+	cp $(TARGET) tests/$(TARGET)
+	cd tests && ./test_small.sh
