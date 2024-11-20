@@ -103,7 +103,6 @@ int main(int argc, char **argv)
     initialize_matrix(x, n);
     start = clock();
     printf("\n-------------------\n");
-    // printf("Норма матрицы= %f", matrix_norm);
     int sd = solve(n, m, matr, block, x, inverse, temp, temp1, matrix_norm, block_index);
     end = clock();
     printf("\n-------------------\n");

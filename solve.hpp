@@ -21,6 +21,9 @@ void get_block(double *matrix, double *block, int n, int m, int i_block, int j_b
     for (int i = 0; i < h; ++i) {
         std::copy_n(&matrix[n * (i_block * m + i) + j_block * m], v, &block[i * m]);
     }
+    // if(block[0] > 1e+300 || block[0] < 1e-300) {
+    //     printf("(%2d,%2d| %lf)", i_block, j_block, block[0]);
+    // }
 }
 void put_block(double *matrix, double *block, int n, int m, int i_block, int j_block)
 {
@@ -204,7 +207,7 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
             get_block(matr, block, n , m, s, p);
             get_block(matr, block1, n, m, s, p);
             setZeroBlock(matr, block1, s, p, n, m);
-            for (ss=0; ss<bl; ss++) // Тут с p+1
+            for (ss=p+1; ss<bl; ss++) // Тут с p+1
             {
                 get_block(matr, block1, n , m, p, ss);
                 
