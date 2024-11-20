@@ -7,6 +7,7 @@
 #include <cstring>
 #include <time.h>
 #include "residual.hpp"
+#include <fenv.h>
 
 bool isNumber(std::string& str)
     {
@@ -19,7 +20,7 @@ bool isNumber(std::string& str)
 
 int main(int argc, char **argv)
 {
-    
+    feenableexcept(FE_DIVBYZERO | FE_INVALID| FE_OVERFLOW | FE_UNDERFLOW);
     if (argc < 5 || argc > 6) {
         std::cout << "error: To many(few) arguments";
         return -1;
@@ -75,7 +76,7 @@ int main(int argc, char **argv)
         std::string tmp(argv[4]);
         s = stoi(tmp);
         if (s < 1 || s > 4) {
-            std::cerr << "error: Pasametr s is not a valid number" << std::endl;
+            std::cerr << "error: Parametr s is not a valid number" << std::endl;
             delete[] matr;
             delete[] x;
             return -7;
@@ -94,22 +95,20 @@ int main(int argc, char **argv)
     double* temp1 = new double[m*m];
     int* block_index = new int[m];
     double* matrtmp = new double[n*n];
-    double* temp3 = new double[n*n];
-    double* e = new double[n*n];
-
-    for (int i = 0; i < n*n; i++)
+    if (n <= 11000) {
+        for (int i = 0; i < n*n; i++)
             matrtmp[i] = matr[i];
-
+    }
     double matrix_norm = norma(matr, n);
     initialize_matrix(x, n);
     start = clock();
     printf("\n-------------------\n");
+    // printf("Норма матрицы= %f", matrix_norm);
     int sd = solve(n, m, matr, block, x, inverse, temp, temp1, matrix_norm, block_index);
     end = clock();
     printf("\n-------------------\n");
     double t1 = (double)(end - start) / (double)CLOCKS_PER_SEC;
 
-    initialize_matrix(e, n);
 
     switch(sd)
     {
@@ -130,8 +129,8 @@ int main(int argc, char **argv)
             if (n <= 11000)
             {
                 start = clock();
-                res1 = residual_matrix(matrtmp, x, matr, block, temp1, n ,m);
-                res2 = matrix_residual(matrtmp, x, matr, block, temp1, n ,m);
+                res1 = residual_matrix(matrtmp, x, matr, block, temp1, n ,m, matrix_norm);
+                res2 = matrix_residual(matrtmp, x, matr, block, temp1, n ,m, matrix_norm);
                 end = clock();
                 double t2 = (double)(end - start) / (double)CLOCKS_PER_SEC;
                 printf(
@@ -146,8 +145,6 @@ int main(int argc, char **argv)
     }
     delete[] block_index;
     delete[] matrtmp;
-    delete[] temp3;
-    delete[] e;
 
     delete[] block;
     delete[] inverse;

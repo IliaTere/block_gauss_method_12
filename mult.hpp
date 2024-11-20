@@ -1,5 +1,5 @@
 #define EPS 1e-16
-
+#define UNUSED(x) (void)(x)
 int inverse_matrix(double *matrix, double *inverse_matrix, int *index, int n, double matrix_norm, int row_ind)
 {
     int max_col_index = 0;
@@ -104,7 +104,7 @@ int inverse_matrix(double *matrix, double *inverse_matrix, int *index, int n, do
 
     return 0;
 }
-void mult(double *a, double *b, double *res, int m1, int m2, int m3, int m)
+void mult(double *a, double *b, double *res, int m1, int m2, int m3, int m, double norm)
 {
 	int t = 0, q = 0, r = 0;
 	int v = m1, h = m3, ah = m2;
@@ -112,11 +112,23 @@ void mult(double *a, double *b, double *res, int m1, int m2, int m3, int m)
 	double s00 = 0, s01 = 0, s02 = 0;
 	double s10 = 0, s11 = 0, s12 = 0;
 	double s20 = 0, s21 = 0, s22 = 0;
+    UNUSED(norm);
 
+    for (int i = 0; i < m; i++)
+        {
+            for (int j = 0; j < m; j++)
+            {
+                res[i * m + j] = 0.0;
+                if ( 1e+250 * norm < fabs(b[i * m + j]) || fabs(b[i * m + j]) < 1e-250 * norm)
+                {
+                    b[i * m + j] = 0.;
+                }
+            }
+        }
 
-	for (r = 0; r < v; r++)
-		for (t = 0; t < h; t++)
-			res[r * m + t] = 0;
+	// for (r = 0; r < v; r++)
+	// 	for (t = 0; t < h; t++)
+	// 		res[r * m + t] = 0;
 
 	for (r = 0; r < v3; r++)
 	{

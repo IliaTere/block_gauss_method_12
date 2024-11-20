@@ -17,7 +17,7 @@ void get_block(double *matrix, double *block, int n, int m, int i_block, int j_b
     int h = (i_block < k ? m : l);
     int v = (j_block < k ? m : l);
     
-    std::fill_n(block, m * m, 0.0);
+    std::memset(block, 0, m * m * sizeof(double));
     for (int i = 0; i < h; ++i) {
         std::copy_n(&matrix[n * (i_block * m + i) + j_block * m], v, &block[i * m]);
     }
@@ -186,7 +186,7 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
             // PrintDouble(block, m, m);
             // PrintDouble(inverse, m,m);
 
-            mult(inverse, block, tmp, m, m, s==k?l:m, m);
+            mult(inverse, block, tmp, m, m, s==k?l:m, m, matrix_norm);
 
             // PrintDouble(tmp, m, m);
 
@@ -195,7 +195,7 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
         for (s = 0; s < bl; s++) 
         {
             get_block(solution, block, n, m, p, s);
-            mult(inverse, block, tmp, m, m, m, m);
+            mult(inverse, block, tmp, m, m, m, m, matrix_norm);
             put_block(solution, tmp, n, m, p, s);
         }
         // PrintDouble(matr, n , n);
@@ -212,7 +212,7 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
                 // PrintDouble(block1, m , m);
                 // PrintDouble(block, m , m);
                 
-                mult(block, block1, tmp, m, m, m, m);
+                mult(block, block1, tmp, m, m, m, m, matrix_norm);
                 
                 // PrintDouble(tmp, m , m);
                 // printf("Конец умножения, начало вычитания\n");
@@ -233,7 +233,7 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
             for (ss=0; ss<bl; ss++) // Тут с p+1
             {
                 get_block(solution, block1, n , m, p, ss);
-                mult(block, block1, tmp, m , m, m, m);
+                mult(block, block1, tmp, m , m, m, m, matrix_norm);
                 get_block(solution, block1, n ,m, s, ss);
                 subtraction(block1, tmp, s, ss, k, m, l);
                 put_block(solution, block1, n, m, s, ss);
@@ -257,7 +257,7 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
             get_block(solution, block, n, m, k, j);
             // PrintDouble(block, m, m);
             // PrintDouble(inverse, m, m);
-            mult(inverse, block, tmp, l, l, j==k?l:m, m);
+            mult(inverse, block, tmp, l, l, j==k?l:m, m, matrix_norm);
             
             put_block(solution, tmp, n ,m, k, j);
         }
@@ -270,7 +270,7 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
             for ( ss = 0; ss < bl; ss++)
             {
                 get_block(solution, block1, n, m, i, ss);
-                mult(inverse, block1, block, m, m, m, m);
+                mult(inverse, block1, block, m, m, m, m, matrix_norm);
                 get_block(solution, block1, n, m, j, ss);
                 subtraction(block1, block, j, ss, k, m, l);
                 put_block(solution, block1, n, m, j, ss);
