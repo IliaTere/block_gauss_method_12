@@ -7,6 +7,7 @@
 #include <cstring>
 #include <time.h>
 #include "residual.hpp"
+// #include <fenv.h>
 
 bool isNumber(std::string& str)
     {
@@ -19,6 +20,8 @@ bool isNumber(std::string& str)
 
 int main(int argc, char **argv)
 {
+//     feenableexcept(FE_DIVBYZERO | FE_INVALID
+//   | FE_OVERFLOW | FE_UNDERFLOW);
     if (argc < 5 || argc > 6) {
         std::cout << "error: To many(few) arguments";
         return -1;
