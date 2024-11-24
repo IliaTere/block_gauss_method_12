@@ -104,61 +104,74 @@ int inverse_matrix(double *matrix, double *inverse_matrix, int *index, int n, do
 
     return 0;
 }
-void mult(double *a, double *b, double *res, int m1, int m2, int m3, int m, double norm)
-{
-    double abs_value = 0.;
+void mult(double *a, double *b, double *res, int m1, int m2, int m3, int m, double norm) {
     int count_b = 0;
     UNUSED(m1);
     UNUSED(m2);
     UNUSED(m3);
-    for (int i = 0; i < m; i++)
-        {
-            for (int j = 0; j < m; j++)
-            {
-                res[i * m + j] = 0.0;
-                abs_value = fabs(b[i * m + j]);
-                if ( 1e+250 * norm < abs_value || abs_value < 1e-250 * norm)
-                {
-                    b[i * m + j] = 0.;
-                    count_b++;
-                }
+
+
+    for (int i = 0; i < m; ++i) {
+        for (int j = 0; j < m; ++j) {
+            res[i * m + j] = 0.0;
+            double abs_value = fabs(b[i * m + j]);
+            if (1e+250 * norm < abs_value || abs_value < 1e-250 * norm) {
+                b[i * m + j] = 0.0;
+                ++count_b;
             }
         }
-    if (count_b == m*m) {
+    }
+    if (count_b == m * m) {
         return;
     }
-    for (int k = 0; k < m; k += 1) {
+
+    for (int k = 0; k < m; ++k) {
         for (int i = 2; i < m; i += 3) {
-            double temp = a[i*m + k];
-            double temp_1 = a[(i - 1)*m + k];
-            double temp_2 = a[(i - 2)*m + k];
+            double temp = a[i * m + k];
+            double temp_1 = a[(i - 1) * m + k];
+            double temp_2 = a[(i - 2) * m + k];
+
             for (int j = 2; j < m; j += 3) {
-                res[i*m + j] += b[k*m + j]*temp;
-                res[i*m + j - 1] += b[k*m + j - 1]*temp;
-                res[i*m + j - 2] += b[k*m + j - 2]*temp;
-                res[(i - 1)*m + j] += b[k*m + j]*temp_1;
-                res[(i - 1)*m + j - 1] += b[k*m + j - 1]*temp_1;
-                res[(i - 1)*m + j - 2] += b[k*m + j - 2]*temp_1;
-                res[(i - 2)*m + j] += b[k*m + j]*temp_2;
-                res[(i - 2)*m + j - 1] += b[k*m + j - 1]*temp_2;
-                res[(i - 2)*m + j - 2] += b[k*m + j - 2]*temp_2;
+                double b_j = b[k * m + j];
+                double b_jm1 = b[k * m + j - 1];
+                double b_jm2 = b[k * m + j - 2];
+
+                res[i * m + j] += b_j * temp;
+                res[(i - 1) * m + j] += b_j * temp_1;
+                res[(i - 2) * m + j] += b_j * temp_2;
+
+                res[i * m + (j - 1)] += b_jm1 * temp;
+                res[(i - 1) * m + (j - 1)] += b_jm1 * temp_1;
+                res[(i - 2) * m + (j - 1)] += b_jm1 * temp_2;
+
+                res[i * m + (j - 2)] += b_jm2 * temp;
+                res[(i - 1) * m + (j - 2)] += b_jm2 * temp_1;
+                res[(i - 2) * m + (j - 2)] += b_jm2 * temp_2;
             }
-            for (int j = m / 3 * 3; j < m; j += 1) {
-                res[i*m + j] += b[k*m + j]*temp;
-                res[(i - 1)*m + j] += b[k*m + j]*temp_1;
-                res[(i - 2)*m + j] += b[k*m + j]*temp_2;
-                
+
+            for (int j = (m / 3) * 3; j < m; ++j) {
+                double b_j = b[k * m + j];
+                res[i * m + j] += b_j * temp;
+                res[(i - 1) * m + j] += b_j * temp_1;
+                res[(i - 2) * m + j] += b_j * temp_2;
             }
         }
-        for(int i = m / 3 * 3; i < m; i += 1) {
-            double temp = a[i*m + k];
+
+        for (int i = (m / 3) * 3; i < m; ++i) {
+            double temp = a[i * m + k];
             for (int j = 2; j < m; j += 3) {
-                res[i*m + j] += b[k*m + j]*temp;
-                res[i*m + j - 1] += b[k*m + j - 1]*temp;
-                res[i*m + j - 2] += b[k*m + j - 2]*temp;
+                double b_j = b[k * m + j];
+                double b_jm1 = b[k * m + j - 1];
+                double b_jm2 = b[k * m + j - 2];
+
+                res[i * m + j] += b_j * temp;
+                res[i * m + (j - 1)] += b_jm1 * temp;
+                res[i * m + (j - 2)] += b_jm2 * temp;
             }
-            for (int j = m / 3 * 3; j < m; j += 1) {
-                res[i*m + j] += b[k*m + j]*temp;
+
+            for (int j = (m / 3) * 3; j < m; ++j) {
+                double b_j = b[k * m + j];
+                res[i * m + j] += b_j * temp;
             }
         }
     }
