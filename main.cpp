@@ -129,8 +129,8 @@ int main(int argc, char **argv)
             if (n <= 11000)
             {
                 start = clock();
-                res1 = residual_matrix(matrtmp, x, matr, block, temp1, n ,m, matrix_norm);
-                res2 = matrix_residual(matrtmp, x, matr, block, temp1, n ,m, matrix_norm);
+                res1 = find_residual(matrtmp, x, block, inverse, n, m);
+                res2 = find_residual(x, matrtmp, block, inverse, n, m);
                 end = clock();
                 double t2 = (double)(end - start) / (double)CLOCKS_PER_SEC;
                 printf(
