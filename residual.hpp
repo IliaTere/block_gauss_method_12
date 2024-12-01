@@ -135,3 +135,4 @@ double find_residual(double *a, double *b, double *block, double *sum_array, int
 	}
 	return res;
 }
+
