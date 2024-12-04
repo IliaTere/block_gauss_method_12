@@ -1,6 +1,4 @@
-#include <iostream>
-#include <stdlib.h>
-#include <cmath>
+#include "functions.hpp"
 using namespace std;
 
 double formula(int s, int n, int i, int j) {

@@ -1,9 +1,4 @@
-#include <iostream>
-#include <cstdio>
-#include <fstream>
-#include <vector>
-#include <string>
-#include <sstream>
+#include"functions.hpp"
 
 bool is_double(const std::string& s) {
     if (s.empty() || ((!isdigit(s[0])) && (s[0] != '-') && (s[0] != '+') && (s[0] != '.'))) return false;

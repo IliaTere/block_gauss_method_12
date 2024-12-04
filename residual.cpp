@@ -1,4 +1,4 @@
-#include "solve.hpp"
+#include "functions.hpp"
 
 void add(double *a, double *b, int n, int m)
 {

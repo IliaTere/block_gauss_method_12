@@ -2,36 +2,26 @@
 CC = g++
 CFLAGS = -O3 -mfpmath=sse -fstack-protector-all -g -W -Wall -Wextra -Wunused -Wcast-align -Werror -pedantic -pedantic-errors -Wfloat-equal -Wpointer-arith -Wformat-security -Wmissing-format-attribute -Wformat=1 -Wwrite-strings -Wcast-align -Wno-long-long -Woverloaded-virtual -Wnon-virtual-dtor -Wcast-qual -Wno-suggest-attribute=format
 CFLAGS_LITE = -O3 -fstack-protector-all -g -W -Wall -Wextra -Wcast-align -pedantic -pedantic-errors -Wfloat-equal -Wpointer-arith -Wformat-security -Wmissing-format-attribute -Wformat=2 -Wwrite-strings -Wcast-align -Wno-long-long -Woverloaded-virtual -Wnon-virtual-dtor -Wcast-qual -Wno-property-attribute-mismatch
+# Список всех исходных файлов
+SOURCES = main.cpp mult.cpp reader.cpp solve.cpp formula.cpp residual.cpp
 
-# Исходные файлы
-SRCS = main.cpp
-OBJS = $(SRCS:.cpp=.o)
+# Список всех объектных файлов
+OBJECTS = $(SOURCES:.cpp=.o)
 
-# Имя исполняемого файла
+# Целевой исполняемый файл
 TARGET = a.out
 
-# Правило по умолчанию
 all: $(TARGET)
 
-# Правило для сборки исполняемого файла
-$(TARGET): $(OBJS)
-	$(CC) $(CFLAGS) -o $(TARGET) $(OBJS)
+$(TARGET): $(OBJECTS)
+	$(CC) $(CFLAGS) -o $(TARGET) $(OBJECTS)
 
-# Правило для компиляции отдельных .cpp файлов в .o файлы
-%.o: %.cpp
+# Правило для компиляции каждого исходного файла
+%.o: %.cpp functions.hpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
-# Правило для очистки
 clean:
-	rm -f $(OBJS) $(TARGET)
-
-# Правило для перекомпиляции всего проекта
-rebuild: clean all
-
-# Правило для запуска программы
-run: $(TARGET)
-	./$(TARGET)
-
+	rm -f $(OBJECTS) $(TARGET)
 # Правило для компиляции без флагов -Wunused
 lite:
 	$(CC) $(CFLAGS_LITE) -c main.cpp -o main.o

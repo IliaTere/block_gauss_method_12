@@ -1,14 +1,14 @@
-#include <iostream>
-#include <string>
-#include <fstream>
-#include "reader.hpp"
-#include "solve.hpp"
-#include "formula.hpp"
-#include <cstring>
-#include <time.h>
-#include "residual.hpp"
+#include"functions.hpp"
+// #include <iostream>
+// #include <string>
+// #include <fstream>
+// #include "reader.hpp"
+// #include "solve.hpp"
+// #include "formula.hpp"
+// #include <cstring>
+// #include <time.h>
+// #include "residual.hpp"
 // #include <fenv.h>
-
 bool isNumber(std::string& str)
     {
     std::string::iterator it = std::begin(str);
@@ -20,7 +20,7 @@ bool isNumber(std::string& str)
 
 int main(int argc, char **argv)
 {
-//     feenableexcept(FE_DIVBYZERO | FE_INVALID
+//     fenableexcept(FE_DIVBYZERO | FE_INVALID
 //   | FE_OVERFLOW | FE_UNDERFLOW);
     if (argc < 5 || argc > 6) {
         std::cout << "error: To many(few) arguments";
@@ -103,10 +103,9 @@ int main(int argc, char **argv)
     double matrix_norm = norma(matr, n);
     initialize_matrix(x, n);
     start = clock();
-    printf("\n-------------------\n");
     int sd = solve(n, m, matr, block, x, inverse, temp, temp1, matrix_norm, block_index);
     end = clock();
-    printf("\n-------------------\n");
+    printf("\nSolve\n");
     double t1 = (double)(end - start) / (double)CLOCKS_PER_SEC;
 
 
