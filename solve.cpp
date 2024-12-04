@@ -143,60 +143,62 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
     int k = n/m;
     int l = n%m;
     int bl = (l==0?k:k+1);
-    double buffer_norma, min_norma = 0;
-    int min_index = 0;
+    // double buffer_norma, min_norma = 0;
+    // int min_index = 0;
 
     for (int p=0; p<k; p++) {
-        min_norma = 0;
-        min_index = -1;
-        for(j=p; j < k; j++)
-        {
-            buffer_norma = 0;
-            get_block(matr, block, n, m, j, p);
-            if (inverse_matrix(block, inverse, block_index, m, matrix_norm, m) != -1)
-            {
-                buffer_norma = norma(inverse, m);
-                if (min_norma > buffer_norma || min_index == -1)
-                {
-                    min_norma = buffer_norma;
-                    min_index = j;
-                }
-            }
-        }
-        if (min_index == -1) {
-            printf("Метод не применим\n");
-            return -1;
-        }
-        if (min_index != p) {
-            get_block(matr, block, n, m, j, p);
-            get_block(matr, block1, n, m, min_index, p);
-            put_block(matr, block1, n, m, min_index, p);
-            put_block(matr, block, n, m, j, p);
-        }
+        // printf("############### step %d ###############\n", p);
+        // min_norma = 0;
+        // min_index = -1;
+        // for(j=p; j < k; j++)
+        // {
+        //     buffer_norma = 0;
+        //     get_block(matr, block, n, m, j, p);
+        //     if (inverse_matrix(block, inverse, block_index, m, matrix_norm, m) != -1)
+        //     {
+        //         buffer_norma = norma(inverse, m);
+        //         if (min_norma > buffer_norma || min_index == -1)
+        //         {
+        //             min_norma = buffer_norma;
+        //             min_index = j;
+        //         }
+        //     }
+        // }
+        // if (min_index == -1) {
+        //     printf("Метод не применим\n");
+        //     return -1;
+        // }
+        // if (min_index != p) {
+        //     get_block(matr, block, n, m, j, p);
+        //     get_block(matr, block1, n, m, min_index, p);
+        //     put_block(matr, block1, n, m, min_index, p);
+        //     put_block(matr, block, n, m, j, p);
+        // }
 
         get_block(matr, block, n, m, p, p);
         if (inverse_matrix(block, inverse, block_index, m, matrix_norm, m) == -1) {
             return -1;
         }
-        get_block(matr, block, n, m, p, p);
-        setZeroBlock(matr, block, p, p, n , m);
+        // get_block(matr, block, n, m, p, p);
+        // setZeroBlock(matr, block, p, p, n , m);
         for (s = p+1; s < bl; s++) 
         {
             get_block(matr, block, n, m, p, s);
             mult(inverse, block, tmp, m, m, s==k?l:m, m, matrix_norm);
             put_block(matr, tmp, n, m, p, s);
         }
-        for (s = 0; s < bl; s++) 
-        {
+        for (s = 0; s < p+1; s++) 
+        {   
             get_block(solution, block, n, m, p, s);
+            // PrintDouble(block, m ,m);
             mult(inverse, block, tmp, m, m, s==k?l:m, m, matrix_norm);
             put_block(solution, tmp, n, m, p, s);
         }
         for (s = p+1; s < bl; s++)
         {
             get_block(matr, block, n , m, s, p);
-            get_block(matr, block1, n, m, s, p);
-            setZeroBlock(matr, block1, s, p, n, m);
+            // get_block(matr, block1, n, m, s, p);
+            // setZeroBlock(matr, block1, s, p, n, m);
             for (ss=p+1; ss<bl; ss++) // Тут с p+1
             {
                 get_block(matr, block1, n , m, p, ss);
@@ -225,7 +227,7 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
         {
             return -1;
         }
-        setZeroBlock(matr, block1, k, k, n, m);
+        // setZeroBlock(matr, block1, k, k, n, m);
         for (j = 0; j <= k; j++) {
             get_block(solution, block, n, m, k, j);
             mult(inverse, block, tmp, l, l, j==k?l:m, m, matrix_norm);
