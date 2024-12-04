@@ -38,5 +38,6 @@ no_unused:
 	$(CC) $(CFLAGS_NO_UNUSED) -o $(TARGET) main.o
 # Правило для запуска тестов
 test: $(TARGET)
+	rm tests/$(TARGET)
 	cp $(TARGET) tests/$(TARGET)
 	cd tests && ./test_small.sh

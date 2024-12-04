@@ -5,7 +5,6 @@
 #include "mult.hpp"
 #include <iomanip>
 #include <algorithm>
-#include <immintrin.h>
 #include <cstring>
 #define UNUSED(x) (void)(x)
 
