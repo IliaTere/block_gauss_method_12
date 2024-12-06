@@ -157,37 +157,37 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
     int k = n/m;
     int l = n%m;
     int bl = (l==0?k:k+1);
-    // double buffer_norma, min_norma = 0;
-    // int min_index = 0;
+    double buffer_norma, min_norma = 0;
+    int min_index = 0;
 
     for (int p=0; p<k; p++) {
         // printf("############### step %d ###############\n", p);
-        // min_norma = 0;
-        // min_index = -1;
-        // for(j=p; j < k; j++)
-        // {
-        //     buffer_norma = 0;
-        //     get_block(matr, block, n, m, j, p);
-        //     if (inverse_matrix(block, inverse, block_index, m, matrix_norm, m) != -1)
-        //     {
-        //         buffer_norma = norma(inverse, m);
-        //         if (min_norma > buffer_norma || min_index == -1)
-        //         {
-        //             min_norma = buffer_norma;
-        //             min_index = j;
-        //         }
-        //     }
-        // }
-        // if (min_index == -1) {
-        //     printf("Метод не применим\n");
-        //     return -1;
-        // }
-        // if (min_index != p) {
-        //     get_block(matr, block, n, m, j, p);
-        //     get_block(matr, block1, n, m, min_index, p);
-        //     put_block(matr, block1, n, m, min_index, p);
-        //     put_block(matr, block, n, m, j, p);
-        // }
+        min_norma = 0;
+        min_index = -1;
+        for(j=p; j < k; j++)
+        {
+            buffer_norma = 0;
+            get_block(matr, block, n, m, j, p);
+            if (inverse_matrix(block, inverse, block_index, m, matrix_norm, m) != -1)
+            {
+                buffer_norma = norma(inverse, m);
+                if (min_norma > buffer_norma || min_index == -1)
+                {
+                    min_norma = buffer_norma;
+                    min_index = j;
+                }
+            }
+        }
+        if (min_index == -1) {
+            printf("Метод не применим\n");
+            return -1;
+        }
+        if (min_index != p) {
+            get_block(matr, block, n, m, j, p);
+            get_block(matr, block1, n, m, min_index, p);
+            put_block(matr, block1, n, m, min_index, p);
+            put_block(matr, block, n, m, j, p);
+        }
 
         get_block(matr, block, n, m, p, p);
         if (inverse_matrix(block, inverse, block_index, m, matrix_norm, m) == -1) {
@@ -250,79 +250,80 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
         }
     }
     //Обратный
-    for ( i = bl - 1; i > 0; i--)
-    {
-        for ( j = i - 1; j >= 0; j--)
+        for ( i = bl - 1; i > 0; i--)
         {
-            get_block(matr, inverse, n, m, j, i);
-
-            // printf("$$$$ i=%d j=%d ss=%2d $$$$\n", i , j, 0);
-            
-            get_block(solution, block1, n, m, i, 0);
-            mult(inverse, block1, block, m, m, 0==k?l:m, m, matrix_norm);
-            get_block(solution, block1, n, m, j, 0);
-            subtraction(block1, block, j, 0, k, m, l);
-            put_block(solution, block1, n, m, j, 0);
-            
-            for ( ss = (j-1)<0? j: j-1; ss < bl; ss++)
+            for ( j = i - 1; j >= 0; j--)
             {
-                if(ss == 0) {
-                    continue;
+                get_block(matr, inverse, n, m, j, i);
+
+                // printf("$$$$ i=%d j=%d ss=%2d $$$$\n", i , j, 0);
+                
+                get_block(solution, block1, n, m, i, 0);
+                mult(inverse, block1, block, m, m, 0==k?l:m, m, matrix_norm);
+                get_block(solution, block1, n, m, j, 0);
+                subtraction(block1, block, j, 0, k, m, l);
+                put_block(solution, block1, n, m, j, 0);
+                
+                for ( ss = (j-10)<0? j: j-10; ss < bl; ss++)
+                {
+                    if(ss == 0) {
+                        continue;
+                    }
+                    get_block(solution, block1, n, m, i, ss);
+                    
+                    mult(inverse, block1, block, m, m, ss==k?l:m, m, matrix_norm);
+
+                    get_block(solution, block1, n, m, j, ss);
+                    
+                    // int count = 0;
+                    // if (isZero(block1, m)) {
+                    //     count ++;
+                    // }
+                    
+                    subtraction(block1, block, j, ss, k, m, l);
+
+                    // if (isZero(block1, m) && count == 1) {
+                    //     printf("#### i=%d j=%d ss=%2d #####\n", i , j, ss);
+                    // } else {
+                    //     printf("$$$$ i=%d j=%d ss=%2d $$$$\n", i , j, ss);
+                    // }
+
+                    put_block(solution, block1, n, m, j, ss);
                 }
-                get_block(solution, block1, n, m, i, ss);
-                
-                mult(inverse, block1, block, m, m, ss==k?l:m, m, matrix_norm);
-
-                get_block(solution, block1, n, m, j, ss);
-                
-                // int count = 0;
-                // if (isZero(block1, m)) {
-                //     count ++;
-                // }
-                
-                subtraction(block1, block, j, ss, k, m, l);
-
-                // if (isZero(block1, m) && count == 1) {
-                //     printf("#### i=%d j=%d ss=%2d #####\n", i , j, ss);
-                // } else {
-                //     printf("$$$$ i=%d j=%d ss=%2d $$$$\n", i , j, ss);
-                // }
-
-                put_block(solution, block1, n, m, j, ss);
+                // printf("\n");
             }
-            // printf("\n");
         }
-    }
-
-    // for ( i = bl - 1; i > 0; i--)
-    // {
-    //     for ( j = i - 1; j >= 0; j--)
+    // else {
+    //     for ( i = bl - 1; i > 0; i--)
     //     {
-    //         get_block(matr, inverse, n, m, j, i);
-
-    //         for ( ss = 0; ss < bl; ss++)
+    //         for ( j = i - 1; j >= 0; j--)
     //         {
-    //             get_block(solution, block1, n, m, i, ss);
-                
-    //             mult(inverse, block1, block, m, m, ss==k?l:m, m, matrix_norm);
+    //             get_block(matr, inverse, n, m, j, i);
 
-    //             get_block(solution, block1, n, m, j, ss);
-                
-    //             int count = 0;
-    //             if (isZero(block1, m)) {
-    //                 count ++;
+    //             for ( ss = 0; ss < bl; ss++)
+    //             {
+    //                 get_block(solution, block1, n, m, i, ss);
+                    
+    //                 mult(inverse, block1, block, m, m, ss==k?l:m, m, matrix_norm);
+
+    //                 get_block(solution, block1, n, m, j, ss);
+                    
+    //                 int count = 0;
+    //                 if (isZero(block1, m)) {
+    //                     count ++;
+    //                 }
+    //                 subtraction(block1, block, j, ss, k, m, l);
+
+    //                 if (isZero(block1, m) && count == 1) {
+    //                     printf("#### i=%d j=%d ss=%2d #####\n", i , j, ss);
+    //                 } else {
+    //                     printf("$$$$ i=%d j=%d ss=%2d $$$$\n", i , j, ss);
+    //                 }
+
+    //                 put_block(solution, block1, n, m, j, ss);
     //             }
-    //             subtraction(block1, block, j, ss, k, m, l);
-
-    //             if (isZero(block1, m) && count == 1) {
-    //                 printf("#### i=%d j=%d ss=%2d #####\n", i , j, ss);
-    //             } else {
-    //                 printf("$$$$ i=%d j=%d ss=%2d $$$$\n", i , j, ss);
-    //             }
-
-    //             put_block(solution, block1, n, m, j, ss);
+    //             printf("\n");
     //         }
-    //         printf("\n");
     //     }
     // }
     return 0;
