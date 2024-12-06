@@ -137,7 +137,21 @@ void setZeroBlock(double *matrix, double *block, int i_block, int j_block, int n
     put_block(matrix, block, n, m, i_block, j_block);
 }
 
-
+void toZero(double* matr, int n) {
+    for (int i = 0; i < n*n; i++) {
+        if(fabs(matr[i]) < 1e-12) {
+            matr[i] = 0.;
+        }
+    }
+}
+bool isZero(double* matr, int n) {
+    for (int i = 0; i < n*n; i++) {
+        if(fabs(matr[i]) > 1e-12) {
+            return false;
+        }
+    }
+    return true;
+}
 int solve(int n, int m, double* matr, double* block, double* solution, double* inverse, double* tmp, double* block1, /*double* block2,*/ double matrix_norm, int *block_index) {
     int s, ss, i, j;
     int k = n/m;
@@ -235,20 +249,81 @@ int solve(int n, int m, double* matr, double* block, double* solution, double* i
             put_block(solution, tmp, n ,m, k, j);
         }
     }
+    //Обратный
     for ( i = bl - 1; i > 0; i--)
     {
         for ( j = i - 1; j >= 0; j--)
         {
             get_block(matr, inverse, n, m, j, i);
-            for ( ss = 0; ss < bl; ss++)
+
+            // printf("$$$$ i=%d j=%d ss=%2d $$$$\n", i , j, 0);
+            
+            get_block(solution, block1, n, m, i, 0);
+            mult(inverse, block1, block, m, m, 0==k?l:m, m, matrix_norm);
+            get_block(solution, block1, n, m, j, 0);
+            subtraction(block1, block, j, 0, k, m, l);
+            put_block(solution, block1, n, m, j, 0);
+            
+            for ( ss = (j-1)<0? j: j-1; ss < bl; ss++)
             {
+                if(ss == 0) {
+                    continue;
+                }
                 get_block(solution, block1, n, m, i, ss);
+                
                 mult(inverse, block1, block, m, m, ss==k?l:m, m, matrix_norm);
+
                 get_block(solution, block1, n, m, j, ss);
+                
+                // int count = 0;
+                // if (isZero(block1, m)) {
+                //     count ++;
+                // }
+                
                 subtraction(block1, block, j, ss, k, m, l);
+
+                // if (isZero(block1, m) && count == 1) {
+                //     printf("#### i=%d j=%d ss=%2d #####\n", i , j, ss);
+                // } else {
+                //     printf("$$$$ i=%d j=%d ss=%2d $$$$\n", i , j, ss);
+                // }
+
                 put_block(solution, block1, n, m, j, ss);
             }
+            // printf("\n");
         }
     }
+
+    // for ( i = bl - 1; i > 0; i--)
+    // {
+    //     for ( j = i - 1; j >= 0; j--)
+    //     {
+    //         get_block(matr, inverse, n, m, j, i);
+
+    //         for ( ss = 0; ss < bl; ss++)
+    //         {
+    //             get_block(solution, block1, n, m, i, ss);
+                
+    //             mult(inverse, block1, block, m, m, ss==k?l:m, m, matrix_norm);
+
+    //             get_block(solution, block1, n, m, j, ss);
+                
+    //             int count = 0;
+    //             if (isZero(block1, m)) {
+    //                 count ++;
+    //             }
+    //             subtraction(block1, block, j, ss, k, m, l);
+
+    //             if (isZero(block1, m) && count == 1) {
+    //                 printf("#### i=%d j=%d ss=%2d #####\n", i , j, ss);
+    //             } else {
+    //                 printf("$$$$ i=%d j=%d ss=%2d $$$$\n", i , j, ss);
+    //             }
+
+    //             put_block(solution, block1, n, m, j, ss);
+    //         }
+    //         printf("\n");
+    //     }
+    // }
     return 0;
 }

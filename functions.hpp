@@ -141,6 +141,8 @@ inline int inverse_matrix(double *matrix, double *inverse_matrix, int *index, in
 
 inline void mult(double *a, double *b, double *res, int m1, int m2, int m3, int m, double norm)
 {
+    double upper_threshold = 1e+250 * norm;
+    double lower_threshold = 1e-100 * norm;
 	int t = 0, q = 0, r = 0;
 	int v = m1, h = m3, ah = m2;
 	int v3 = v % 3, h3 = h % 3;
@@ -155,7 +157,7 @@ inline void mult(double *a, double *b, double *res, int m1, int m2, int m3, int 
             {
                 res[i * m + j] = 0.0;
                 double local = fabs(b[i * m + j]);
-                if ( 1e+250 * norm < local || local < 1e-100 * norm)
+                if ( upper_threshold < local || local < lower_threshold)
                 {
                     b[i * m + j] = 0.;
                     count_b++;
